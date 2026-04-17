@@ -1,0 +1,2709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Fish Room — Downsizing Sale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   CSS CUSTOM PROPERTIES
+   ============================================================ */
+:root {
+  --color-fish: #00b4d8;
+  --color-herp: #f4a261;
+  --color-invert: #b07aff;
+  --color-plant: #2dc653;
+  --color-fungi: #e07cff;
+  --color-empty: #3a3f4a;
+  --color-storage: #2a2e38;
+  --bg-deep: #010a14;
+  --bg-card: rgba(8, 20, 40, 0.65);
+  --glass-border: rgba(0, 180, 216, 0.15);
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--bg-deep);
+  color: #c8d8e8;
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ============================================================
+   CANVAS BACKGROUND
+   ============================================================ */
+#bg-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* ============================================================
+   LAYOUT WRAPPER
+   ============================================================ */
+.page-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  color: var(--color-fish);
+  opacity: 0.7;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 10vw, 7rem);
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: #e8f4ff;
+  text-shadow:
+    0 0 40px rgba(0, 180, 216, 0.6),
+    0 0 80px rgba(0, 180, 216, 0.3),
+    0 0 120px rgba(0, 180, 216, 0.1);
+  animation: title-glow 4s ease-in-out infinite alternate;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+
+@keyframes title-glow {
+  from {
+    text-shadow:
+      0 0 40px rgba(0, 180, 216, 0.6),
+      0 0 80px rgba(0, 180, 216, 0.3);
+  }
+  to {
+    text-shadow:
+      0 0 60px rgba(0, 220, 255, 0.9),
+      0 0 120px rgba(0, 180, 216, 0.5),
+      0 0 180px rgba(0, 140, 200, 0.2);
+  }
+}
+
+.hero-subtitle {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: clamp(1.1rem, 3vw, 1.6rem);
+  color: rgba(180, 210, 240, 0.6);
+  margin-bottom: 1rem;
+}
+
+.hero-timestamp {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: rgba(0, 180, 216, 0.5);
+  letter-spacing: 0.1em;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  opacity: 0.5;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.hero-scroll span {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: var(--color-fish);
+}
+
+.hero-scroll svg {
+  color: var(--color-fish);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ============================================================
+   SECTION WRAPPER
+   ============================================================ */
+.section {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: var(--color-fish);
+  opacity: 0.6;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 300;
+  color: #e0eef8;
+  margin-bottom: 2.5rem;
+}
+
+/* ============================================================
+   GLASS CARD
+   ============================================================ */
+.glass {
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ============================================================
+   STATS BAR
+   ============================================================ */
+.stats-section {
+  padding: 2rem 2rem 3rem;
+}
+
+.stats-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr; }
+}
+
+.stat-card {
+  padding: 1.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--accent-color, var(--color-fish));
+  box-shadow: 0 0 12px var(--accent-color, var(--color-fish));
+}
+
+.stat-number {
+  font-family: var(--font-mono);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 500;
+  color: var(--accent-color, var(--color-fish));
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: rgba(180, 210, 240, 0.6);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   ROOM MAP
+   ============================================================ */
+.map-container {
+  max-width: 720px;
+  margin: 0 auto 2rem;
+}
+
+.room-wrapper {
+  position: relative;
+  padding: 2.5rem;
+}
+
+.compass {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: rgba(0, 180, 216, 0.5);
+  letter-spacing: 0.1em;
+}
+.compass-n { top: 0.5rem; left: 50%; transform: translateX(-50%); }
+.compass-s { bottom: 0.5rem; left: 50%; transform: translateX(-50%); }
+.compass-w { left: 0.5rem; top: 50%; transform: translateY(-50%); }
+.compass-e { right: 0.5rem; top: 50%; transform: translateY(-50%); }
+
+.room-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, auto);
+  gap: 0.5rem;
+  border: 1px dashed rgba(0, 180, 216, 0.2);
+  padding: 0.75rem;
+  border-radius: 8px;
+  position: relative;
+}
+
+/* Door indicators as gap in border */
+.room-grid::before {
+  content: 'DOOR — HOUSE';
+  position: absolute;
+  bottom: -1px; left: 15%;
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  color: rgba(0, 180, 216, 0.4);
+  background: var(--bg-deep);
+  padding: 0 0.3rem;
+}
+.room-grid::after {
+  content: 'DOOR — GARAGE';
+  position: absolute;
+  top: -1px; right: 10%;
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  color: rgba(0, 180, 216, 0.4);
+  background: var(--bg-deep);
+  padding: 0 0.3rem;
+}
+
+.map-cell {
+  background: rgba(8, 20, 40, 0.5);
+  border: 1px solid rgba(0, 180, 216, 0.1);
+  border-radius: 6px;
+  padding: 0.5rem 0.4rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.map-cell:hover {
+  border-color: var(--cell-color, var(--color-fish));
+  box-shadow: 0 0 12px rgba(0, 180, 216, 0.2);
+  transform: scale(1.03);
+}
+
+.map-cell-name {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  color: rgba(180, 210, 240, 0.8);
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+}
+
+.map-cell-badge {
+  margin-top: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: var(--cell-color, var(--color-fish));
+  background: rgba(0, 180, 216, 0.1);
+  border-radius: 20px;
+  padding: 0.1rem 0.4rem;
+}
+
+.map-cell-top-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--cell-color, var(--color-fish));
+  border-radius: 6px 6px 0 0;
+  opacity: 0.6;
+}
+
+/* specific grid placements */
+.cell-rack6  { grid-column: 1; grid-row: 1; }
+.cell-rack7  { grid-column: 2; grid-row: 1; }
+.cell-rack3  { grid-column: 5; grid-row: 1; }
+.cell-rack2  { grid-column: 5; grid-row: 2; }
+.cell-rack4  { grid-column: 2 / 4; grid-row: 2 / 4; }
+.cell-rack1  { grid-column: 5; grid-row: 4; }
+.cell-rack5  { grid-column: 1; grid-row: 4; }
+.cell-stand1 { grid-column: 1; grid-row: 3; }
+.cell-corner { grid-column: 1; grid-row: 5; }
+.cell-empty1 { grid-column: 3; grid-row: 1; opacity: 0.2; pointer-events: none; }
+.cell-empty2 { grid-column: 4; grid-row: 1; opacity: 0.2; pointer-events: none; }
+.cell-empty3 { grid-column: 2; grid-row: 4; opacity: 0.2; pointer-events: none; }
+.cell-empty4 { grid-column: 3; grid-row: 4; opacity: 0.2; pointer-events: none; }
+.cell-empty5 { grid-column: 4; grid-row: 4; opacity: 0.2; pointer-events: none; }
+.cell-empty6 { grid-column: 2; grid-row: 5; opacity: 0.2; pointer-events: none; }
+.cell-empty7 { grid-column: 3; grid-row: 5; opacity: 0.2; pointer-events: none; }
+.cell-empty8 { grid-column: 4; grid-row: 5; opacity: 0.2; pointer-events: none; }
+.cell-empty9 { grid-column: 5; grid-row: 5; opacity: 0.2; pointer-events: none; }
+.cell-empty10 { grid-column: 5; grid-row: 3; opacity: 0.2; pointer-events: none; }
+.cell-empty11 { grid-column: 4; grid-row: 2; opacity: 0.2; pointer-events: none; }
+.cell-empty12 { grid-column: 4; grid-row: 3; opacity: 0.2; pointer-events: none; }
+.cell-empty13 { grid-column: 3; grid-row: 3; opacity: 0; pointer-events: none; }
+.cell-empty14 { grid-column: 1; grid-row: 2; opacity: 0.2; pointer-events: none; }
+
+/* ============================================================
+   RACK DETAIL CARDS
+   ============================================================ */
+.racks-section { padding: 2rem 2rem 4rem; }
+.racks-grid {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .racks-grid { grid-template-columns: 1fr; }
+}
+
+.rack-card {
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  border-left: 4px solid var(--rack-color, var(--color-fish));
+  box-shadow: -4px 0 20px rgba(0,0,0,0.3),
+              inset -4px 0 0 0 transparent;
+  transition: box-shadow 0.3s ease;
+}
+
+.rack-card:hover {
+  box-shadow: -4px 0 30px var(--rack-color, rgba(0,180,216,0.4));
+}
+
+.rack-header {
+  padding: 1.25rem 1.25rem 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.rack-icon {
+  flex-shrink: 0;
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.04);
+  border-radius: 8px;
+}
+
+.rack-header-text { flex: 1; }
+
+.rack-name {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #e0eef8;
+  line-height: 1.2;
+}
+
+.rack-location {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: rgba(180, 210, 240, 0.45);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 0.15rem;
+}
+
+.rack-count-badge {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(200,220,240,0.7);
+  align-self: flex-start;
+}
+
+.rack-body { padding: 0.75rem 1.25rem 1.25rem; }
+
+.shelf-section { margin-bottom: 1rem; }
+
+.shelf-label {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  color: rgba(0, 180, 216, 0.45);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.tank-entry {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.4rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.tank-entry:last-child { border-bottom: none; }
+
+.tank-info { flex: 1; min-width: 0; }
+
+.tank-size {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: rgba(180, 210, 240, 0.45);
+  margin-bottom: 0.15rem;
+}
+
+.tank-inhabitants {
+  font-size: 0.82rem;
+  color: #b8cfe0;
+  line-height: 1.4;
+}
+
+.tank-inhabitants em {
+  font-style: italic;
+  color: rgba(200, 225, 245, 0.9);
+}
+
+.tank-equipment {
+  font-size: 0.7rem;
+  color: rgba(150, 180, 200, 0.4);
+  margin-top: 0.2rem;
+  font-style: italic;
+}
+
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 20px;
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-top: 0.2rem;
+}
+
+.chip-active {
+  background: rgba(45, 198, 83, 0.12);
+  color: #2dc653;
+  border: 1px solid rgba(45, 198, 83, 0.25);
+}
+.chip-active::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: #2dc653;
+  animation: pulse-dot 2s infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.chip-empty {
+  background: rgba(58, 63, 74, 0.3);
+  color: #5a6070;
+  border: 1px solid rgba(58, 63, 74, 0.4);
+}
+
+.chip-construction {
+  background: rgba(244, 162, 97, 0.1);
+  color: #f4a261;
+  border: 1px solid rgba(244, 162, 97, 0.3);
+  animation: construction-pulse 2s ease-in-out infinite;
+}
+@keyframes construction-pulse {
+  0%, 100% { border-color: rgba(244, 162, 97, 0.3); }
+  50% { border-color: rgba(244, 162, 97, 0.7); }
+}
+
+.chip-storage {
+  background: rgba(42, 46, 56, 0.4);
+  color: #4a505f;
+  border: 1px solid rgba(42, 46, 56, 0.6);
+}
+
+.species-pill {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 20px;
+  margin: 0.1rem 0.15rem 0.1rem 0;
+}
+
+/* ============================================================
+   SPECIES COMPENDIUM
+   ============================================================ */
+.compendium-section {
+  padding: 2rem 2rem 4rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* === COMPENDIUM REDESIGN: RAIL + PANEL LAYOUT === */
+.compendium-layout {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  min-height: 400px;
+}
+
+.compendium-rail {
+  position: sticky;
+  top: 1.5rem;
+  flex-shrink: 0;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.rail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: background 0.2s, border-color 0.2s;
+  font-family: var(--font-body);
+  text-align: left;
+  color: inherit;
+}
+.rail-item:hover {
+  background: rgba(0, 180, 216, 0.06);
+  border-color: rgba(0, 180, 216, 0.1);
+}
+.rail-item.active {
+  background: rgba(0, 180, 216, 0.1);
+  border-color: var(--col-color);
+  box-shadow: inset 3px 0 0 var(--col-color);
+}
+.rail-item svg { width: 24px; height: 24px; flex-shrink: 0; }
+.rail-label { font-family: var(--font-heading); font-size: 1rem; color: #e0eef8; flex: 1; }
+.rail-count { font-family: var(--font-mono); font-size: 0.6rem; color: var(--col-color); opacity: 0.7; }
+
+.compendium-panels { flex: 1; min-width: 0; position: relative; overflow: hidden; }
+
+.compendium-panel {
+  position: absolute;
+  top: 0; left: 0; width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateX(150px);
+  transition: transform 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 600ms ease;
+  pointer-events: none;
+}
+.compendium-panel.panel-active {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+.compendium-panel.panel-exit-left {
+  position: absolute;
+  visibility: visible;
+  opacity: 0;
+  transform: translateX(-150px);
+  pointer-events: none;
+}
+.compendium-panel.panel-exit-right {
+  position: absolute;
+  visibility: visible;
+  opacity: 0;
+  transform: translateX(150px);
+  pointer-events: none;
+}
+.compendium-panel.panel-enter-left {
+  transform: translateX(-150px);
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--col-color);
+}
+.panel-header svg { width: 28px; height: 28px; }
+.panel-header-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: #e0eef8;
+  flex: 1;
+}
+.panel-header-count {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--col-color);
+  opacity: 0.8;
+}
+
+.panel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.species-entry.no-thumb::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(135deg, rgba(0,180,216,0.07) 0%, rgba(0,0,0,0.12) 100%);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+@media (max-width: 768px) {
+  .compendium-layout { flex-direction: column; gap: 0; }
+  .compendium-rail {
+    position: sticky; top: 0; z-index: 10;
+    width: 100%; flex-direction: row;
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    gap: 0; padding: 0.5rem 0;
+    background: var(--bg-deep);
+    border-bottom: 1px solid rgba(0,180,216,0.1);
+    scrollbar-width: none;
+  }
+  .compendium-rail::-webkit-scrollbar { display: none; }
+  .rail-item {
+    flex-shrink: 0; flex-direction: column;
+    padding: 0.5rem 1rem; gap: 0.25rem;
+    text-align: center; border-radius: 0;
+  }
+  .rail-item.active { box-shadow: inset 0 -3px 0 var(--col-color); }
+  .rail-count { display: none; }
+  .panel-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+}
+
+.search-wrap {
+  margin-bottom: 2rem;
+  position: relative;
+  max-width: 480px;
+}
+
+.search-wrap svg {
+  position: absolute;
+  left: 1rem; top: 50%;
+  transform: translateY(-50%);
+  color: rgba(0, 180, 216, 0.4);
+  pointer-events: none;
+}
+
+#species-search {
+  width: 100%;
+  background: rgba(8, 20, 40, 0.7);
+  border: 1px solid rgba(0, 180, 216, 0.2);
+  border-radius: 8px;
+  padding: 0.75rem 1rem 0.75rem 2.75rem;
+  color: #c8d8e8;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#species-search::placeholder { color: rgba(180, 210, 240, 0.3); }
+#species-search:focus { border-color: rgba(0, 180, 216, 0.5); }
+
+
+.compendium-col-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--col-color);
+}
+
+.compendium-col-header-icon {
+  width: 28px; height: 28px;
+}
+
+.compendium-col-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: #e0eef8;
+  flex: 1;
+}
+
+.compendium-count {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--col-color);
+  opacity: 0.8;
+}
+
+.species-entry {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: opacity 0.2s;
+}
+
+.species-entry.hidden { display: none; }
+
+.species-common {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #c8dff0;
+  line-height: 1.3;
+}
+
+.species-scientific {
+  font-size: 0.76rem;
+  font-style: italic;
+  color: rgba(180, 210, 240, 0.45);
+  line-height: 1.25;
+  margin-top: 0.1rem;
+}
+
+.species-location {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: rgba(100, 140, 170, 0.5);
+  margin-top: 0.1rem;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid rgba(0, 180, 216, 0.08);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: rgba(180, 210, 240, 0.25);
+  letter-spacing: 0.1em;
+}
+
+footer span { margin: 0 0.75rem; }
+
+/* ============================================================
+   SECTION DIVIDERS
+   ============================================================ */
+.divider {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.divider hr {
+  border: none;
+  border-top: 1px solid rgba(0, 180, 216, 0.08);
+  margin: 0;
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  #bg-canvas { display: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Enhanced compendium entries — card layout */
+.species-entry {
+  display: flex;
+  flex-direction: column;
+  background: rgba(8, 20, 40, 0.55);
+  border: 1px solid rgba(0, 180, 216, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  margin-bottom: 0.9rem;
+  transition: border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+}
+
+.species-entry:hover {
+  border-color: rgba(0, 180, 216, 0.28);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+}
+
+.species-thumb {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  flex-shrink: 0;
+  display: block;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: rgba(0, 180, 216, 0.04);
+}
+
+.species-thumb-placeholder {
+  width: 100%;
+  height: 130px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  opacity: 0.15;
+  background: rgba(0, 180, 216, 0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.species-info {
+  flex: 1;
+  min-width: 0;
+  padding: 0.75rem 0.85rem 0.6rem;
+}
+
+.species-badges {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  margin-top: 0.4rem;
+}
+
+.badge-care {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-beginner { background: rgba(45,198,83,0.15); color: #2dc653; border: 1px solid rgba(45,198,83,0.25); }
+.badge-intermediate { background: rgba(0,180,216,0.15); color: #00b4d8; border: 1px solid rgba(0,180,216,0.25); }
+.badge-expert { background: rgba(244,162,97,0.15); color: #f4a261; border: 1px solid rgba(244,162,97,0.25); }
+
+.badge-inquire {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.06);
+  color: rgba(200,215,232,0.5);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.species-detail {
+  display: none;
+  padding: 0.65rem 0.85rem 0.75rem;
+  background: rgba(0,0,0,0.2);
+  border-top: 1px solid rgba(0, 180, 216, 0.1);
+  font-size: 0.76rem;
+  line-height: 1.65;
+  color: rgba(180,210,240,0.65);
+}
+
+.species-entry.expanded .species-detail {
+  display: block;
+}
+
+.species-expand-icon {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: rgba(180,210,240,0.25);
+  transition: transform 0.2s;
+  padding: 0.4rem 0.85rem 0.5rem;
+  text-align: right;
+  align-self: flex-end;
+}
+
+.species-entry.expanded .species-expand-icon {
+  transform: rotate(90deg);
+}
+
+.image-disclaimer {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: rgba(180,210,240,0.3);
+  max-width: 600px;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 0.75rem;
+  border-left: 2px solid rgba(0,180,216,0.15);
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     CANVAS BACKGROUND
+     ============================================================ -->
+<canvas id="bg-canvas"></canvas>
+
+<div class="page-content">
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+  <p class="hero-eyebrow">Living Collection &bull; Southern California</p>
+  <h1 class="hero-title">THE FISH ROOM</h1>
+  <p class="hero-subtitle">A living inventory &mdash; downsizing sale</p>
+  <p class="hero-timestamp">Last updated: 2026-04-16 04:15 UTC</p>
+  <div class="hero-scroll">
+    <span>SCROLL</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </div>
+</section>
+
+<!-- ============================================================
+     STATS BAR
+     ============================================================ -->
+<section class="stats-section">
+  <div class="stats-grid">
+    <div class="glass stat-card" style="--accent-color: var(--color-fish)">
+      <div class="stat-number">52+</div>
+      <div class="stat-label">Species Available</div>
+    </div>
+    <div class="glass stat-card" style="--accent-color: var(--color-herp)">
+      <div class="stat-number">40+</div>
+      <div class="stat-label">Tanks &amp; Enclosures</div>
+    </div>
+    <div class="glass stat-card" style="--accent-color: var(--color-invert)" data-target="9" data-label="years">
+      <div class="stat-number" id="stat-years">0</div>
+      <div class="stat-label">Years of Collecting</div>
+    </div>
+    <div class="glass stat-card" style="--accent-color: var(--color-plant)">
+      <div class="stat-number">&#8734;</div>
+      <div class="stat-label">Bundle Discounts</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ============================================================
+     ADOPTION NARRATIVE
+     ============================================================ -->
+<section class="section" style="padding-bottom: 2rem;">
+  <div style="max-width: 800px; margin: 0 auto;">
+    <p class="section-label">Why We're Selling</p>
+    <h2 class="section-title">Downsizing Sale</h2>
+    <div style="display: flex; gap: 2rem; align-items: flex-start; margin-top: 1.5rem; flex-wrap: wrap;">
+      <!-- ABIGAIL PHOTO PLACEHOLDER — replace src with actual image path when ready -->
+      <div style="flex-shrink: 0; width: 280px; max-width: 100%;">
+        <div style="width: 280px; height: 320px; background: linear-gradient(135deg, rgba(0,180,216,0.06) 0%, rgba(0,0,0,0.25) 100%); border: 1px dashed rgba(255,255,255,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: rgba(180,210,240,0.35); font-family: var(--font-mono); font-size: 0.7rem; text-align: center; padding: 1rem;">
+          <!-- REPLACE WITH: <img src="parts/abigail-1.jpg" alt="Abigail Breslin" style="width:100%;height:100%;object-fit:cover;border-radius:12px;"> -->
+          ABIGAIL PHOTO<br>coming soon
+        </div>
+      </div>
+      <div class="glass" style="flex: 1; min-width: 260px; padding: 2rem; line-height: 1.8;">
+        <p style="margin-bottom: 1rem;">Our cat Abigail Breslin passed away recently at 13 years old. She was beautiful and strong and so smart and opinionated, and we did everything we could for her. That left us with about $4,000 in emergency vet bills that still need to be paid.</p>
+        <p style="margin-bottom: 1rem;">So we're downsizing. These animals and setups have been years in the making, and we're not looking to fire-sale them to the first person with cash. We want them going to people who actually keep this stuff and know what they're getting into. If that's you, we'd rather work with you on price than watch something we care about end up neglected.</p>
+        <p style="color: var(--color-fish);"><strong>Prices are negotiable, especially if you're bundling.</strong> Reach out and we'll figure it out.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ============================================================
+     SPECIES COMPENDIUM
+     ============================================================ -->
+<section class="compendium-section">
+  <p class="section-label">Full Catalog</p>
+  <h2 class="section-title">Species Compendium</h2>
+
+  <div class="search-wrap">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+    <input type="text" id="species-search" placeholder="Search species, common names, locations...">
+  </div>
+
+  <div class="compendium-layout">
+
+    <nav class="compendium-rail">
+      <button class="rail-item active" data-category="fish" style="--col-color: var(--color-fish)">
+        <svg viewBox="0 0 24 24" fill="none">
+          <ellipse cx="8" cy="12" rx="6" ry="4" fill="var(--color-fish)" opacity="0.3" stroke="var(--color-fish)" stroke-width="1.2"/>
+          <path d="M14 12 C17 9 20 8 22 12 C20 16 17 15 14 12Z" fill="var(--color-fish)" opacity="0.5"/>
+          <circle cx="7" cy="11" r="1" fill="var(--color-fish)"/>
+        </svg>
+        <span class="rail-label">Fish</span>
+        <span class="rail-count">18 species</span>
+      </button>
+      <button class="rail-item" data-category="herp" style="--col-color: var(--color-herp)">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M12 4 C8 4 5 7 5 11 C5 14 7 16 9 17 L9 20 L11 20 L11 17.5 L13 17.5 L13 20 L15 20 L15 17 C17 16 19 14 19 11 C19 7 16 4 12 4Z" fill="var(--color-herp)" opacity="0.35" stroke="var(--color-herp)" stroke-width="1.2"/>
+          <circle cx="9" cy="10" r="1.2" fill="var(--color-herp)"/>
+          <circle cx="15" cy="10" r="1.2" fill="var(--color-herp)"/>
+        </svg>
+        <span class="rail-label">Herps</span>
+        <span class="rail-count">7 species</span>
+      </button>
+      <button class="rail-item" data-category="invert" style="--col-color: var(--color-invert)">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M12 18 C8 18 5 15 5 12 C5 9 7 7 10 7 L14 7 C17 7 19 9 19 12 C19 15 16 18 12 18 Z" fill="var(--color-invert)" opacity="0.4" stroke="var(--color-invert)" stroke-width="1.2"/>
+          <line x1="8" y1="7" x2="6" y2="4" stroke="var(--color-invert)" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="10" y1="7" x2="9" y2="4" stroke="var(--color-invert)" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="14" y1="7" x2="15" y2="4" stroke="var(--color-invert)" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="16" y1="7" x2="18" y2="4" stroke="var(--color-invert)" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M6 12 L3 11 M6 13 L3 14" stroke="var(--color-invert)" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M18 12 L21 11 M18 13 L21 14" stroke="var(--color-invert)" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <span class="rail-label">Invertebrates</span>
+        <span class="rail-count">12 species</span>
+      </button>
+      <button class="rail-item" data-category="plant" style="--col-color: var(--color-plant)">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M12 20 L12 10" stroke="var(--color-plant)" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M12 14 C12 14 9 12 7 8 C10 8 13 10 12 14Z" fill="var(--color-plant)" opacity="0.5"/>
+          <path d="M12 11 C12 11 15 9 17 5 C14 5 11 7 12 11Z" fill="var(--color-plant)" opacity="0.5"/>
+        </svg>
+        <span class="rail-label">Plants &amp; Fungi</span>
+        <span class="rail-count">22 species</span>
+      </button>
+    </nav>
+
+    <div class="compendium-panels">
+
+
+    <!-- FISH COLUMN -->
+    <div class="compendium-panel panel-active" data-category="fish" style="--col-color: var(--color-fish)">
+      <div class="panel-header">
+        <svg class="compendium-col-header-icon" viewBox="0 0 24 24" fill="none">
+          <path d="M3 12 C3 8 7 5 12 5 C17 5 21 8 21 12 C21 16 17 19 12 19 C7 19 3 16 3 12 Z" fill="none" stroke="var(--color-fish)" stroke-width="1.8"/>
+          <path d="M19 8 L23 5 L22 12 L23 19 L19 16" fill="var(--color-fish)" opacity="0.7"/>
+          <circle cx="8" cy="10" r="1.4" fill="var(--color-fish)"/>
+        </svg>
+        <span class="compendium-col-title" style="color: var(--color-fish)">Fish</span>
+        <span class="compendium-count">18 species</span>
+      </div>
+      <div id="fish-list" class="panel-grid">
+        <div class="species-entry" data-search="Ember Tetra Hyphessobrycon amandae">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Hyphessobrycon_amandae.jpg?width=400" alt="Ember Tetra" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Ember Tetra (×11)</div>
+    <div class="species-scientific">Hyphessobrycon amandae</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Micro-predator endemic to the Araguaia river basin in Brazil. Requires soft, acidic blackwater to exhibit maximum flame-orange pigmentation. Keep in groups of 6+. Peaceful, perfect for planted nano tanks.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Dragon Puffer Pao palembangensis">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Pao_palembangensis_home.png?width=400" alt="Dragon Puffer" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Dragon Puffer (×1)</div>
+    <div class="species-scientific">Pao palembangensis</div>
+    <div class="species-badges">
+      <span class="badge-care badge-expert">Expert</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Highly specialized ambush predator from Southeast Asia. Beak-like teeth grow continuously — a diet of hard-shelled invertebrates (snails, mussels, crayfish) is strictly non-negotiable to prevent dental overgrowth. Sedentary and cryptic. Minimum 40 gallons for water volume, not swimming space.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Orange Platy Xiphophorus maculatus">
+  <div class="species-info">
+    <div class="species-common">Orange Platy (Multiple)</div>
+    <div class="species-scientific">Xiphophorus maculatus</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">One of the most genetically robust and forgiving fish in the hobby. Adapts to a massive range of pH and hardness. Constant surface activity and live fry.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Black Moscow Guppy Poecilia reticulata">
+  <div class="species-info">
+    <div class="species-common">Black Moscow Guppy (Multiple)</div>
+    <div class="species-scientific">Poecilia reticulata 'Black Moscow'</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">A product of intense selective breeding — deep, velvety black phenotype across the entire body with impressive finnage. Hardy and prolific. Expect fry.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Kuhli Loach Pangio kuhlii">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Pangio_kuhlii.jpg?width=400" alt="Kuhli Loach" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Kuhli Loach (Multiple)</div>
+    <div class="species-scientific">Pangio kuhlii</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Eel-like nocturnal scavengers that navigate tight interstitial spaces. Utilize subocular spines for defense. Require fine sand substrate to engage in natural burrowing without epidermal damage. Thrive in groups.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Endler's Livebearer Poecilia wingei">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Endlers_Guppy_Poecilia_wingei.JPG?width=400" alt="Endler's Livebearer" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Endler's Livebearer (Multiple)</div>
+    <div class="species-scientific">Poecilia wingei</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Endemic to Venezuela's Paria Peninsula. Jewel-bright, compact livebearers closely related to common guppies. Taxonomic distinction from P. reticulata remains debated — they readily hybridize. Pure-strain documentation is vital for purists.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Playfair's Killifish Pachypanchax playfairii">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Pachypanchax_playfairii.jpg?width=400" alt="Playfair's Killifish" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Playfair's Killifish</div>
+    <div class="species-scientific">Pachypanchax playfairii</div>
+    <div class="species-badges">
+      <span class="badge-care badge-intermediate">Intermediate</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Predatory surface-dweller from the Seychelles and Madagascar. Unique adaptation: mature dominant males' scales slightly protrude from the body — this is normal, not dropsy. Thrives in soft, slightly acidic water with floating cover. Jumper — lid required.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Red-eye Puffer Carinotetraodon irrubesco">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Carinotetraodon_irrubesco_male.JPG?width=400" alt="Red-eye Puffer" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Red-eye Puffer (×1 male)</div>
+    <div class="species-scientific">Carinotetraodon irrubesco</div>
+    <div class="species-badges">
+      <span class="badge-care badge-intermediate">Intermediate</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">From the acidic blackwaters of Sumatra and Borneo. One of few freshwater puffers tolerant of conspecifics — groups of 5+ possible with sufficient visual barriers. Males: vivid red eyes and lateral striping. Hard-shelled foods mandatory for dental health.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Brichardi Cichlid Neolamprologus brichardi">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Neolamprologus_brichardi.jpg?width=400" alt="Brichardi Cichlid" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Brichardi Cichlid</div>
+    <div class="species-scientific">Neolamprologus brichardi</div>
+    <div class="species-badges">
+      <span class="badge-care badge-intermediate">Intermediate</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">'Princess of Burundi.' Forms multi-generational colonies with cooperative brood care — older siblings actively defend territory and help rear fry. Requires pH 8.0+, high carbonate hardness, and extensive calcareous rockwork.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Golden Killifish Fundulus chrysotus">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Fundulus_chrysotus_National_Aquarium.jpg?width=400" alt="Golden Killifish" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Golden Killifish</div>
+    <div class="species-scientific">Fundulus chrysotus</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Louisiana native. Incredibly resilient, cool-water tolerant species from southern US swamps and sloughs. Flattened dorsum and upturned mouth for preying on surface insects. Can be kept unheated.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Dwarf Cory Corydoras pygmaeus">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Corydoras_pygmaeus5333.jpg?width=400" alt="Dwarf Cory" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Dwarf Cory (×5 albino + ×1 standard)</div>
+    <div class="species-scientific">Corydoras pygmaeus</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Unlike standard Corydoras, pygmies frequently hover mid-water in tight shoals. Require fine, non-abrasive sand — coarse gravel erodes their sensory barbels, causing infections and inability to forage.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Shell Dweller Colony Neolamprologus multifasciatus">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Neolamprologus_multifasciatus.jpg?width=400" alt="Shell Dweller Colony" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Shell Dweller Colony</div>
+    <div class="species-scientific">Neolamprologus multifasciatus</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">World's smallest known cichlid. Obligate shell-dweller — inhabits empty snail shells, obsessively excavating and repositioning them. Requires fine sand and empty shells (included). Full breeding colony available.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Gardner's Killifish Fundulopanchax gardneri">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Fundulopanchax_gardneri.jpg?width=400" alt="Gardner's Killifish" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Gardner's Killifish</div>
+    <div class="species-scientific">Fundulopanchax gardneri</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Semi-annual spawner from West African forest streams. Extreme sexual dichromatism — males display vivid steel-blue with crimson spots and broad yellow/red fin margins. Deposits drought-resistant eggs in peat moss or spawning mops.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Albino Pleco Pterygoplichthys">
+  <div class="species-info">
+    <div class="species-common">Albino Pleco (×1)</div>
+    <div class="species-scientific">Pterygoplichthys sp.</div>
+    <div class="species-badges">
+      <span class="badge-care badge-intermediate">Intermediate</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Massive, heavily armored detritivore reaching 13–19 inches. Requires 75+ gallons long-term. Specialized digestive system often requires lignin from submerged driftwood, which they rasp with ventral mouthparts.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="American Flagfish Jordanella floridae">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Jordanella_floridae.jpg?width=400" alt="American Flagfish" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">American Flagfish (×3 adults + fry)</div>
+    <div class="species-scientific">Jordanella floridae</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Florida native with bold red-and-green lattice pattern. One of few freshwater fishes capable of consuming robust filamentous algae. Cool-water tolerant. Mildly nippy with slow-finned tankmates.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Jewel Cichlid Hemichromis">
+  <div class="species-info">
+    <div class="species-common">Jewel Cichlid (×2)</div>
+    <div class="species-scientific">Hemichromis sp.</div>
+    <div class="species-badges">
+      <span class="badge-care badge-intermediate">Intermediate</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Brilliant iridescent red coloration with luminescent blue spotting. Extreme aggression during breeding — devoted biparental substrate spawners. Territoriality expands massively during reproduction. Best kept species-only.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Common Pleco Pterygoplichthys">
+  <div class="species-info">
+    <div class="species-common">Common Pleco (×1)</div>
+    <div class="species-scientific">Pterygoplichthys sp.</div>
+    <div class="species-badges">
+      <span class="badge-care badge-intermediate">Intermediate</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Large, hardy algae eater and detritivore. Nocturnal. Loves driftwood for rasping and lignin digestion. Plan for a very large long-term home.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Killifish species TBD Cyprinodontiformes">
+  <div class="species-info">
+    <div class="species-common">Killifish (species TBD)</div>
+    <div class="species-scientific">Cyprinodontiformes sp.</div>
+    <div class="species-badges">
+      <span class="badge-care badge-intermediate">Intermediate</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Species identification pending. Fry and juveniles being grown out. Inquire for current status and identification progress.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+      </div>
+    </div>
+
+    <!-- HERPS COLUMN -->
+    <div class="compendium-panel" data-category="herp" style="--col-color: var(--color-herp)">
+      <div class="panel-header">
+        <svg class="compendium-col-header-icon" viewBox="0 0 24 24" fill="none">
+          <ellipse cx="12" cy="9" rx="4" ry="5" fill="var(--color-herp)" opacity="0.6"/>
+          <ellipse cx="12" cy="7" rx="2.5" ry="2.5" fill="var(--color-herp)"/>
+          <line x1="8" y1="11" x2="5" y2="14" stroke="var(--color-herp)" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="16" y1="11" x2="19" y2="14" stroke="var(--color-herp)" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M12 14 Q14 17 13 20" stroke="var(--color-herp)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        </svg>
+        <span class="compendium-col-title" style="color: var(--color-herp)">Herps</span>
+        <span class="compendium-count">7 species</span>
+      </div>
+      <div id="herp-list" class="panel-grid">
+        <div class="species-entry" data-search="Baja California Tree Frog Pseudacris hypochondriaca">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Pseudacris_hypochondriaca_4221.jpg?width=400" alt="Baja California Tree Frog" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Baja California Tree Frog (~5)</div>
+    <div class="species-scientific">Pseudacris hypochondriaca</div>
+    <div class="species-badges">
+      <span class="badge-care badge-intermediate">Intermediate</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Small, highly vocal chorus frog. Requires vertically oriented enclosure with high humidity, arboreal climbing surfaces, and water access. Thrives in bioactive setups with springtails and isopods for waste processing.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="California Tree Frog Pseudacris sierra">
+  <div class="species-info">
+    <div class="species-common">California Tree Frog (×1)</div>
+    <div class="species-scientific">Pseudacris sierra</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Small, hardy Pacific tree frog. Beginner-friendly with the right humidity regime and a live insect diet.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Mediterranean House Gecko Hemidactylus turcicus">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Mediterranean_House_Gecko_(Hemidactylus_turcicus)_(52072035763).jpg?width=400" alt="Mediterranean House Gecko" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Mediterranean House Gecko (×2)</div>
+    <div class="species-scientific">Hemidactylus turcicus</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Incredibly adaptable synanthropic species. Toe pads utilize microscopic setae exploiting van der Waals forces for molecular adhesion — they can climb smooth glass and run inverted across ceilings. This adhesion fails only on Teflon (PTFE).</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Taricha Newt Juvenile Taricha">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Taricha_granulosa_(Rough-skinned_newt).JPG?width=400" alt="Taricha Newt" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Taricha Newt, Juvenile (×10)</div>
+    <div class="species-scientific">Taricha sp.</div>
+    <div class="species-badges">
+      <span class="badge-care badge-expert">Expert</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">⚠ TETRODOTOXIN WARNING. These newts secrete TTX, a potent neurotoxin blocking voltage-gated sodium channels. Handle with extreme caution — wash hands thoroughly. Currently in semi-terrestrial 'eft' stage requiring high humidity and damp substrate, minimal standing water. Experienced newt keepers only.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Spanish Ribbed Newt Pleurodeles waltl">
+  <div class="species-info">
+    <div class="species-common">Spanish Ribbed Newt (×3, incl. albinos)</div>
+    <div class="species-scientific">Pleurodeles waltl</div>
+    <div class="species-badges">
+      <span class="badge-care badge-intermediate">Intermediate</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Europe's largest newt. Possesses an extreme anti-predator defense: when threatened, it flexes its ribs forward to physically pierce through its own skin, delivering toxic secretions directly into an attacker's mouth. Remarkably, it heals from these self-inflicted wounds rapidly. Cool water 66–74°F, tight lid essential — escape artists. Normal and albino morphs available.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Day Gecko Phelsuma">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Gold_dust_day_gecko_at_flower.jpg?width=400" alt="Day Gecko" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Day Gecko (×1 male)</div>
+    <div class="species-scientific">Phelsuma sp.</div>
+    <div class="species-badges">
+      <span class="badge-care badge-expert">Expert</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">⚠ DISPLAY ONLY — does not tolerate handling. Brilliantly colored diurnal gecko endemic to Madagascar. Requires high-output UVB radiation and intense visible lighting for calcium metabolism and color expression. Incredibly fast; skin is extremely fragile — can slough off large patches as an escape mechanism (autotomy).</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Crested Dalmatian Gecko Correlophus ciliatus">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Correlophus_ciliatus_33604286.jpg?width=400" alt="Crested Dalmatian Gecko" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Crested Dalmatian Gecko (×1 male)</div>
+    <div class="species-scientific">Correlophus ciliatus</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Thought entirely extinct until a miraculous 1994 rediscovery in New Caledonia. One of the best beginner reptiles — no UVB required, fruit-based diet, 20-year lifespan. Lacks eyelids; uses its tongue to clean its transparent spectacle scale. Dalmatian morph (black spotting). Actively looking for a good home.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+      </div>
+    </div>
+
+    <!-- INVERTEBRATES COLUMN -->
+    <div class="compendium-panel" data-category="invert" style="--col-color: var(--color-invert)">
+      <div class="panel-header">
+        <svg class="compendium-col-header-icon" viewBox="0 0 24 24" fill="none">
+          <path d="M12 18 C8 18 5 15 5 12 C5 9 7 7 10 7 L14 7 C17 7 19 9 19 12 C19 15 16 18 12 18 Z" fill="var(--color-invert)" opacity="0.4" stroke="var(--color-invert)" stroke-width="1.2"/>
+          <line x1="8" y1="7" x2="6" y2="4" stroke="var(--color-invert)" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="10" y1="7" x2="9" y2="4" stroke="var(--color-invert)" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="14" y1="7" x2="15" y2="4" stroke="var(--color-invert)" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="16" y1="7" x2="18" y2="4" stroke="var(--color-invert)" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M6 12 L3 11 M6 13 L3 14" stroke="var(--color-invert)" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M18 12 L21 11 M18 13 L21 14" stroke="var(--color-invert)" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <span class="compendium-col-title" style="color: var(--color-invert)">Invertebrates</span>
+        <span class="compendium-count">12 species</span>
+      </div>
+      <div id="invert-list" class="panel-grid">
+        <div class="species-entry" data-search="Baby Brine Shrimp Artemia salina">
+  <div class="species-info">
+    <div class="species-common">Baby Brine Shrimp (culture)</div>
+    <div class="species-scientific">Artemia salina</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Active hatching culture. Essential first food for fish fry and small amphibian larvae. Setup and eggs included.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Red Swamp Crayfish Procambarus clarkii">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Procambarus_clarkii_(32290488233).jpg?width=400" alt="Red Swamp Crayfish" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Red Swamp Crayfish (×1)</div>
+    <div class="species-scientific">Procambarus clarkii</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Species of immense ecological adaptability and severe global invasive concern. Highly aggressive ecosystem engineer — uproots plants, displaces substrate, preys on slow fish. Species-only tank, tightly fitted lid essential. Instinct to migrate overland during humid conditions makes them notorious escape artists.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Marmorkrebs Procambarus virginalis">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Procambarus_virginalis_(10.11646-zootaxa.4363.4.6)_Figure_2.png?width=400" alt="Marmorkrebs" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Marmorkrebs (colony)</div>
+    <div class="species-scientific">Procambarus virginalis</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">⚠ LEGAL CHECK REQUIRED. The only known decapod crustacean to reproduce via obligate apomictic parthenogenesis — every individual is a triploid, genetically identical female clone. A single specimen can establish a massive colony without fertilization. Exceptional feeder culture. Possession regulated or banned in many jurisdictions.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Cajun Dwarf Crayfish Cambarellus shufeldtii">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Cambarellus_shufeldtii_-_inat_53939299.jpg?width=400" alt="Cajun Dwarf Crayfish" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Cajun Dwarf Crayfish (large colony)</div>
+    <div class="species-scientific">Cambarellus shufeldtii</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Louisiana native, one of the most peaceful crayfish available. Under 1 inch total length. Fully compatible with planted tanks and small fish communities. Actively forages for detritus without destroying plants. Nano-tank friendly. Large colony available.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Unknown Crayfish babies Cambarellus Procambarus">
+  <div class="species-info">
+    <div class="species-common">Unknown Crayfish + babies</div>
+    <div class="species-scientific">Cambarellus sp. or Procambarus sp.</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Species identification pending — likely a dwarf Cambarellus species based on size and behavior. Female with babies. Inquire for current status.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Australian Red Claw Crayfish Cherax quadricarinatus">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Cherax_quadricarinatus.jpg?width=400" alt="Australian Red Claw Crayfish" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Australian Red Claw Crayfish (×1)</div>
+    <div class="species-scientific">Cherax quadricarinatus</div>
+    <div class="species-badges">
+      <span class="badge-care badge-intermediate">Intermediate</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Massive, impressive warm-water parastacid from Australia. Surprisingly less aggressive than North American Procambarus — cautious group housing possible in very large systems. Males have vibrant red claw patches. Critical: leave shed exoskeletons in tank — they consume them to reabsorb calcium for hardening the new shell.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Brazos Dwarf Crayfish Cambarellus texanus">
+  <div class="species-info">
+    <div class="species-common">Brazos Dwarf Crayfish (×1, ID tentative)</div>
+    <div class="species-scientific">Cambarellus texanus</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Hardy Texas native dwarf crayfish. Tentative identification — may confirm on inspection. Same care as other Cambarellus: nano-tank friendly, plant-safe, peaceful.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Isopods Armadillidium Porcellio">
+  <div class="species-info">
+    <div class="species-common">Isopods (various cultures)</div>
+    <div class="species-scientific">Armadillidium / Porcellio spp.</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Terrestrial crustaceans — the backbone of bioactive vivaria alongside springtails. Use larger mandibles to mechanically break down decaying leaf litter, cork bark, and animal waste. Multiple species cultures available.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Springtails Folsomia candida">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Folsomia_candida_-_Soil_Fauna_Diversity.jpeg?width=400" alt="Springtails" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Springtails (multiple containers)</div>
+    <div class="species-scientific">Folsomia candida</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Ubiquitous wingless hexapods extensively used in toxicology and soil studies. In vivarium curation, they are the absolute backbone of substrate health — constantly metabolizing fungal blooms, mold, and decomposing organic matter. Essential for any bioactive setup.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Electric Blue Crayfish Procambarus alleni">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Procambarus_alleni_6078066.jpg?width=400" alt="Electric Blue Crayfish" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Electric Blue Crayfish (×1)</div>
+    <div class="species-scientific">Procambarus alleni</div>
+    <div class="species-badges">
+      <span class="badge-care badge-intermediate">Intermediate</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Endemic to the Florida Everglades. Striking, genetically selected sky-blue phenotype. Intensely territorial and highly cannibalistic during molting. Typically demands solitary confinement. Long-lived (5+ years).</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Albino Ghost Crayfish Procambarus albino">
+  <div class="species-info">
+    <div class="species-common">Albino / Ghost Crayfish</div>
+    <div class="species-scientific">Procambarus sp. var. albino</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Lacks pigmentation entirely, showcasing the genetic plasticity of the Procambarus genus. Same care as standard Procambarus — species-only, secure lid.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Louisiana Grass Shrimp Palaemonetes paludosus">
+  <div class="species-info">
+    <div class="species-common">Louisiana Grass Shrimp (colony)</div>
+    <div class="species-scientific">Palaemonetes paludosus</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Cold-tolerant native detritivore. Efficiently processes uneaten food and biofilm. Also serves as a live food source for larger fish and amphibians. Hardy colony available.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+      </div>
+    </div>
+
+    <!-- PLANTS + FUNGI PANEL -->
+    <div class="compendium-panel" data-category="plant" style="--col-color: var(--color-plant)">
+      <div class="panel-header">
+        <svg class="compendium-col-header-icon" viewBox="0 0 24 24" fill="none">
+          <path d="M12 22 C12 22 4 16 4 9 C4 5 8 2 12 2 C16 2 20 5 20 9 C20 16 12 22 12 22 Z" fill="var(--color-plant)" opacity="0.4" stroke="var(--color-plant)" stroke-width="1.2"/>
+          <line x1="12" y1="22" x2="12" y2="9" stroke="var(--color-plant)" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span class="compendium-col-title" style="color: var(--color-plant)">Plants &amp; Fungi</span>
+        <span class="compendium-count">22 species</span>
+      </div>
+      <div id="plant-list" class="panel-grid">
+        <div class="species-entry" data-search="Java Moss Vesicularia dubyana">
+  <div class="species-info">
+    <div class="species-common">Java Moss</div>
+    <div class="species-scientific">Vesicularia dubyana</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Incredibly resilient aquatic bryophyte. No CO2 required. Absorbs nutrients directly from the water column through microscopic phyllids. Dense mats provide critical infusoria grazing grounds for fish fry and shelter for juvenile shrimp.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Spiky Moss Taxiphyllum">
+  <div class="species-info">
+    <div class="species-common">Spiky Moss</div>
+    <div class="species-scientific">Taxiphyllum sp. 'Spiky'</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">No CO2 required. Low to medium light. Slow to moderate growth. Attach vertically to driftwood for best form.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Riccia Riccia fluitans">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Riccia_fluitans.jpeg?width=400" alt="Riccia" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Riccia</div>
+    <div class="species-scientific">Riccia fluitans</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Fascinating ecological duality. Floats freely at the surface forming a dense, oxygen-rich mat — perfect for killifish spawning and bubble-nesting species. Under high light + CO2, can be tied down as a brilliant green carpet.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Hornwort Ceratophyllum demersum">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Ceratophyllum_demersum_211295294.jpg?width=400" alt="Hornwort" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Hornwort</div>
+    <div class="species-scientific">Ceratophyllum demersum</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">The primary chemical filtration powerhouse. True obligate aquatic plant with no root system. Extremely rapid growth (inches per week). Metabolizes extreme nitrates and phosphates, starving nuisance algae. In alkaline water, performs biogenic decalcification — extracts carbon directly from dissolved bicarbonates.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Susswassertang Lomariopsis lineata">
+  <div class="species-info">
+    <div class="species-common">Susswassertang</div>
+    <div class="species-scientific">Lomariopsis lineata</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">A profound botanical anomaly — visually resembles seaweed, but genetic sequencing confirms it's actually the gametophyte phase of an aquatic fern that never develops into a mature sporophyte. Thrives in low-flow, low-light environments. Ideal for deep-water shrimp habitats.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Epipremnum Lemon Lime Epipremnum aureum">
+  <div class="species-info">
+    <div class="species-common">Epipremnum 'Lemon Lime'</div>
+    <div class="species-scientific">Epipremnum aureum 'Lemon Lime'</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Shocking chartreuse-yellow foliage that brightens any space. Fast-growing, easy care, wide light tolerance.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Epipremnum pinnatum">
+  <div class="species-info">
+    <div class="species-common">Epipremnum pinnatum</div>
+    <div class="species-scientific">Epipremnum pinnatum</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Classic vining aroid. Multiple specimens available across the collection.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Philodendron billietiae">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Philodendron_billietiae_3zz.jpg?width=400" alt="Philodendron billietiae" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Philodendron billietiae</div>
+    <div class="species-scientific">Philodendron billietiae</div>
+    <div class="species-badges">
+      <span class="badge-care badge-intermediate">Intermediate</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Instantly recognizable by its elongated, corrugated sagittate leaves and highly contrasting neon-orange petioles. Exact lighting and nutrient regimens needed to maintain vivid petiole coloration. Loves a moss pole.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Monstera Albo Monstera deliciosa Albo Variegata">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Fruit_Salad_Plant_(Monstera_deliciosa_%27Albo-Variegata%27)_1.jpg?width=400" alt="Monstera Albo" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Monstera Albo (×2)</div>
+    <div class="species-scientific">Monstera deliciosa 'Albo Variegata'</div>
+    <div class="species-badges">
+      <span class="badge-care badge-intermediate">Intermediate</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">The most coveted variegated Monstera. Variegation is genetic chimerism — the plant consists of multiple competing genotypes. White tissue cannot photosynthesize, so the plant is highly dependent on bright indirect light. If light drops, it may revert to solid green or produce all-white leaves that quickly necrotize. Two specimens available.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Epipremnum pinnatum Albo Variegata variegated">
+  <div class="species-info">
+    <div class="species-common">E. pinnatum Albo Variegata</div>
+    <div class="species-scientific">Epipremnum pinnatum albo variegata</div>
+    <div class="species-badges">
+      <span class="badge-care badge-intermediate">Intermediate</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">White-and-green variegated pinnatum. Needs bright indirect light to prevent reversion to solid green. A premium collector's Epipremnum.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Scindapsus pictus Silver Vine">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Silver_Vine_(Scindapsus_pictus)_7.jpg?width=400" alt="Scindapsus pictus" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Scindapsus pictus</div>
+    <div class="species-scientific">Scindapsus pictus</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Uses blister variegation — air pockets beneath the leaf epidermis reflect ambient light, creating a metallic, sparkling silver appearance. This structural adaptation helps reflect excess thermal radiation in sudden sun-flecks. Tolerates lower light than most variegated plants.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Silver Sword Philodendron Philodendron hastatum">
+  <div class="species-info">
+    <div class="species-common">Silver Sword Philodendron</div>
+    <div class="species-scientific">Philodendron hastatum 'Silver Sword'</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Silvery-blue, glaucous foliage that shifts from simple lanceolate to complex tri-lobed shapes as the plant matures and climbs. Great trailing or on a moss pole.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Syngonium Santa Maria Syngonium podophyllum">
+  <div class="species-info">
+    <div class="species-common">Syngonium 'Santa Maria'</div>
+    <div class="species-scientific">Syngonium podophyllum 'Santa Maria'</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Rich burgundy-red foliage requiring elevated light to synthesize the high anthocyanin concentrations responsible for its dark, almost black coloration. Standout in any aroid collection.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Epipremnum Global Green Epipremnum aureum">
+  <div class="species-info">
+    <div class="species-common">Epipremnum 'Global Green' (×2+)</div>
+    <div class="species-scientific">Epipremnum aureum 'Global Green'</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Subtle green-on-green variegation — deep green on lighter green. Multiple pots available. Easy care, wide light tolerance.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Cebu Blue Pothos Epipremnum pinnatum Cebu Blue">
+  <div class="species-info">
+    <div class="species-common">Cebu Blue Pothos</div>
+    <div class="species-scientific">Epipremnum pinnatum 'Cebu Blue'</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Silver-blue iridescent leaves that develop fenestrations as the plant matures and climbs. One of the most striking Epipremnum cultivars.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Monstera Peru Monstera karstenianum">
+  <div class="species-info">
+    <div class="species-common">Monstera Peru</div>
+    <div class="species-scientific">Monstera karstenianum 'Peru'</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Heavily bullate — deep, rigid corrugated texture maximizing surface area for light absorption. Thrives in the deep, shaded understory. More shade-tolerant than other Monsteras.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Monstera dubia Hayi shingling">
+  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Monstera_dubia_169279518.jpg?width=400" alt="Monstera dubia" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
+  <div class="species-info">
+    <div class="species-common">Monstera dubia</div>
+    <div class="species-scientific">Monstera dubia</div>
+    <div class="species-badges">
+      <span class="badge-care badge-intermediate">Intermediate</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Fascinating shingling climber exhibiting extreme heteroblasty. Juvenile leaves grow perfectly flat, appressed against tree trunks. As it climbs toward brighter light, morphology radically transforms — mature leaves develop fenestrations and extend outward. ID tentative (sold as 'Hayi').</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Rhaphidophora hayi shingling climber">
+  <div class="species-info">
+    <div class="species-common">Rhaphidophora hayi</div>
+    <div class="species-scientific">Rhaphidophora hayi</div>
+    <div class="species-badges">
+      <span class="badge-care badge-intermediate">Intermediate</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Another shingling climber — grows perfectly flat against boards or bark panels. Unusual tiling growth habit. A genuine conversation piece for aroid collectors.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Monstera Thai Constellation variegated">
+  <div class="species-info">
+    <div class="species-common">Monstera Thai Constellation (×2)</div>
+    <div class="species-scientific">Monstera deliciosa 'Thai Constellation'</div>
+    <div class="species-badges">
+      <span class="badge-care badge-intermediate">Intermediate</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Engineered via tissue culture — far more stable genetic mutation than the Albo, expressing as creamy star-like speckling distributed evenly across leaves. Slower-growing but more predictable. Two specimens available.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Scindapsus Thai Jade collector">
+  <div class="species-info">
+    <div class="species-common">Scindapsus 'Thai Jade'</div>
+    <div class="species-scientific">Scindapsus sp. 'Thai Jade'</div>
+    <div class="species-badges">
+      <span class="badge-care badge-intermediate">Intermediate</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">Deep green with subtle silver patterning. Tentative identification but highly probable. A slow-growing collector piece.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Duckweed Lemna minor">
+  <div class="species-info">
+    <div class="species-common">Duckweed</div>
+    <div class="species-scientific">Lemna minor</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">The world's smallest flowering plant. Incredibly fast surface growth. Excellent nitrate sponge. WARNING: nearly impossible to fully eradicate once introduced to a system.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+<div class="species-entry" data-search="Lion's Mane Mushroom Hericium erinaceus fungi" style="border-top: 1px solid rgba(224,124,255,0.2); margin-top: 0.5rem; padding-top: 0.75rem;">
+  <div class="species-info">
+    <div class="species-common" style="color: var(--color-fungi)">Lion's Mane Mushroom</div>
+    <div class="species-scientific" style="color: rgba(224,124,255,0.6)">Hericium erinaceus</div>
+    <div class="species-badges">
+      <span class="badge-care badge-beginner">Beginner</span>
+      <span class="badge-inquire">Inquire</span>
+    </div>
+    <div class="species-detail">North Spore grow kit — actively fruiting. Edible gourmet mushroom with potential nootropic properties. Not an aquatic organism.</div>
+  </div>
+  <span class="species-expand-icon">▸</span>
+</div>
+
+      </div>
+    </div>
+
+      </div><!-- /compendium-panels -->
+  </div><!-- /compendium-layout -->
+</section>
+<div class="divider"><hr></div>
+
+<!-- ============================================================
+     EQUIPMENT SECTION
+     ============================================================ -->
+<section class="section" style="padding-bottom: 2rem;">
+  <div style="max-width: 1300px; margin: 0 auto;">
+    <p class="section-label">Available Hardware</p>
+    <h2 class="section-title">Tanks &amp; Equipment</h2>
+  </div>
+  <div class="racks-grid">
+
+    <!-- Large Tanks -->
+    <div class="rack-card" style="--rack-color: var(--color-fish)">
+      <div class="rack-header">
+        <div class="rack-header-text">
+          <div class="rack-name">Large Tanks</div>
+        </div>
+        <div class="rack-count-badge">5 items</div>
+      </div>
+      <div class="rack-body">
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>40G Breeder</strong></div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>~45G Paludarium</strong> (working waterfall)</div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>35G Acrylic Hex</strong></div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>30G Tank</strong></div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>28G JBJ Nano Cube</strong> (self-contained)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Premium Rimless -->
+    <div class="rack-card" style="--rack-color: var(--color-fish)">
+      <div class="rack-header">
+        <div class="rack-header-text">
+          <div class="rack-name">Premium Rimless</div>
+        </div>
+        <div class="rack-count-badge">6 items</div>
+      </div>
+      <div class="rack-body">
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>20G AquaJapan Rimless</strong></div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>14G Cube</strong></div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>12G Rimless</strong></div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>6G Long UNS Rimless</strong></div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>1.5G Cube</strong></div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>Waterbox 10G</strong> (new, unused)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Terrariums -->
+    <div class="rack-card" style="--rack-color: var(--color-herp)">
+      <div class="rack-header">
+        <div class="rack-header-text">
+          <div class="rack-name">Terrariums</div>
+        </div>
+        <div class="rack-count-badge">4 items</div>
+      </div>
+      <div class="rack-body">
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>Exo Terra 18&times;18&times;36</strong> (&times;2)</div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>Zoo Med Mesh Enclosure</strong> (large)</div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>Zoo Med 10G Front-Opening</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Standard Tanks -->
+    <div class="rack-card" style="--rack-color: var(--color-invert)">
+      <div class="rack-header">
+        <div class="rack-header-text">
+          <div class="rack-name">Standard Tanks</div>
+        </div>
+        <div class="rack-count-badge">5 sizes</div>
+      </div>
+      <div class="rack-body">
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>Various 20G</strong> (multiple)</div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>Various 15G</strong></div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>Various 10G</strong></div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>Various 5G</strong></div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>Various 2.5G</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filtration & Lighting -->
+    <div class="rack-card" style="--rack-color: var(--color-plant)">
+      <div class="rack-header">
+        <div class="rack-header-text">
+          <div class="rack-name">Filtration &amp; Lighting</div>
+        </div>
+        <div class="rack-count-badge">8 types</div>
+      </div>
+      <div class="rack-body">
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>Matten filters</strong></div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>Sponge filters</strong></div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>Canister filters</strong></div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>HOB filters</strong></div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>Undergravel filters</strong></div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>LED strip lighting</strong></div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>Black gooseneck LEDs</strong></div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>Marineland fixtures</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hardscape & Substrate -->
+    <div class="rack-card" style="--rack-color: var(--color-plant)">
+      <div class="rack-header">
+        <div class="rack-header-text">
+          <div class="rack-name">Hardscape &amp; Substrate</div>
+        </div>
+        <div class="rack-count-badge">7 types</div>
+      </div>
+      <div class="rack-body">
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>Large rock structures</strong></div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>Driftwood</strong> (various)</div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>Cork bark panels/rounds</strong></div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>LECA drainage</strong></div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>Aquasoil</strong></div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>White sand</strong></div>
+          </div>
+        </div>
+        <div class="tank-entry">
+          <div class="tank-info">
+            <div class="tank-inhabitants"><strong>Botanicals assortment</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CONTACT SECTION
+     ============================================================ -->
+<section class="section" style="padding: 3rem 2rem;">
+  <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+    <p class="section-label">Interested?</p>
+    <h2 class="section-title">Get in Touch</h2>
+    <div class="glass" style="padding: 2rem; margin-top: 1.5rem;">
+      <p style="margin-bottom: 1.5rem; line-height: 1.8;">Interested in any of our fish, plants, or equipment? We're committed to finding the best homes for our inhabitants.</p>
+      <div style="margin-bottom: 1rem;">
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-fish); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.3rem;">Reddit</div>
+        <div style="color: #b8cfe0;">u/wowthisiseasy</div>
+      </div>
+      <div style="margin-bottom: 1rem;">
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-fish); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.3rem;">Email</div>
+        <div style="color: #b8cfe0;">thetangletrove@gmail.com</div>
+      </div>
+      <p style="font-size: 0.8rem; color: rgba(180,210,240,0.5); margin-top: 1.5rem;">Local pickup available &bull; All proceeds go directly to vet bills</p>
+      <p style="font-size: 0.75rem; color: rgba(180,210,240,0.35); margin-top: 0.5rem;">Photos may or may not be of our exact fish &mdash; please reach out for pictures of the actual animal.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MEMORIAL + DONATIONS
+     ============================================================ -->
+<div class="divider"><hr></div>
+<section class="section" style="padding: 3rem 2rem; text-align: center;">
+  <div style="max-width: 560px; margin: 0 auto;">
+    <!-- ABIGAIL PHOTO PLACEHOLDER — replace with actual image when ready -->
+    <div style="width: 220px; height: 220px; border-radius: 50%; background: linear-gradient(135deg, rgba(0,180,216,0.08) 0%, rgba(0,0,0,0.3) 100%); border: 1px dashed rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; color: rgba(180,210,240,0.35); font-family: var(--font-mono); font-size: 0.7rem; text-align: center; margin: 0 auto 1.5rem; padding: 1rem;">
+      <!-- REPLACE WITH: <img src="parts/abigail-2.jpg" alt="Abigail Breslin" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"> -->
+      ABIGAIL PHOTO<br>coming soon
+    </div>
+    <p style="font-family: var(--font-heading); font-size: 1.2rem; color: #e0eef8; margin-bottom: 0.5rem;">Abigail Breslin, 2013&ndash;2026</p>
+    <div class="glass" style="padding: 1.75rem; text-align: left;">
+      <p style="line-height: 1.8; margin-bottom: 1.25rem;">If this page helped you find what you were looking for, or if you just want to help us close out Abigail's vet bills, donations are appreciated. Every dollar goes directly toward the $4,000 still outstanding.</p>
+      <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div>
+          <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--color-fish); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.3rem;">Venmo</div>
+          <div style="color: #b8cfe0;">[VENMO_HANDLE]</div>
+        </div>
+        <div>
+          <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--color-fish); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.3rem;">PayPal</div>
+          <div style="color: #b8cfe0;">[PAYPAL_HANDLE]</div>
+        </div>
+      </div>
+      <p style="font-size: 0.8rem; color: rgba(180,210,240,0.45); margin-top: 1.25rem;">No pressure at all. Hug your pets.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FREELANCE SERVICES
+     ============================================================ -->
+<div class="divider"><hr></div>
+<section class="section" style="padding: 2rem 2rem 3rem;">
+  <div style="max-width: 600px; margin: 0 auto;">
+    <div class="glass" style="padding: 1.75rem;">
+      <p style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--color-fish); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem;">While I have your attention</p>
+      <p style="line-height: 1.8; margin-bottom: 0.75rem;">I do freelance work in web development, app development, software, and AI. If you or someone you know needs something built, I'm good at it and I could use the work right now. Not trying to make this a sales pitch on a fish page, but you never know.</p>
+      <p style="color: rgba(180,210,240,0.6); font-size: 0.9rem;"><a href="mailto:thetangletrove@gmail.com" style="color: var(--color-fish);">thetangletrove@gmail.com</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>All proceeds support our cat's medical care</span>
+  <span>&bull;</span>
+  <span>Built 2026-04-16 04:15 UTC</span>
+  <span>&bull;</span>
+  <span>The Fish Room &mdash; Downsizing Sale</span>
+</footer>
+
+</div><!-- /page-content -->
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+// ============================================================
+// CANVAS BACKGROUND — GENERATIVE UNDERWATER SCENE
+// ============================================================
+(function() {
+  const canvas = document.getElementById('bg-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, rafId;
+  let paused = false;
+
+  // --- Resize ---
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  // --- Simple pseudo-random noise for organic motion ---
+  function noise(x, y, t) {
+    return Math.sin(x * 0.8 + t * 0.7) * Math.cos(y * 0.6 + t * 0.5) * 0.5 +
+           Math.sin(x * 1.4 + t * 0.3) * Math.cos(y * 1.2 + t * 0.4) * 0.3 +
+           Math.sin(x * 0.3 + t * 1.1) * 0.2;
+  }
+
+  // --- Bubbles ---
+  const BUBBLE_COUNT = 18;
+  const bubbles = Array.from({length: BUBBLE_COUNT}, () => ({
+    x: Math.random() * 1,      // fraction of W
+    y: Math.random() * 1,      // fraction of H
+    r: 3 + Math.random() * 12,
+    speed: 0.3 + Math.random() * 1.2,
+    wobble: Math.random() * Math.PI * 2,
+    wobbleSpeed: 0.01 + Math.random() * 0.03,
+    opacity: 0.05 + Math.random() * 0.15,
+  }));
+
+  // --- Particles ---
+  const PARTICLE_COUNT = 160;
+  const particles = Array.from({length: PARTICLE_COUNT}, () => ({
+    x: Math.random(),
+    y: Math.random(),
+    r: 0.5 + Math.random() * 2,
+    speed: 0.02 + Math.random() * 0.08,
+    nx: Math.random() * 10,   // noise offset x
+    ny: Math.random() * 10,   // noise offset y
+    opacity: 0.05 + Math.random() * 0.25,
+  }));
+
+  // --- Caustic rays ---
+  const RAY_COUNT = 5;
+  const rays = Array.from({length: RAY_COUNT}, (_, i) => ({
+    x: (i + 0.5) / RAY_COUNT,   // fraction of W
+    width: 0.04 + Math.random() * 0.06,
+    phase: Math.random() * Math.PI * 2,
+    speed: 0.004 + Math.random() * 0.006,
+    opacity: 0.03 + Math.random() * 0.04,
+  }));
+
+  // --- Kelp segments ---
+  const KELP_COUNT = 8;
+  const kelp = Array.from({length: KELP_COUNT}, () => ({
+    x: Math.random(),          // fraction of W
+    height: 0.15 + Math.random() * 0.18,   // fraction of H
+    width: 8 + Math.random() * 20,
+    phase: Math.random() * Math.PI * 2,
+    speed: 0.006 + Math.random() * 0.008,
+    segments: 5 + Math.floor(Math.random() * 5),
+  }));
+
+  // --- Bioluminescent pulses ---
+  const bioPool = [];
+  function spawnBio() {
+    bioPool.push({
+      x: 0.1 + Math.random() * 0.8,
+      y: 0.2 + Math.random() * 0.7,
+      r: 0,
+      maxR: 4 + Math.random() * 8,
+      life: 0,
+      maxLife: 180 + Math.random() * 120,
+      color: ['rgba(0,220,255,', 'rgba(180,100,255,', 'rgba(0,255,160,'][Math.floor(Math.random()*3)],
+    });
+  }
+
+  // Spawn a bio every ~3s
+  let bioTimer = 0;
+
+  let t = 0;
+
+  function draw() {
+    t += 0.008;
+    bioTimer++;
+    if (bioTimer > 180 + Math.random() * 60) {
+      if (bioPool.length < 4) spawnBio();
+      bioTimer = 0;
+    }
+
+    ctx.clearRect(0, 0, W, H);
+
+    // 1. Deep gradient background
+    const bg = ctx.createLinearGradient(0, 0, 0, H);
+    bg.addColorStop(0, '#010a14');
+    bg.addColorStop(0.4, '#040f20');
+    bg.addColorStop(1, '#061428');
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, W, H);
+
+    // 2. Caustic light rays
+    rays.forEach(ray => {
+      const cx = (ray.x + Math.sin(t * ray.speed + ray.phase) * 0.04) * W;
+      const w = ray.width * W;
+      const rg = ctx.createLinearGradient(cx, 0, cx, H * 0.7);
+      rg.addColorStop(0, `rgba(100,200,240,${ray.opacity * 1.5})`);
+      rg.addColorStop(0.5, `rgba(50,150,220,${ray.opacity})`);
+      rg.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.beginPath();
+      ctx.moveTo(cx - w * 0.4, 0);
+      ctx.lineTo(cx + w * 0.4, 0);
+      ctx.lineTo(cx + w * 1.2, H * 0.7);
+      ctx.lineTo(cx - w * 1.2, H * 0.7);
+      ctx.closePath();
+      ctx.fillStyle = rg;
+      ctx.fill();
+    });
+
+    // 3. Kelp silhouettes
+    kelp.forEach(k => {
+      const bx = k.x * W;
+      const topY = H * (1 - k.height);
+      const segH = (H - topY) / k.segments;
+      const sway = Math.sin(t * k.speed * 60 + k.phase) * 20;
+
+      ctx.beginPath();
+      ctx.moveTo(bx, H);
+      let cx1 = bx, cy1 = H;
+      for (let s = 0; s < k.segments; s++) {
+        const progress = (s + 1) / k.segments;
+        const swayAmount = sway * progress;
+        const nx = bx + swayAmount;
+        const ny = H - segH * (s + 1);
+        ctx.bezierCurveTo(
+          cx1 + swayAmount * 0.5, cy1 - segH * 0.3,
+          nx - swayAmount * 0.3, ny + segH * 0.3,
+          nx, ny
+        );
+        cx1 = nx; cy1 = ny;
+      }
+      // return path widened
+      for (let s = k.segments - 1; s >= 0; s--) {
+        const progress = (s + 1) / k.segments;
+        const swayAmount = sway * progress;
+        const nx = bx + swayAmount + k.width * (1 - progress * 0.5);
+        const ny = H - segH * (s + 1);
+        ctx.lineTo(nx, ny);
+      }
+      ctx.lineTo(bx + k.width, H);
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(10, 60, 26, 0.35)';
+      ctx.fill();
+    });
+
+    // 4. Particles
+    particles.forEach(p => {
+      const nx = noise(p.nx, p.ny, t);
+      const ny = noise(p.nx + 5, p.ny + 5, t);
+      p.x += nx * p.speed * 0.002;
+      p.y -= p.speed * 0.001 + ny * p.speed * 0.001;
+      if (p.y < -0.01) p.y = 1.01;
+      if (p.x < -0.01) p.x = 1.01;
+      if (p.x > 1.01) p.x = -0.01;
+
+      ctx.beginPath();
+      ctx.arc(p.x * W, p.y * H, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(180,220,255,${p.opacity})`;
+      ctx.fill();
+    });
+
+    // 5. Bubbles
+    bubbles.forEach(b => {
+      b.y -= b.speed / H * 0.8;
+      b.wobble += b.wobbleSpeed;
+      if (b.y < -0.02) {
+        b.y = 1.02;
+        b.x = Math.random();
+      }
+      const bx = b.x * W + Math.sin(b.wobble) * 8;
+      const by = b.y * H;
+
+      ctx.beginPath();
+      ctx.arc(bx, by, b.r, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(180,230,255,${b.opacity * 1.5})`;
+      ctx.lineWidth = 0.8;
+      ctx.stroke();
+
+      // highlight
+      ctx.beginPath();
+      ctx.arc(bx - b.r * 0.3, by - b.r * 0.3, b.r * 0.25, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${b.opacity * 0.8})`;
+      ctx.fill();
+    });
+
+    // 6. Bioluminescent pulses
+    for (let i = bioPool.length - 1; i >= 0; i--) {
+      const bio = bioPool[i];
+      bio.life++;
+      const progress = bio.life / bio.maxLife;
+      bio.r = Math.max(0, bio.maxR * Math.sin(progress * Math.PI));
+      const alpha = Math.sin(progress * Math.PI) * 0.7;
+
+      if (bio.r < 0.1) { if (bio.life >= bio.maxLife) bioPool.splice(i, 1); continue; }
+      const rg = ctx.createRadialGradient(bio.x * W, bio.y * H, 0, bio.x * W, bio.y * H, bio.r * 3);
+      rg.addColorStop(0, bio.color + alpha + ')');
+      rg.addColorStop(0.5, bio.color + (alpha * 0.3) + ')');
+      rg.addColorStop(1, bio.color + '0)');
+      ctx.beginPath();
+      ctx.arc(bio.x * W, bio.y * H, bio.r * 3, 0, Math.PI * 2);
+      ctx.fillStyle = rg;
+      ctx.fill();
+
+      if (bio.life >= bio.maxLife) bioPool.splice(i, 1);
+    }
+
+    if (!paused) rafId = requestAnimationFrame(draw);
+  }
+
+  // Pause when tab hidden
+  document.addEventListener('visibilitychange', () => {
+    paused = document.hidden;
+    if (!paused) { rafId = requestAnimationFrame(draw); }
+  });
+
+  // Respect prefers-reduced-motion
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    rafId = requestAnimationFrame(draw);
+  }
+})();
+
+// ============================================================
+// COUNTING ANIMATION (IntersectionObserver)
+// ============================================================
+function animateCount(el, target, duration) {
+  let start = null;
+  const step = (timestamp) => {
+    if (!start) start = timestamp;
+    const progress = Math.min((timestamp - start) / duration, 1);
+    // ease out
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(eased * target);
+    if (progress < 1) requestAnimationFrame(step);
+    else el.textContent = target;
+  };
+  requestAnimationFrame(step);
+}
+
+const statCards = document.querySelectorAll('.stat-card[data-target]');
+const statObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const card = entry.target;
+      const target = parseInt(card.dataset.target);
+      const numEl = card.querySelector('.stat-number');
+      animateCount(numEl, target, 1200);
+      statObserver.unobserve(card);
+    }
+  });
+}, { threshold: 0.5 });
+
+statCards.forEach(c => statObserver.observe(c));
+
+// ============================================================
+// SPECIES SEARCH FILTER
+// ============================================================
+const searchInput = document.getElementById('species-search');
+function applySearch() {
+  const q = searchInput.value.toLowerCase().trim();
+  const activePanel = document.querySelector('.compendium-panel.panel-active');
+  if (!activePanel) return;
+  activePanel.querySelectorAll('.species-entry').forEach(entry => {
+    const text = (entry.dataset.search || entry.textContent).toLowerCase();
+    entry.classList.toggle('hidden', q.length > 0 && !text.includes(q));
+  });
+}
+searchInput.addEventListener('keyup', applySearch);
+
+// Expand/collapse species entries
+document.querySelectorAll('.species-entry').forEach(entry => {
+  entry.addEventListener('click', () => {
+    entry.classList.toggle('expanded');
+  });
+});
+
+// === CATEGORY RAIL SWITCHING ===
+const categoryOrder = ['fish', 'herp', 'invert', 'plant'];
+let activeCategory = 'fish';
+let isTransitioning = false;
+
+const railItems = document.querySelectorAll('.rail-item');
+
+function switchCategory(newCategory) {
+  if (newCategory === activeCategory || isTransitioning) return;
+  isTransitioning = true;
+
+  var oldIndex = categoryOrder.indexOf(activeCategory);
+  var newIndex = categoryOrder.indexOf(newCategory);
+  var goingForward = newIndex > oldIndex;
+
+  var oldPanel = document.querySelector('.compendium-panel[data-category="' + activeCategory + '"]');
+  var newPanel = document.querySelector('.compendium-panel[data-category="' + newCategory + '"]');
+  var container = document.querySelector('.compendium-panels');
+  if (!oldPanel || !newPanel) { isTransitioning = false; return; }
+
+  // Update rail active state immediately
+  railItems.forEach(function(r) {
+    r.classList.toggle('active', r.dataset.category === newCategory);
+  });
+
+  var DURATION = '600ms cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+  var ENTER_FROM = goingForward ? 'translateX(150px)' : 'translateX(-150px)';
+  var EXIT_TO   = goingForward ? 'translateX(-150px)' : 'translateX(150px)';
+
+  // Lock container height so it doesn't collapse during transition
+  container.style.height = oldPanel.offsetHeight + 'px';
+
+  // Position both panels absolutely for simultaneous animation
+  [oldPanel, newPanel].forEach(function(p) {
+    p.style.transition = 'none';
+    p.style.position = 'absolute';
+    p.style.top = '0';
+    p.style.left = '0';
+    p.style.width = '100%';
+    p.style.visibility = 'visible';
+    p.style.pointerEvents = 'none';
+  });
+  oldPanel.style.opacity = '1';
+  oldPanel.style.transform = 'translateX(0)';
+  newPanel.style.opacity = '0';
+  newPanel.style.transform = ENTER_FROM;
+
+  // Force reflow so starting positions are painted
+  newPanel.offsetHeight;
+
+  // Enable transitions and animate to final positions
+  oldPanel.style.transition = 'transform ' + DURATION + ', opacity ' + DURATION;
+  newPanel.style.transition = 'transform ' + DURATION + ', opacity ' + DURATION;
+
+  oldPanel.style.opacity = '0';
+  oldPanel.style.transform = EXIT_TO;
+  newPanel.style.opacity = '1';
+  newPanel.style.transform = 'translateX(0)';
+
+  function cleanup() {
+    // Classes first (inline styles still control visibility during this moment)
+    oldPanel.classList.remove('panel-active');
+    newPanel.classList.add('panel-active');
+    // Then strip inline styles (CSS classes now own everything)
+    oldPanel.style.cssText = '';
+    newPanel.style.cssText = '';
+    container.style.height = '';
+    isTransitioning = false;
+  }
+
+  // Listen on old panel for transitionend; fall back to timeout
+  var done = false;
+  oldPanel.addEventListener('transitionend', function handler(e) {
+    if (e.target !== oldPanel || done) return;
+    done = true;
+    oldPanel.removeEventListener('transitionend', handler);
+    cleanup();
+  });
+  setTimeout(function() {
+    if (!done) { done = true; cleanup(); }
+  }, 700);
+
+  activeCategory = newCategory;
+  applySearch();
+}
+
+railItems.forEach(function(item) {
+  item.addEventListener('click', function() { switchCategory(item.dataset.category); });
+});
+
+// Mark cards with no image
+document.querySelectorAll('.species-entry').forEach(function(entry) {
+  if (!entry.querySelector('.species-thumb')) entry.classList.add('no-thumb');
+});
+</script>
+
+</body>
+</html>
