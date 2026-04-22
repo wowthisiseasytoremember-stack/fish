@@ -1,6 +1,28 @@
 # Changelog
 
-**Last Updated:** 2026-04-22 22:00 UTC
+**Last Updated:** 2026-04-22 23:30 UTC
+
+## [2026-04-22 23:30 UTC] — Reddit MCP wired up, draft reviewed, ready to post pending photos
+
+### Done
+
+- Ported the Gemini CLI reddit-regional-swap-specialist skill from ichabod (`~/.gemini/skills/`) to Claude Code format at `~/.claude/skills/reddit-swap-specialist/` with 5 reference files (aquaswap-rules, ca-compliance, reddit-culture, interest-hubs, local-socal-map)
+- Stored Reddit credentials (u/wowthisiseasy) in GCP Secret Manager (`pwa-id-app` project) — no plaintext anywhere
+- Created `~/.claude/scripts/reddit-mcp-wrapper.sh` — pulls credentials from Secret Manager at runtime and launches the MCP server
+- Installed `jordanburke/reddit-mcp-server` v1.4.5 via npx — works without a Reddit API app registration
+- Added reddit-mcp to Claude Code global MCP config (`~/.claude.json`) so it loads in any session from any directory
+- Confirmed authentication: MCP connects as u/wowthisiseasy with write operations enabled
+- Account check: 12-year-old account, 1,437 karma, prior r/AquaSwap history — 90/10 rule satisfied
+- Reviewed `queue/drafts/aquaswap-main-post.md` — copy and pricing pending owner approval before post
+- Added `queue/drafts/herpbst-post.md` and `queue/drafts/plantswap-post.md` as unposted drafts for other platforms
+
+### Blocked
+
+- Post not submitted yet — waiting on owner pricing/copy approval and photos (r/aquaswap requires actual item photos)
+
+### For Produce
+
+> Reddit MCP is live and authenticated. r/aquaswap draft is written and in queue/drafts/. Blocked on photo attachment and owner copy approval before submitting. Next session: get photos, owner approves pricing, post goes live.
 
 ## [2026-04-22 22:00 UTC] — Merged Ichabod work into Mac repo and pushed to GitHub
 
