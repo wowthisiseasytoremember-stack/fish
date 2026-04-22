@@ -1,15 +1,19 @@
-**Last Updated:** 2026-04-22 20:45 UTC
+**Last Updated:** 2026-04-22 22:15 UTC
 
 # r/aquaswap Draft Post
 
 ## TITLE
-`[FS] - Garden Grove, CA - $5+ - Full Fish Room Downsizing: Dragon Puffer, Killifish, Shell Dwellers, Puffers, Newts, Gecko, Aroids & More`
+`[FS] - Garden Grove, CA - Flexible - Full Fish Room Downsizing: Dragon Puffer, Killifish, Shell Dwellers, Puffers, Newts, Gecko, Aroids & More`
 
 ---
 
 ## BODY
 
-Downsizing my entire fish room to cover unexpected vet bills for my cat. These animals have been in my personal care for years — I'm looking for responsible, experienced homes, not just fast sales. Everything is negotiable, and the more you take the better the deal I can make.
+My cat Abigail passed away recently after 13 years. We did everything we could for her, and now we're sitting on about $4,000 in vet bills. So I'm downsizing the entire fish room — everything.
+
+I'm not trying to make money on this. These animals have been in my personal care for years, and what matters most to me is that they end up with people who actually know how to keep them. If you're in a position to pay full price or throw something extra toward Abigail's vet fund, I'd be genuinely grateful. If you're in a tight spot financially, tell me — I'm happy to work on price. I'd rather the animal go to the right home than sit here waiting for the right dollar amount.
+
+Everything is negotiable. The more you take, the more flexible I can be.
 
 **Pickup preferred (Garden Grove, CA 92843). Willing to ship select livestock with buyer paying actual USPS Priority cost. PayPal G&S only for shipped items.**
 
