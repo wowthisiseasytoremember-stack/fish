@@ -1,4 +1,4 @@
-**Last Updated:** 2026-04-22 22:15 UTC
+**Last Updated:** 2026-04-22 22:30 UTC
 
 # r/aquaswap Draft Post
 
@@ -7,15 +7,32 @@
 
 ---
 
+## PHOTOS NEEDED BEFORE POSTING
+- Dragon Puffer in tank
+- Shell dweller colony
+- Spanish Ribbed Newts (albinos especially)
+- Crested Dalmatian Gecko in enclosure
+- Monstera Albo (at least one)
+- Overview shot of the room or a rack
+- At least 1-2 equipment shots (paludarium, nice rimless tank)
+
+*r/aquaswap requires actual photos of the items. Do not post without them.*
+
+---
+
 ## BODY
 
-My cat Abigail passed away recently after 13 years. We did everything we could for her, and now we're sitting on about $4,000 in vet bills. So I'm downsizing the entire fish room — everything.
+my cat Abigail passed away at 13 after a fight with cancer. we did everything we could for her and i'd do it all again, but we're sitting on about $4,000 in vet bills and i need to close that out. so i'm downsizing the entire fish room — everything goes.
 
-I'm not trying to make money on this. These animals have been in my personal care for years, and what matters most to me is that they end up with people who actually know how to keep them. If you're in a position to pay full price or throw something extra toward Abigail's vet fund, I'd be genuinely grateful. If you're in a tight spot financially, tell me — I'm happy to work on price. I'd rather the animal go to the right home than sit here waiting for the right dollar amount.
+i'm not trying to make money. if you can pay full price or throw something toward Abigail's vet fund i'd be so grateful, but if you're in a tight spot right now i'm happy to work on price. i'd rather the animals go to the right home. that's the whole point.
 
-Everything is negotiable. The more you take, the more flexible I can be.
+full catalog with more details and photos at: **[WEBSITE_URL]**
 
-**Pickup preferred (Garden Grove, CA 92843). Willing to ship select livestock with buyer paying actual USPS Priority cost. PayPal G&S only for shipped items.**
+if you want to donate directly: **Venmo @jakeynguyen16** · Ko-fi: **[KO-FI_URL]**
+
+pickup preferred (Garden Grove, CA 92843). will ship select livestock — buyer pays actual USPS Priority. PayPal G&S only for shipped items.
+
+---
 
 ---
 
