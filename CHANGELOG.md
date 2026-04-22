@@ -1,4 +1,18 @@
-**Last Updated:** 2026-04-22 12:30 UTC
+**Last Updated:** 2026-04-22 19:18 UTC
+
+## [2026-04-22 19:18 UTC] — Repository cleaned, docs refreshed, and registry entry updated
+
+### Done
+- Deleted stale clone at `~/Documents/fish`
+- Rewrote `README.md` with project overview, file map, and branch list; pushed to GitHub
+- Created `CHANGELOG.md` documenting today’s session; pushed to GitHub
+- Added Fish Room Sale to the project registry as Tier 2, entry 0, linking to `~/fish-sale-repo/` and the GitHub repo
+
+### In Progress
+- Nothing
+
+### For Produce
+> Next session should select the next feature to develop or pick an autoresearch branch to merge.
 
 ## [2026-04-22 12:30 UTC] — Repo connected to GitHub, docs added
 
