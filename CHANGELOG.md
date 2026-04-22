@@ -1,6 +1,21 @@
 # Changelog
 
-**Last Updated:** 2026-04-22 21:10 UTC
+**Last Updated:** 2026-04-22 22:00 UTC
+
+## [2026-04-22 22:00 UTC] — Merged Ichabod work into Mac repo and pushed to GitHub
+
+### Done
+
+- Identified that Gemini's committed work (sales-listings.md, CI workflow, lint fixes) was stranded on Ichabod with no valid GitHub token to push
+- Added Ichabod as a temporary git remote on the Mac, fetched, and merged its 2 commits into Mac main
+- Resolved merge conflicts in CLAUDE.md and TODO.md (kept Ichabod's completed-task checkmarks; kept Mac's structural content)
+- Committed untracked `queue/drafts/aquaswap-main-post.md` (Reddit r/aquaswap draft)
+- Pushed full merged history to GitHub from Mac (working auth via `wowthisiseasytoremember-stack`)
+- All Gemini work now live: `sales-listings.md`, `.github/workflows/markdown-lint.yml`, `.markdownlint.json`, `reddit-post.md`, `HANDOFF.md`
+
+### For Produce
+
+> Fish sale repo is fully synced and pushed. All Gemini work (pricing doc, CI, Reddit draft) is on GitHub. Next step: take photos for r/aquaswap post (required before submitting) and verify California compliance before listing Taricha newts.
 
 ## [2026-04-22 21:10 UTC] — Repository synced, pricing consolidated, and CI established
 
