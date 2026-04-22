@@ -1,4 +1,17 @@
-**Last Updated:** 2026-04-22 19:18 UTC
+**Last Updated:** 2026-04-22 19:27 UTC
+
+## [2026-04-27 19:27 UTC] — Scoped CLAUDE.md to project repository and cleaned home directory
+
+### Done
+- Deleted the stray `CLAUDE.md` from the home directory (`~/CLAUDE.md`).
+- Created a new `CLAUDE.md` inside `~/fish-sale-repo/` reflecting the repo’s codebase and context.
+- Updated `.gitignore` to ensure future `CLAUDE.md` files are tracked only inside project directories.
+
+### In Progress
+- Nothing
+
+### For Produce
+> Next session should select the next feature to develop or merge an outstanding autoresearch branch.
 
 ## [2026-04-22 19:18 UTC] — Repository cleaned, docs refreshed, and registry entry updated
 
