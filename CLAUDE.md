@@ -1,8 +1,8 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
 **Last Updated:** 2026-04-22 12:40 UTC
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ---
 
@@ -17,7 +17,7 @@ The site is deployed as a static file. There is no server-side rendering.
 ## File Structure
 
 | File | Purpose |
-|------|---------|
+| :--- | :--- |
 | `fish-room-sale.html` | The site. Everything is here — CSS, JS, and all content. |
 | `fish-room-content-brief.txt` | Source of truth for species inventory, quantities, care notes, and pricing policy. Update here first; HTML reflects it. |
 | `Tank Inventory.md` | Physical tank layout and current contents. Used to cross-check species availability. |
@@ -69,6 +69,7 @@ Quantities marked "TBD" in the brief should stay as "Inquire" or similar in the 
 ## Testing Changes
 
 Open `fish-room-sale.html` directly in a browser — no server needed. Always verify:
+
 1. Filter buttons work across all categories (Fish, Herps, Inverts, Plants, Equipment)
 2. Mobile layout holds up (resize browser or DevTools)
 3. Canvas background animation still runs
