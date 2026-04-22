@@ -1,13 +1,13 @@
-**Last Updated:** 2026-04-22 12:30 UTC
-
 # Fish Room Sale
+
+**Last Updated:** 2026-04-22 12:30 UTC
 
 Website and inventory management for Justin's fish room — adoption/sale site for fish, plants, and amphibians.
 
 ## What's Here
 
 | File / Folder | What It Is |
-|---|---|
+| :--- | :--- |
 | `fish-room-sale.html` | Main sale/adoption page — single-file site with all species cards |
 | `fish-room-content-brief.txt` | Source of truth for species list, pricing, and contact strategy |
 | `Tank Inventory.md` | Canonical tank layout and current contents (updated 2026-04-16) |
