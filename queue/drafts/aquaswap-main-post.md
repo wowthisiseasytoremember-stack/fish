@@ -1,4 +1,4 @@
-**Last Updated:** 2026-04-23 00:30 UTC
+**Last Updated:** 2026-04-23 03:15 UTC
 
 # r/aquaswap Draft Post
 
@@ -120,6 +120,10 @@ This is probably the most valuable category. We have **brand new marine and plan
 **Hardscape:** Large rocks · Driftwood · Cork bark · Botanicals · LECA · Aquasoil · White sand
 
 **Supplies:** Fertilizers · medications · CO2 equipment · breeder boxes · plant propagation boxes · spare terrariums · misc hardware. Some of this is just excess stock that never got used. Ask about anything specific.
+
+**Other:**
+- North Spore Lion's Mane organic mushroom grow kit — sealed, unused
+- Portable green mesh grow tent / shelving unit — freestanding, good for seedlings or plant propagation
 
 ---
 
