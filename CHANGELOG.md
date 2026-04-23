@@ -1,6 +1,20 @@
-**Last Updated:** 2026-04-23 02:19 UTC
+**Last Updated:** 2026-04-23 02:28 UTC
 
 # Changelog
+
+## [2026-04-23 02:28 UTC] — Published final drafts and documentation to GitHub
+
+### Done
+- Added `queue/drafts/aquaswap-main-post.md` with incorporated feedback
+- Added `PHOTO_CATALOG.md` detailing photo source, order, and gaps
+- Added `HANDOFF.md` outlining current state, blockers, and next‑session checklist
+- Pushed all three files to the remote repository
+
+### In Progress
+- Photo upload to Google Drive (user must drag `Photos-3-001` folder into Drive)
+
+### For Produce
+> Next session: complete the Drive folder upload and obtain a Dragon Puffer photo for the headline.
 
 ## [2026-04-23 02:19 UTC] — Added guidance to extend ADC scopes for Claude Drive upload
 
