@@ -1,6 +1,17 @@
-**Last Updated:** 2026-04-23 00:00 UTC
+**Last Updated:** 2026-04-23 02:19 UTC
 
 # Changelog
+
+## [2026-04-23 02:19 UTC] — Added guidance to extend ADC scopes for Claude Drive upload
+
+### Done
+- Provided command to add Drive scope to Application Default Credentials for bulk photo upload
+
+### In Progress
+- Claude Drive authentication and photo upload (awaiting user to execute the suggested `gcloud auth application-default login` command)
+
+### For Produce
+> Next session: run the ADC scope command, re‑authenticate Claude Drive, and execute the upload script to transfer the 87 photos.
 
 ## [2026-04-23 00:00 UTC] — No code changes; pending authentication for photo upload
 

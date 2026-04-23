@@ -10,3 +10,7 @@ Auto-created by session dispatcher.
 
 - [x] Create sales page markdown with product listings and pricing.
 - [x] Set up CI workflow to lint markdown and enforce repository standards.
+### Added 2026-04-23 02:21 UTC (auto-dispatcher) - fish-sale-repo
+- Verify that the new ADC scopes are applied correctly.
+- Re‑run the upload script and confirm all 87 photos are uploaded.
+- Record any errors encountered during the upload for future troubleshooting.
