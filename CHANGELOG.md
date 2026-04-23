@@ -1,6 +1,17 @@
+**Last Updated:** 2026-04-23 00:00 UTC
+
 # Changelog
 
-**Last Updated:** 2026-04-22 23:30 UTC
+## [2026-04-23 00:00 UTC] — No code changes; pending authentication for photo upload
+
+### Done
+- None (no files created or modified)
+
+### In Progress
+- Authentication flow for Claude Drive access to upload the photo folder (awaiting user action)
+
+### For Produce
+> Next session: complete Claude Drive authentication and upload the product photos to the repository.
 
 ## [2026-04-22 23:30 UTC] — Reddit MCP wired up, draft reviewed, ready to post pending photos
 
