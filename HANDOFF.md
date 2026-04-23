@@ -1,7 +1,72 @@
-# Handoff: fish-sale-repo Synchronization & CI Setup
+**Last Updated:** 2026-04-23 02:30 UTC
 
-**Date:** 2026-04-22 21:30 UTC
-**Status:** Local Implementation Complete; Push Pending (Auth Issues)
+# Fish Sale — Session Handoff
+
+---
+
+## Current State (2026-04-23)
+
+### aquaswap-main-post.md (`queue/drafts/`) — READY FOR REVIEW
+Complete draft incorporating all feedback:
+- Taricha newts: full care paragraph, CA native, tank-raised, priced higher
+- Cajun dwarf crayfish: ~25 available, ~half blue morph, $5ea
+- Marmorkrebs: listed as "Assorted Marbled Crayfish — DM for details" (CA illegal, no sci name in post)
+- Cherax: flagged as huge specimen
+- Equipment: fully rewritten, honest about NIB-to-dirty range, $5–$10 or free for beat-up stuff
+- Condition disclaimer in body copy
+- Photos section: simplified to "DM for photos of specific animals/equipment"
+
+### PHOTO_CATALOG.md (repo root) — COMPLETE
+Full breakdown of all ~90 photos in `/Users/justin/Downloads/Photos-3-001/`:
+- Which photos go in r/aquaswap vs r/plantswap vs r/aquaticplantswap
+- Priority/order for each album
+- Do-not-post list with reasons
+- Videos that need ffmpeg conversion before Reddit upload
+- Flag: possible unlisted Anthurium sp. in `20260417_133823.jpg` / `133833.jpg` — verify species and add to plant list
+
+### Photos not yet reviewed (arrived late in session)
+These files exist in the photo folder but were never opened — check before posting:
+`IMG_0065` through `IMG_0091` (various — not all numbers exist, check dir)
+
+---
+
+## What's Blocked
+
+### Photos → Google Drive (failed)
+Google now blocks the `drive` scope for gcloud's default OAuth client ID.
+The Python upload script got 403s on every file. MCP is authenticated but uploading 87 files one-by-one via MCP is impractical.
+
+**Fix options when ready:**
+- **Easiest:** Open drive.google.com, create "Fish Sale Photos" folder, drag `/Users/justin/Downloads/Photos-3-001/` from Finder. 2 minutes.
+- **Scripted:** Set up a service account with Drive scope in GCloud project and use those credentials.
+
+### Still missing for r/aquaswap
+- Dragon Puffer photo — zero shots of the headline animal. Don't post without it.
+
+### Other drafts (not touched this session)
+- `queue/drafts/herpbst-post.md`
+- `queue/drafts/isopods-inverts-post.md`
+- `queue/drafts/plantswap-post.md`
+
+---
+
+## Next Session Checklist
+1. Open and review `IMG_0065–0091` — not yet cataloged
+2. Verify the Anthurium in `20260417_133823.jpg` — if it's clarinervium or similar, add to plant list
+3. Upload photos to Drive manually (Finder drag) or script with service account
+4. Get a Dragon Puffer photo before posting aquaswap
+5. Check Reddit karma on u/wowthisiseasytoremember — 90/10 rule before any post
+6. Review and finish the other three draft posts
+
+---
+
+## Repo
+`https://github.com/wowthisiseasytoremember-stack/fish.git` — branch: main
+All drafts and PHOTO_CATALOG.md are committed and pushed.
+
+---
+
+## Previous Handoff (2026-04-22)
 
 ## Work Completed
 
