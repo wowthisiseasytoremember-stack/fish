@@ -1,6 +1,17 @@
-**Last Updated:** 2026-04-24 10:20 UTC
+**Last Updated:** 2026-04-24 10:29 UTC
 
 # Changelog
+
+## [2026-04-24 10:29 UTC] — Planned safe reintegration of data fixes after merge conflict
+
+### Done
+- None (no code changes applied yet)
+
+### In Progress
+- Coordination plan to stash local CHANGELOG edit, pull remote, create branch `claude/polish-data-fixes-2026-04-24`, reapply three data fixes, and open a PR.
+
+### For Produce
+> Execute the housekeeping, branching, and data‑fix steps and submit a PR for review.
 
 ## [2026-04-24 10:20 UTC] — Updated Claude model to Opus and enabled experimental agent teams flag
 

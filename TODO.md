@@ -19,3 +19,10 @@ Auto-created by session dispatcher.
 - Acquire a high‑quality Dragon Puffer photo for the main feature.
 ### Added 2026-04-23 05:01 UTC (auto-dispatcher) - fish-sale-repo
 - NONE
+### Added 2026-04-24 10:31 UTC (auto-dispatcher) - fish-sale-repo
+- Add `.DS_Store` to `.gitignore`.
+- Stash current CHANGELOG modifications.
+- Pull latest remote changes.
+- Create branch `claude/polish-data-fixes-2026-04-24`.
+- Reapply Taricha ×10→×5 and remove Common Pleco card.
+- Open PR for these changes.
