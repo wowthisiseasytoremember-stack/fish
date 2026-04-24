@@ -1,6 +1,18 @@
-**Last Updated:** 2026-04-24 02:00 UTC
+**Last Updated:** 2026-04-24 10:20 UTC
 
 # Changelog
+
+## [2026-04-24 10:20 UTC] — Updated Claude model to Opus and enabled experimental agent teams flag
+
+### Done
+- Switched Claude `model` setting from `sonnet` to `opus` (Opus 4.6) in the project configuration.
+- Added missing environment variable `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS="1"` to enable agent‑teams functionality.
+
+### In Progress
+- Nothing
+
+### For Produce
+> Verify that the new Opus model behaves as expected and begin polishing site planning tasks.
 
 ## [2026-04-24 02:00 UTC] — Polish pass + data fixes on sale site
 
