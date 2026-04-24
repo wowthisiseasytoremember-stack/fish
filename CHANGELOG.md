@@ -1,6 +1,30 @@
-**Last Updated:** 2026-04-23 03:01 UTC
+**Last Updated:** 2026-04-24 02:00 UTC
 
 # Changelog
+
+## [2026-04-24 02:00 UTC] — Polish pass + data fixes on sale site
+
+### Done
+- Removed Ko-fi placeholder row (no URL yet) from Abigail's Vet Fund; Venmo now the only payment option, centered cleanly
+- Corrected Taricha Newt count ×10 → ×5 to match fish-room-content-brief.txt and Tank Inventory.md
+- Removed phantom "Common Pleco" card not present in any inventory source; Albino Pleco card preserved
+- Polished both Abigail photo placeholders with themed SVG icon, --color-fish dashed border at 0.18 opacity, and mono font label — matches site style instead of plain text
+- Raised body line-height from 1.6 to 1.65 for improved DM Sans readability
+- Added CSS focus-visible styles for search input (glow ring), rail category buttons (color ring), species cards (border + shadow ring), and map cells
+- Added keyboard interaction handlers (Enter/Space) to all species-entry cards for WCAG 2.1 AA compliance
+- Added tabindex="0" and role="button" to all species entries so keyboard users can tab through the catalog
+- Fixed SVG `viewbox` → `viewBox` (14 occurrences) — lowercase is invalid SVG attribute; browsers tolerated it but correct casing is proper
+- Moved `photos/Photos-3-001/` (personal notebook scans — medical/vet to-dos) out of repo to `~/Documents/notebook-scans/`; added `photos/` to `.gitignore`
+
+### In Progress
+- (none from this pass)
+
+### Blocked
+- Ko-fi URL not yet provided — donation block currently Venmo-only
+- Abigail photos still placeholder (awaiting parts/abigail-1.jpg + parts/abigail-2.jpg)
+
+### For Produce
+> Fish-sale site polished — Ko-fi row removed until URL provided, data errors fixed (Taricha ×5, no Common Pleco), accessibility and typography improvements applied. Ready to review in browser.
 
 ## [2026-04-23 03:01 UTC] — advised manual cleanup of Xcode DerivedData and session env size check
 

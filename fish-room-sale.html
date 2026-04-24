@@ -39,7 +39,7 @@ body {
   color: #c8d8e8;
   font-family: var(--font-body);
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.65;
   overflow-x: hidden;
   position: relative;
 }
@@ -977,6 +977,37 @@ footer span { margin: 0 0.75rem; }
   padding: 0.5rem 0.75rem;
   border-left: 2px solid rgba(0,180,216,0.15);
 }
+
+/* ============================================================
+   FOCUS & ACCESSIBILITY
+   ============================================================ */
+
+/* Search input focus-visible — border already handles it; add glow */
+#species-search:focus-visible {
+  outline: none;
+  border-color: rgba(0, 180, 216, 0.6);
+  box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.15);
+}
+
+/* Category rail items — keyboard nav */
+.rail-item:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--col-color, var(--color-fish));
+  border-radius: 8px;
+}
+
+/* Species cards — keyboard nav */
+.species-entry:focus-visible {
+  outline: none;
+  border-color: rgba(0, 180, 216, 0.5);
+  box-shadow: 0 0 0 2px rgba(0, 180, 216, 0.2);
+}
+
+/* Map cells — keyboard nav */
+.map-cell:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-fish);
+}
 </style>
 </head>
 <body>
@@ -995,7 +1026,7 @@ footer span { margin: 0 0.75rem; }
 <p class="hero-timestamp">Last updated: 2026-04-16 04:15 UTC</p>
 <div class="hero-scroll">
 <span>SCROLL</span>
-<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16">
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16">
 <polyline points="6 9 12 15 18 9"></polyline>
 </svg>
 </div>
@@ -1034,10 +1065,11 @@ footer span { margin: 0 0.75rem; }
 <div style="display: flex; gap: 2rem; align-items: flex-start; margin-top: 1.5rem; flex-wrap: wrap;">
 <!-- ABIGAIL PHOTO PLACEHOLDER — replace src with actual image path when ready -->
 <div style="flex-shrink: 0; width: 280px; max-width: 100%;">
-<div style="width: 280px; height: 320px; background: linear-gradient(135deg, rgba(0,180,216,0.06) 0%, rgba(0,0,0,0.25) 100%); border: 1px dashed rgba(255,255,255,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: rgba(180,210,240,0.35); font-family: var(--font-mono); font-size: 0.7rem; text-align: center; padding: 1rem;">
+<div style="width: 280px; height: 320px; background: linear-gradient(135deg, rgba(0,180,216,0.05) 0%, rgba(0,0,0,0.28) 100%); border: 1px dashed rgba(0,180,216,0.18); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; text-align: center; padding: 1rem;">
 <!-- REPLACE WITH: <img src="parts/abigail-1.jpg" alt="Abigail Breslin" style="width:100%;height:100%;object-fit:cover;border-radius:12px;"> -->
-          ABIGAIL PHOTO<br/>coming soon
-        </div>
+<svg width="28" height="28" fill="none" stroke="rgba(0,180,216,0.3)" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+<span style="font-family: var(--font-mono); font-size: 0.62rem; color: rgba(0,180,216,0.3); letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.6;">Photo<br/>coming soon</span>
+</div>
 </div>
 <div class="glass" style="flex: 1; min-width: 260px; padding: 2rem; line-height: 1.8;">
 <p style="margin-bottom: 1rem;">Our cat Abigail Breslin passed away recently at 13 years old. She was beautiful and strong and so smart and opinionated, and we did everything we could for her. We have about $4,000 in vet bills left from her care that still need to be paid.</p>
@@ -1056,7 +1088,7 @@ footer span { margin: 0 0.75rem; }
 <p class="section-label">Full Catalog</p>
 <h2 class="section-title">Species Compendium</h2>
 <div class="search-wrap">
-<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16">
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16">
 <circle cx="11" cy="11" r="8"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line>
 </svg>
 <input id="species-search" placeholder="Search species, common names, locations..." type="text"/>
@@ -1064,7 +1096,7 @@ footer span { margin: 0 0.75rem; }
 <div class="compendium-layout">
 <nav class="compendium-rail">
 <button class="rail-item active" data-category="fish" style="--col-color: var(--color-fish)">
-<svg fill="none" viewbox="0 0 24 24">
+<svg fill="none" viewBox="0 0 24 24">
 <ellipse cx="8" cy="12" fill="var(--color-fish)" opacity="0.3" rx="6" ry="4" stroke="var(--color-fish)" stroke-width="1.2"></ellipse>
 <path d="M14 12 C17 9 20 8 22 12 C20 16 17 15 14 12Z" fill="var(--color-fish)" opacity="0.5"></path>
 <circle cx="7" cy="11" fill="var(--color-fish)" r="1"></circle>
@@ -1073,7 +1105,7 @@ footer span { margin: 0 0.75rem; }
 <span class="rail-count">18 species</span>
 </button>
 <button class="rail-item" data-category="herp" style="--col-color: var(--color-herp)">
-<svg fill="none" viewbox="0 0 24 24">
+<svg fill="none" viewBox="0 0 24 24">
 <path d="M12 4 C8 4 5 7 5 11 C5 14 7 16 9 17 L9 20 L11 20 L11 17.5 L13 17.5 L13 20 L15 20 L15 17 C17 16 19 14 19 11 C19 7 16 4 12 4Z" fill="var(--color-herp)" opacity="0.35" stroke="var(--color-herp)" stroke-width="1.2"></path>
 <circle cx="9" cy="10" fill="var(--color-herp)" r="1.2"></circle>
 <circle cx="15" cy="10" fill="var(--color-herp)" r="1.2"></circle>
@@ -1082,7 +1114,7 @@ footer span { margin: 0 0.75rem; }
 <span class="rail-count">7 species</span>
 </button>
 <button class="rail-item" data-category="invert" style="--col-color: var(--color-invert)">
-<svg fill="none" viewbox="0 0 24 24">
+<svg fill="none" viewBox="0 0 24 24">
 <path d="M12 18 C8 18 5 15 5 12 C5 9 7 7 10 7 L14 7 C17 7 19 9 19 12 C19 15 16 18 12 18 Z" fill="var(--color-invert)" opacity="0.4" stroke="var(--color-invert)" stroke-width="1.2"></path>
 <line stroke="var(--color-invert)" stroke-linecap="round" stroke-width="1.2" x1="8" x2="6" y1="7" y2="4"></line>
 <line stroke="var(--color-invert)" stroke-linecap="round" stroke-width="1.2" x1="10" x2="9" y1="7" y2="4"></line>
@@ -1095,7 +1127,7 @@ footer span { margin: 0 0.75rem; }
 <span class="rail-count">12 species</span>
 </button>
 <button class="rail-item" data-category="plant" style="--col-color: var(--color-plant)">
-<svg fill="none" viewbox="0 0 24 24">
+<svg fill="none" viewBox="0 0 24 24">
 <path d="M12 20 L12 10" stroke="var(--color-plant)" stroke-linecap="round" stroke-width="1.5"></path>
 <path d="M12 14 C12 14 9 12 7 8 C10 8 13 10 12 14Z" fill="var(--color-plant)" opacity="0.5"></path>
 <path d="M12 11 C12 11 15 9 17 5 C14 5 11 7 12 11Z" fill="var(--color-plant)" opacity="0.5"></path>
@@ -1104,7 +1136,7 @@ footer span { margin: 0 0.75rem; }
 <span class="rail-count">22 species</span>
 </button>
 <button class="rail-item" data-category="hardware" style="--col-color: #94a3b8">
-<svg fill="none" viewbox="0 0 24 24">
+<svg fill="none" viewBox="0 0 24 24">
 <rect fill="none" height="14" rx="1.5" stroke="#94a3b8" stroke-width="1.5" width="18" x="3" y="5"></rect>
 <path d="M3 9h18M8 5v14m8-14v14" stroke="#94a3b8" stroke-width="1" opacity="0.6"></path>
 </svg>
@@ -1116,7 +1148,7 @@ footer span { margin: 0 0.75rem; }
 <!-- FISH COLUMN -->
 <div class="compendium-panel panel-active" data-category="fish" style="--col-color: var(--color-fish)">
 <div class="panel-header">
-<svg class="compendium-col-header-icon" fill="none" viewbox="0 0 24 24">
+<svg class="compendium-col-header-icon" fill="none" viewBox="0 0 24 24">
 <path d="M3 12 C3 8 7 5 12 5 C17 5 21 8 21 12 C21 16 17 19 12 19 C7 19 3 16 3 12 Z" fill="none" stroke="var(--color-fish)" stroke-width="1.8"></path>
 <path d="M19 8 L23 5 L22 12 L23 19 L19 16" fill="var(--color-fish)" opacity="0.7"></path>
 <circle cx="8" cy="10" fill="var(--color-fish)" r="1.4"></circle>
@@ -1329,18 +1361,7 @@ footer span { margin: 0 0.75rem; }
 </div>
 <span class="species-expand-icon">▸</span>
 </div>
-<div class="species-entry" data-search="Common Pleco Pterygoplichthys">
-<div class="species-info">
-<div class="species-common">Common Pleco (×1)</div>
-<div class="species-scientific">Pterygoplichthys sp.</div>
-<div class="species-badges">
-<span class="badge-care badge-intermediate">Intermediate</span>
-<span class="badge-inquire">Inquire</span>
-</div>
-<div class="species-detail">Large, hardy algae eater and detritivore. Nocturnal. Loves driftwood for rasping and lignin digestion. Plan for a very large long-term home.</div>
-</div>
-<span class="species-expand-icon">▸</span>
-</div>
+<!-- Common Pleco card removed — not in fish-room-content-brief.txt or Tank Inventory.md; only Albino Pleco is documented -->
 <div class="species-entry" data-search="Killifish species TBD Cyprinodontiformes">
 <div class="species-info">
 <div class="species-common">Killifish (species TBD)</div>
@@ -1358,7 +1379,7 @@ footer span { margin: 0 0.75rem; }
 <!-- HERPS COLUMN -->
 <div class="compendium-panel" data-category="herp" style="--col-color: var(--color-herp)">
 <div class="panel-header">
-<svg class="compendium-col-header-icon" fill="none" viewbox="0 0 24 24">
+<svg class="compendium-col-header-icon" fill="none" viewBox="0 0 24 24">
 <ellipse cx="12" cy="9" fill="var(--color-herp)" opacity="0.6" rx="4" ry="5"></ellipse>
 <ellipse cx="12" cy="7" fill="var(--color-herp)" rx="2.5" ry="2.5"></ellipse>
 <line stroke="var(--color-herp)" stroke-linecap="round" stroke-width="1.5" x1="8" x2="5" y1="11" y2="14"></line>
@@ -1410,7 +1431,7 @@ footer span { margin: 0 0.75rem; }
 <div class="species-entry" data-search="Taricha Newt Juvenile Taricha">
 <img alt="Taricha Newt" class="species-thumb" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()" src="https://commons.wikimedia.org/wiki/Special:FilePath/Taricha_granulosa_(Rough-skinned_newt).JPG?width=400"/>
 <div class="species-info">
-<div class="species-common">Taricha Newt, Juvenile (×10)</div>
+<div class="species-common">Taricha Newt, Juvenile (×5)</div>
 <div class="species-scientific">Taricha sp.</div>
 <div class="species-badges">
 <span class="badge-care badge-expert">Expert</span>
@@ -1463,7 +1484,7 @@ footer span { margin: 0 0.75rem; }
 <!-- INVERTEBRATES COLUMN -->
 <div class="compendium-panel" data-category="invert" style="--col-color: var(--color-invert)">
 <div class="panel-header">
-<svg class="compendium-col-header-icon" fill="none" viewbox="0 0 24 24">
+<svg class="compendium-col-header-icon" fill="none" viewBox="0 0 24 24">
 <path d="M12 18 C8 18 5 15 5 12 C5 9 7 7 10 7 L14 7 C17 7 19 9 19 12 C19 15 16 18 12 18 Z" fill="var(--color-invert)" opacity="0.4" stroke="var(--color-invert)" stroke-width="1.2"></path>
 <line stroke="var(--color-invert)" stroke-linecap="round" stroke-width="1.2" x1="8" x2="6" y1="7" y2="4"></line>
 <line stroke="var(--color-invert)" stroke-linecap="round" stroke-width="1.2" x1="10" x2="9" y1="7" y2="4"></line>
@@ -1631,7 +1652,7 @@ footer span { margin: 0 0.75rem; }
 <!-- PLANTS + FUNGI PANEL -->
 <div class="compendium-panel" data-category="plant" style="--col-color: var(--color-plant)">
 <div class="panel-header">
-<svg class="compendium-col-header-icon" fill="none" viewbox="0 0 24 24">
+<svg class="compendium-col-header-icon" fill="none" viewBox="0 0 24 24">
 <path d="M12 22 C12 22 4 16 4 9 C4 5 8 2 12 2 C16 2 20 5 20 9 C20 16 12 22 12 22 Z" fill="var(--color-plant)" opacity="0.4" stroke="var(--color-plant)" stroke-width="1.2"></path>
 <line stroke="var(--color-plant)" stroke-linecap="round" stroke-width="1.5" x1="12" x2="12" y1="22" y2="9"></line>
 </svg>
@@ -1914,7 +1935,7 @@ footer span { margin: 0 0.75rem; }
 <!-- HARDWARE PANEL -->
 <div class="compendium-panel" data-category="hardware" style="--col-color: #94a3b8">
 <div class="panel-header">
-<svg class="compendium-col-header-icon" fill="none" viewbox="0 0 24 24">
+<svg class="compendium-col-header-icon" fill="none" viewBox="0 0 24 24">
 <rect fill="none" height="14" rx="1.5" stroke="#94a3b8" stroke-width="1.8" width="18" x="3" y="5"></rect>
 <path d="M3 9h18M8 5v14m8-14v14" stroke="#94a3b8" stroke-width="1.2" opacity="0.6"></path>
 </svg>
@@ -2436,25 +2457,23 @@ footer span { margin: 0 0.75rem; }
 <section class="section" style="padding: 3rem 2rem; text-align: center;">
 <div style="max-width: 560px; margin: 0 auto;">
 <!-- ABIGAIL PHOTO PLACEHOLDER — replace with actual image when ready -->
-<div style="width: 220px; height: 220px; border-radius: 50%; background: linear-gradient(135deg, rgba(0,180,216,0.08) 0%, rgba(0,0,0,0.3) 100%); border: 1px dashed rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; color: rgba(180,210,240,0.35); font-family: var(--font-mono); font-size: 0.7rem; text-align: center; margin: 0 auto 1.5rem; padding: 1rem;">
+<div style="width: 220px; height: 220px; border-radius: 50%; background: linear-gradient(135deg, rgba(0,180,216,0.06) 0%, rgba(0,0,0,0.3) 100%); border: 1px dashed rgba(0,180,216,0.18); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; text-align: center; margin: 0 auto 1.5rem; padding: 1rem;">
 <!-- REPLACE WITH: <img src="parts/abigail-2.jpg" alt="Abigail Breslin" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"> -->
-      ABIGAIL PHOTO<br/>coming soon
-    </div>
+<svg width="24" height="24" fill="none" stroke="rgba(0,180,216,0.3)" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+<span style="font-family: var(--font-mono); font-size: 0.6rem; color: rgba(0,180,216,0.3); letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.6;">Photo<br/>coming soon</span>
+</div>
 <p style="font-family: var(--font-heading); font-size: 1.2rem; color: #e0eef8; margin-bottom: 1.5rem;">Abigail Breslin, 2013–2026</p>
 <div class="glass" style="padding: 1.75rem; text-align: left; margin-bottom: 1.25rem;">
 <p style="line-height: 1.9; margin-bottom: 1.25rem;">her name was Abigail Breslin, she was 13, she died of cancer. please please please hug your pets and get pet insurance. we were happy to go into debt to try and save her, but if we hadn't had that option and had no cash i don't even know what i would have done. i would have gone full denzel washington in that movie where he robs a hospital so his son won't die.</p>
 <p style="line-height: 1.9;">we lost Abigail and we're still paying for it — about $4,000 in vet bills outstanding. if this page helped you find something, or if you just want to help a stranger get through a hard month, anything means a lot. if you're just here for the fish, that's completely fine too.</p>
 </div>
-<div class="glass" style="padding: 1.75rem; text-align: left;">
+<div class="glass" style="padding: 1.75rem; text-align: center;">
 <p style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--color-fish); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;">Abigail's Vet Fund</p>
-<div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+<!-- Ko-fi row removed — URL not yet provided; add back when owner supplies the link -->
+<div style="display: flex; justify-content: center;">
 <div>
 <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--color-fish); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.3rem;">Venmo</div>
 <div style="color: #b8cfe0;">@jakeynguyen16</div>
-</div>
-<div>
-<div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--color-fish); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.3rem;">Ko-fi</div>
-<div style="color: #b8cfe0;">[KO-FI_LINK]</div>
 </div>
 </div>
 <p style="font-size: 0.85rem; color: rgba(180,210,240,0.5); margin-top: 1.25rem;">No pressure at all. Hug your pets.</p>
@@ -2769,10 +2788,18 @@ function applySearch() {
 }
 searchInput.addEventListener('keyup', applySearch);
 
-// Expand/collapse species entries
+// Expand/collapse species entries — with keyboard support
 document.querySelectorAll('.species-entry').forEach(entry => {
+  entry.setAttribute('tabindex', '0');
+  entry.setAttribute('role', 'button');
   entry.addEventListener('click', () => {
     entry.classList.toggle('expanded');
+  });
+  entry.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      entry.classList.toggle('expanded');
+    }
   });
 });
 
@@ -2864,6 +2891,12 @@ function switchCategory(newCategory) {
 
 railItems.forEach(function(item) {
   item.addEventListener('click', function() { switchCategory(item.dataset.category); });
+  item.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      switchCategory(item.dataset.category);
+    }
+  });
 });
 
 // Mark cards with no image
