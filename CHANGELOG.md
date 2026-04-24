@@ -1,6 +1,17 @@
-**Last Updated:** 2026-04-24 12:20 UTC
+**Last Updated:** 2026-04-24 23:05 UTC
 
 # Changelog
+
+## [2026-04-24 23:05 UTC] — cherry‑picked final post drafts into READY-TO-POST.md
+
+### Done
+- Updated `queue/drafts/READY-TO-POST.md` with unified language across all four Reddit posts (other cats, no judgment, quick reply, stronger CTAs) and post‑specific tweaks (equipment bullets, tag lines, donation framing, specificity, storage notes) all in lowercase Gear 3 voice.
+
+### In Progress
+- Nothing
+
+### For Produce
+> Prepare formatted Reddit markdown from `READY-TO-POST.md` for manual publishing.
 
 ## [2026-04-24 12:20 UTC] — Ready-to-post deliverable with copy-paste blocks and photo lists
 
