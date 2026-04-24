@@ -1,6 +1,6 @@
 # TODO — fish-sale-repo
 
-**Last Updated:** 2026-04-22 21:05 UTC
+**Last Updated:** 2026-04-24 12:01 UTC
 
 Auto-created by session dispatcher.
 
@@ -20,9 +20,13 @@ Auto-created by session dispatcher.
 ### Added 2026-04-23 05:01 UTC (auto-dispatcher) - fish-sale-repo
 - NONE
 ### Added 2026-04-24 10:31 UTC (auto-dispatcher) - fish-sale-repo
-- Add `.DS_Store` to `.gitignore`.
-- Stash current CHANGELOG modifications.
-- Pull latest remote changes.
-- Create branch `claude/polish-data-fixes-2026-04-24`.
-- Reapply Taricha ×10→×5 and remove Common Pleco card.
-- Open PR for these changes.
+- [x] Add `.DS_Store` to `.gitignore`.
+- [x] Stash current CHANGELOG modifications.
+- [x] Pull latest remote changes.
+- [x] Create branch `claude/polish-data-fixes-2026-04-24`.
+- [x] Reapply Taricha ×10→×5 and remove Common Pleco card.
+- [x] Open PR for these changes.
+
+### Remaining
+- [ ] Fill in `[VENMO_HANDLE]` and `[PAYPAL_HANDLE]` in Abigail memorial section
+- [ ] Replace Abigail photo placeholders with actual images when ready
