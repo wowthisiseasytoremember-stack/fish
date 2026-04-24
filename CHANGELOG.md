@@ -1,6 +1,19 @@
-**Last Updated:** 2026-04-24 23:05 UTC
+**Last Updated:** 2026-04-24 23:12 UTC
 
 # Changelog
+
+## [2026-04-24 23:12 UTC] — Reviewed branch status and posting blockers
+
+### Done
+- Analyzed unmerged branches `claude/check-project-status-uRFJO` and `claude/create-new-repo-qmDe2`, confirming their work is superseded by READY-TO-POST.md.
+- Identified the missing Dragon Puffer photo as the sole hard blocker before the r/AquaSwap listing can be posted.
+- Documented Reddit MCP limitations regarding image uploads.
+
+### In Progress
+- Nothing
+
+### For Produce
+> Verify the Dragon Puffer image is obtained and decide whether to delete the two experimental branches.
 
 ## [2026-04-24 23:05 UTC] — cherry‑picked final post drafts into READY-TO-POST.md
 

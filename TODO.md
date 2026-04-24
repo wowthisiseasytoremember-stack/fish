@@ -30,3 +30,6 @@ Auto-created by session dispatcher.
 ### Remaining
 - [ ] Fill in `[VENMO_HANDLE]` and `[PAYPAL_HANDLE]` in Abigail memorial section
 - [ ] Replace Abigail photo placeholders with actual images when ready
+### Added 2026-04-24 23:12 UTC (auto-dispatcher) - fish-sale-repo
+- Acquire the missing Dragon Puffer photo before posting the r/AquaSwap listing.  
+- Delete branches `claude/check-project-status-uRFJO` and `claude/create-new-repo-qmDe2` if no unique content is needed.
