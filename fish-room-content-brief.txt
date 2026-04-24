@@ -21,6 +21,49 @@ EXTRA INVENTORY NOTE
 --------------------
 The site lists the main animals and equipment, but the owner also has a large amount of unlisted items: substrates, spare terrariums, fertilizers, medications, CO2 equipment, hardscape (rocks, wood, cork bark), and more. Interested buyers should ask.
 
+SHIPMENT & PICKUP NOTES [USER ADDITIONS - NEEDS PROCESSING]
+------------------------------------------------------------
+LOCAL PICKUP PREFERRED: Owner strongly prefers local pickup or meetup in Los Angeles/Orange County areas. Shipping is last resort if buyer is genuinely interested.
+
+CONDITION NOTES: Due to owner's circumstances, many items show wear, dirt, or neglect. All items are priced accordingly. All animals are healthy, happy, disease-free (unless otherwise noted), and from responsible sources — no new additions or sketchy sourcing.
+
+NATIVE HERPS & CHYTRID FUNGUS WARNING: Taricha newts, Baja California tree frogs, and California tree frogs are NATIVE species. Despite being native, these animals can NEVER be released into the wild due to risk of introducing chytrid fungus. This is true of any herp, but people get confused about native species. Educate potential adopters.
+
+DETAILED EQUIPMENT SECTION [MASSIVE - REQUIRES ORGANIZATION]
+The following items are available and should be organized into the Equipment section with proper categories:
+
+NANO TANKS (1-3 gallons):
+- Various nano 1-3G, brand new in box with integrated filter and light (not high-end)
+
+TINY RIMMED TANKS (0.5-2 gallons):
+- ~10 various tanks in 0.5-2G range, all healthy fish living in them
+
+CYCLING & SUBSTRATE (ACTIVE/USED/DIRTY):
+- 3+ gallon bucket of dirty cycled Aquasoil from 5-year active tank (from 25G long just broken down)
+- Malaysian trumpet snails from cycled tank
+- Tons of gross filter media from active filters
+- Sponge filters small to huge
+- Active cycled setup (tank is over 5 years old, heavily established)
+
+TUBING & CONNECTORS:
+- Rolls of airline tubing
+- Rolls of filter tubing
+- Various glass intake and outtake tubes (different sizes, mostly dirty but nice)
+
+FILTERS (MOSTLY USED/DIRTY):
+- Fluval hang-on-back filters (mostly used, mostly dirty, range from tiny up to 50G giant one)
+
+MISCELLANEOUS EQUIPMENT (USED/DIRTY/FUNCTIONAL):
+- UNS lid for 10G rectangle (60U, just the lid)
+- Fluval Spec V tank (cycled with driftwood, emptied and dirty)
+- Full plastic greenhouse (at least 3 two-small one-medium and possibly walk-in somewhere)
+- 6-foot bamboo poles for bioactive setups or plants
+- Brand new grow panel lights in box
+- Long-necked aquatic plant lights (used and dirty but way nicer than new cheap ones)
+- Connectable plant lights
+- Tons of drainage/seeding/greenhouse flats and pot holders
+- High-end fish food (Sera and similar premium brands)
+
 ---
 
 ANIMALS AVAILABLE
@@ -211,18 +254,21 @@ AMPHIBIANS & REPTILES
     Quantity: 5 juveniles
     Care: Semi-terrestrial juveniles that become more aquatic as adults. All Taricha carry tetrodotoxin — handle with care, wash hands thoroughly. Experienced newt keepers only.
     Difficulty: Expert
+    CRITICAL: NATIVE CALIFORNIA SPECIES. Despite being native, these animals can NEVER be released into the wild due to risk of chytrid fungus transmission. This applies to all herps, but people get confused about native species. Educate adopters.
 
 30. Baja California Tree Frog
     Scientific name: Pseudacris hypochondriaca
     Quantity: ~5 specimens
     Care: Small, adaptable chorus frog. Moist enclosure with land and water access. Group available — great for bioactive setups.
     Difficulty: Intermediate
+    CRITICAL: NATIVE CALIFORNIA SPECIES. Despite being native, these animals can NEVER be released into the wild due to risk of chytrid fungus transmission. This applies to all herps, but people get confused about native species. Educate adopters.
 
 31. California Tree Frog
     Scientific name: Pseudacris sierra
     Quantity: 1 specimen
     Care: Small, hardy Pacific tree frog. Beginner-friendly with the right humidity and live insect diet.
     Difficulty: Beginner
+    CRITICAL: NATIVE CALIFORNIA SPECIES. Despite being native, these animals can NEVER be released into the wild due to risk of chytrid fungus transmission. This applies to all herps, but people get confused about native species. Educate adopters.
 
 32. Crested Dalmatian Gecko
     Scientific name: Correlophus ciliatus (Dalmatian morph)
