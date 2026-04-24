@@ -1,6 +1,18 @@
-**Last Updated:** 2026-04-23 02:28 UTC
+**Last Updated:** 2026-04-23 03:01 UTC
 
 # Changelog
+
+## [2026-04-23 03:01 UTC] — advised manual cleanup of Xcode DerivedData and session env size check
+
+### Done
+- Communicated safe removal of `~/Library/Developer/Xcode/DerivedData/*` to free 1.4 GB
+- Provided commands to verify `~/.claude/session-env` and `~/.claude/projects` sizes
+
+### In Progress
+- Nothing (awaiting user to execute cleanup commands)
+
+### For Produce
+> Verify that disk space has been reclaimed and resume planning polish for the fish-sale site.
 
 ## [2026-04-23 02:28 UTC] — Published final drafts and documentation to GitHub
 
