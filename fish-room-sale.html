@@ -39,7 +39,7 @@ body {
   color: #c8d8e8;
   font-family: var(--font-body);
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.65;
   overflow-x: hidden;
   position: relative;
 }
@@ -636,6 +636,16 @@ body {
 .rail-label { font-family: var(--font-heading); font-size: 1rem; color: #e0eef8; flex: 1; }
 .rail-count { font-family: var(--font-mono); font-size: 0.6rem; color: var(--col-color); opacity: 0.7; }
 
+/* Focus-visible for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid var(--color-fish);
+  outline-offset: 2px;
+}
+.rail-item:focus-visible {
+  background: rgba(0, 180, 216, 0.08);
+  border-color: var(--color-fish);
+}
+
 .compendium-panels { flex: 1; min-width: 0; position: relative; overflow: hidden; }
 
 .compendium-panel {
@@ -1039,8 +1049,9 @@ footer span { margin: 0 0.75rem; }
     <div style="display: flex; gap: 2rem; align-items: flex-start; margin-top: 1.5rem; flex-wrap: wrap;">
       <!-- ABIGAIL PHOTO PLACEHOLDER — replace src with actual image path when ready -->
       <div style="flex-shrink: 0; width: 280px; max-width: 100%;">
-        <div style="width: 280px; height: 320px; background: linear-gradient(135deg, rgba(0,180,216,0.06) 0%, rgba(0,0,0,0.25) 100%); border: 1px dashed rgba(255,255,255,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: rgba(180,210,240,0.35); font-family: var(--font-mono); font-size: 0.7rem; text-align: center; padding: 1rem;">
+        <div style="width: 280px; height: 320px; background: linear-gradient(135deg, rgba(0,180,216,0.06) 0%, rgba(0,0,0,0.25) 100%); border: 2px solid rgba(0,180,216,0.15); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: rgba(180,210,240,0.4); font-family: var(--font-mono); font-size: 0.7rem; text-align: center; padding: 1rem; gap: 0.75rem;">
           <!-- REPLACE WITH: <img src="parts/abigail-1.jpg" alt="Abigail Breslin" style="width:100%;height:100%;object-fit:cover;border-radius:12px;"> -->
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.5;"><path d="M12 21c-1.5 0-3-1.5-3-3s1.5-3 3-3 3 1.5 3 3-1.5 3-3 3z"/><path d="M5.5 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M18.5 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M8 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M16 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
           ABIGAIL PHOTO<br>coming soon
         </div>
       </div>
@@ -1349,19 +1360,6 @@ footer span { margin: 0 0.75rem; }
   <span class="species-expand-icon">▸</span>
 </div>
 
-<div class="species-entry" data-search="Common Pleco Pterygoplichthys">
-  <div class="species-info">
-    <div class="species-common">Common Pleco (×1)</div>
-    <div class="species-scientific">Pterygoplichthys sp.</div>
-    <div class="species-badges">
-      <span class="badge-care badge-intermediate">Intermediate</span>
-      <span class="badge-inquire">Inquire</span>
-    </div>
-    <div class="species-detail">Large, hardy algae eater and detritivore. Nocturnal. Loves driftwood for rasping and lignin digestion. Plan for a very large long-term home.</div>
-  </div>
-  <span class="species-expand-icon">▸</span>
-</div>
-
 <div class="species-entry" data-search="Killifish species TBD Cyprinodontiformes">
   <div class="species-info">
     <div class="species-common">Killifish (species TBD)</div>
@@ -1436,7 +1434,7 @@ footer span { margin: 0 0.75rem; }
 <div class="species-entry" data-search="Taricha Newt Juvenile Taricha">
   <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Taricha_granulosa_(Rough-skinned_newt).JPG?width=400" alt="Taricha Newt" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
-    <div class="species-common">Taricha Newt, Juvenile (×10)</div>
+    <div class="species-common">Taricha Newt, Juvenile (×5)</div>
     <div class="species-scientific">Taricha sp.</div>
     <div class="species-badges">
       <span class="badge-care badge-expert">Expert</span>
@@ -2183,8 +2181,9 @@ footer span { margin: 0 0.75rem; }
 <section class="section" style="padding: 3rem 2rem; text-align: center;">
   <div style="max-width: 560px; margin: 0 auto;">
     <!-- ABIGAIL PHOTO PLACEHOLDER — replace with actual image when ready -->
-    <div style="width: 220px; height: 220px; border-radius: 50%; background: linear-gradient(135deg, rgba(0,180,216,0.08) 0%, rgba(0,0,0,0.3) 100%); border: 1px dashed rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; color: rgba(180,210,240,0.35); font-family: var(--font-mono); font-size: 0.7rem; text-align: center; margin: 0 auto 1.5rem; padding: 1rem;">
+    <div style="width: 220px; height: 220px; border-radius: 50%; background: linear-gradient(135deg, rgba(0,180,216,0.08) 0%, rgba(0,0,0,0.3) 100%); border: 2px solid rgba(0,180,216,0.15); display: flex; flex-direction: column; align-items: center; justify-content: center; color: rgba(180,210,240,0.4); font-family: var(--font-mono); font-size: 0.7rem; text-align: center; margin: 0 auto 1.5rem; padding: 1rem; gap: 0.5rem;">
       <!-- REPLACE WITH: <img src="parts/abigail-2.jpg" alt="Abigail Breslin" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"> -->
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.5;"><path d="M12 21c-1.5 0-3-1.5-3-3s1.5-3 3-3 3 1.5 3 3-1.5 3-3 3z"/><path d="M5.5 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M18.5 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M8 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M16 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
       ABIGAIL PHOTO<br>coming soon
     </div>
     <p style="font-family: var(--font-heading); font-size: 1.2rem; color: #e0eef8; margin-bottom: 0.5rem;">Abigail Breslin, 2013&ndash;2026</p>
@@ -2611,6 +2610,16 @@ function switchCategory(newCategory) {
 
 railItems.forEach(function(item) {
   item.addEventListener('click', function() { switchCategory(item.dataset.category); });
+});
+
+// Keyboard navigation for rail items
+railItems.forEach(function(item) {
+  item.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      switchCategory(item.dataset.category);
+    }
+  });
 });
 
 // Mark cards with no image

@@ -1,6 +1,70 @@
-**Last Updated:** 2026-04-24 02:00 UTC
+**Last Updated:** 2026-04-24 12:20 UTC
 
 # Changelog
+
+## [2026-04-24 12:20 UTC] — Ready-to-post deliverable with copy-paste blocks and photo lists
+
+### Done
+- Created `queue/drafts/READY-TO-POST.md` with all 4 Reddit posts formatted as copy-paste blocks
+- Organized 91 Google Drive photos into per-post tables with direct view links
+- Added posting order recommendation (plants first, aquaswap last due to Dragon Puffer photo blocker)
+- Included cross-link placeholders, compliance reminders, and DONOTPOST warnings
+
+### Blocked
+- Dragon Puffer photo still missing — aquaswap post cannot go live without it
+
+### For Produce
+> Fish sale: all 4 Reddit post drafts ready as copy-paste blocks in READY-TO-POST.md with organized photo links. Dragon Puffer photo is the only blocker for the aquaswap post — the other 3 can post now.
+
+## [2026-04-24 12:01 UTC] — Data fixes, polish restore, PR #2 opened and merged
+
+### Done
+- Taricha Newt quantity corrected x10 → x5 (per fish-room-content-brief.txt)
+- Common Pleco card removed (not in content brief — only Albino Pleco exists)
+- Restored polish lost in PR #1 merge: body line-height 1.65, focus-visible outlines, keyboard Enter/Space on category rail, Abigail placeholder SVG paw-print icons with themed borders
+- Added .DS_Store to .gitignore
+- Resolved data-flow question: scripts/generate_html.py targets tank-inventory.html, NOT fish-room-sale.html — sale page is safe for hand edits
+- Synced local with remote (pull --rebase), cut branch, opened PR #2, merged
+
+### In Progress
+- [VENMO_HANDLE] and [PAYPAL_HANDLE] placeholders in Abigail memorial section still need real values
+
+### For Produce
+> fish-sale-repo: PR #2 merged — Taricha/Pleco data fixes and polish restored. Venmo/PayPal handles still placeholder. Site is otherwise ready for Reddit posting.
+
+## [2026-04-24 11:58 UTC] — Discussed Reddit posting workflow for fish sale announcements
+
+### Done
+- None (no code changes were made)
+
+### In Progress
+- Decision pending on Reddit posting method (Option A preferred, awaiting user confirmation)
+
+### For Produce
+> Determine the Reddit posting workflow and generate copy‑paste markdown for the sale posts.
+
+## [2026-04-24 10:29 UTC] — Planned safe reintegration of data fixes after merge conflict
+
+### Done
+- None (no code changes applied yet)
+
+### In Progress
+- Coordination plan to stash local CHANGELOG edit, pull remote, create branch `claude/polish-data-fixes-2026-04-24`, reapply three data fixes, and open a PR.
+
+### For Produce
+> Execute the housekeeping, branching, and data‑fix steps and submit a PR for review.
+
+## [2026-04-24 10:20 UTC] — Updated Claude model to Opus and enabled experimental agent teams flag
+
+### Done
+- Switched Claude `model` setting from `sonnet` to `opus` (Opus 4.6) in the project configuration.
+- Added missing environment variable `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS="1"` to enable agent‑teams functionality.
+
+### In Progress
+- Nothing
+
+### For Produce
+> Verify that the new Opus model behaves as expected and begin polishing site planning tasks.
 
 ## [2026-04-24 02:00 UTC] — Polish pass + data fixes on sale site
 
