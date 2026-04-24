@@ -1,9 +1,9 @@
-**Last Updated:** 2026-04-22 22:30 UTC
+**Last Updated:** 2026-04-24 11:30 UTC
 
 # Plant Swap / Rare Houseplants Draft Posts
 
 ## WHERE TO POST
-- **r/RareHouseplants** — check sidebar, sales may require flair or be limited to certain days
+- **r/RareHouseplantsBST** — check sidebar, sales may require flair or be limited to certain days
 - **r/houseplantscirclejerk** — skip, memes only
 - **Facebook: OC Plant Share** — facebook.com/groups/ocplantshare/ — active OC community, best for local pickup
 - **Facebook: Orange County Seed, Cutting and Plant Swap** — facebook.com/groups/112422163952189/
@@ -12,7 +12,7 @@
 
 ---
 
-## REDDIT TITLE (r/RareHouseplants)
+## REDDIT TITLE (r/RareHouseplantsBST)
 `[FS/FT] Garden Grove CA - Monstera Albo (2), Thai Constellation (2), Philodendron Billietiae, Rhaphidophora Hayi, Cebu Blue, Scindapsus + more - prices flexible`
 
 ---
@@ -21,9 +21,9 @@
 
 downsizing my entire plant collection along with my fish room. my cat Abigail passed away recently and i'm selling everything to cover her vet bills. i'd rather these go to people who will actually love them than sit here.
 
-prices are flexible. if you can pay full price great, if you're struggling let me know — good homes matter more than the number. if you want to throw something extra toward Abigail's vet fund: Venmo @jakeynguyen16 or Ko-fi: [KO-FI_URL]
+prices are flexible. if you can pay full price great, if you're struggling let me know — good homes matter more than the number. if you want to throw something extra toward Abigail's vet fund: Venmo @jakeynguyen16 or Ko-fi: ko-fi.com/thetangletrove
 
-full catalog at: **[WEBSITE_URL]**
+DM me for the full list — putting a website together but it's not up yet.
 
 pickup preferred in Garden Grove CA (92843). will consider shipping established plants at buyer's risk — serious inquiries only.
 
@@ -49,8 +49,16 @@ pickup preferred in Garden Grove CA (92843). will consider shipping established 
 | Epipremnum Global Green | x3+, established pots | $15–$25 each |
 | Epipremnum Lime Green | established | $10–$20 |
 | Epipremnum pinnatum | standard form | $10–$20 |
+| possible Anthurium sp. | verifying ID, DM if interested | TBD |
 
 also have aquatic plants: Java Moss, Spiky Moss, Riccia, Süsswassertang, Hornwort — priced by portion, ask.
+
+---
+
+### ALSO LISTING
+- aquatic plants + mosses on r/AquaSwap [LINK_PENDING]
+- isopods for bioactive on r/isopods [LINK_PENDING]
+- herps + enclosures on r/HerpBST [LINK_PENDING]
 
 DMs open. happy to send current photos of anything specific.
 
@@ -60,17 +68,24 @@ DMs open. happy to send current photos of anything specific.
 
 **HAVE: Monstera Albo, Thai Constellation, Philodendron Billietiae + more — Garden Grove CA, prices flexible**
 
-Selling my entire plant collection. My cat Abigail passed away and I'm covering vet bills — everything must go to good homes. Prices are flexible, I'm not trying to profit, just need the animals and plants taken care of by people who'll love them.
+selling my entire plant collection. my cat Abigail passed away and i'm covering vet bills — everything must go to good homes. prices are flexible, i'm not trying to profit, just need the animals and plants taken care of by people who'll love them.
 
-Pickup in Garden Grove (92843). DM me for photos of anything specific.
+pickup in Garden Grove (92843). DM me for photos of anything specific.
 
-Full list at: [WEBSITE_URL]
+full list: DM me for the full catalog — putting a website together but it's not up yet.
 
-Venmo @jakeynguyen16 if you want to help with Abigail's fund — no pressure at all.
+Venmo @jakeynguyen16 if you want to help with Abigail's fund — no pressure at all. also on Ko-fi: ko-fi.com/thetangletrove
 
 ---
 
-## NOTES
+## INTERNAL NOTES
+
+### PHOTO NOTES
+- Lead photo: aroid-monstera-albo-mostly-white-LEAD.jpg
+- Other key photos: aroid-epipremnum-albo-pink-white-LEAD.jpg, aroid-scindapsus-pictus-silver-sword-coco-pole.jpg
+- Photos at /Users/justin/Downloads/Photos-3-001/
+
+### RESEARCH NOTES
 - Monstera Albo market has softened — $150–$300 per plant is realistic, not $500+
 - Thai Constellation similarly down — $80–$150 is fair
 - Bundle the Monsteras and Philodendron Billietiae together for a strong post title
