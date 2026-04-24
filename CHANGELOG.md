@@ -1,6 +1,31 @@
-**Last Updated:** 2026-04-24 23:35 UTC
+**Last Updated:** 2026-04-24 23:39 UTC
 
 # Changelog
+
+## [2026-04-24 23:39 UTC] — Updated carousel dimensions to 640×480 px (4:3) for better portrait handling
+
+### Done
+- Modified `src/components/Carousel.jsx` to use a centered 640×480 px container.
+- Adjusted CSS in `styles/carousel.css` for new aspect ratio and centering.
+- Updated responsive breakpoints to accommodate the new size.
+
+### In Progress
+- Nothing
+
+### For Produce
+> Verify carousel appearance on mobile devices and merge the changes to `main`.
+
+## [2026-04-24 23:38 UTC] — Fixed photo display in carousel to fully contain images with letterboxing
+
+### Done
+- Updated carousel CSS/HTML to use `contain` mode, ensuring full photo visibility with black side bars when aspect ratios differ.
+- Refreshed page behavior so images now fit entirely inside the carousel frame.
+
+### In Progress
+- Nothing
+
+### For Produce
+> Verify carousel responsiveness on mobile devices and adjust breakpoints if needed.
 
 ## [2026-04-24 23:35 UTC] — Integrated 25 new photos into the carousel and prepared commit
 

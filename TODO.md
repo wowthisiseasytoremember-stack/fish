@@ -43,3 +43,6 @@ Auto-created by session dispatcher.
 ### Added 2026-04-24 23:26 UTC (auto-dispatcher) - fish-sale-repo
 - Ensure all Google Drive images are set to “Anyone with the link can view”.
 - Delete stale branches (if not already handled).
+### Added 2026-04-24 23:41 UTC (auto-dispatcher) - fish-sale-repo
+- Perform cross‑browser testing for the new carousel size.
+- Add unit test for carousel dimension logic.
