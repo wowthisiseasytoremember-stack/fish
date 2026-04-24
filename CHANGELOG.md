@@ -1,6 +1,19 @@
-**Last Updated:** 2026-04-24 23:18 UTC
+**Last Updated:** 2026-04-24 23:26 UTC
 
 # Changelog
+
+## [2026-04-24 23:26 UTC] — Added carousel UI and removed stock thumbnails
+
+### Done
+- Removed 31 `<img class="species-thumb">` tags and their CSS from `fish-room-sale.html`.
+- Implemented a 13‑slide carousel above the species compendium with auto‑advance, hover‑pause, navigation buttons, and dot indicators.
+- Added caption below the carousel: “actual photos from my fish room — more available on request, just DM me”.
+
+### In Progress
+- Nothing
+
+### For Produce
+> Verify carousel image URLs are publicly accessible and delete the two stale branches.
 
 ## [2026-04-24 23:18 UTC] — Cleaned blocker references and audited experimental branches
 

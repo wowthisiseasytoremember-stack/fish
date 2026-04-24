@@ -40,3 +40,6 @@ Auto-created by session dispatcher.
 ### Added 2026-04-24 23:20 UTC (auto-dispatcher) - fish-sale-repo
 - Confirm whether the photo carousel feature is required.
 - Delete `check-project-status-uRFJO` and `create-new-repo-qmDe2` branches if carousel is not needed.
+### Added 2026-04-24 23:26 UTC (auto-dispatcher) - fish-sale-repo
+- Ensure all Google Drive images are set to “Anyone with the link can view”.
+- Delete stale branches (if not already handled).
