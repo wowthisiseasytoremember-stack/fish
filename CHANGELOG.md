@@ -1,6 +1,17 @@
-**Last Updated:** 2026-04-24 23:30 UTC
+**Last Updated:** 2026-04-24 23:35 UTC
 
 # Changelog
+
+## [2026-04-24 23:35 UTC] — Integrated 25 new photos into the carousel and prepared commit
+
+### Done
+- Added 25 real photos (room overviews, fish, herps, inverts, plants, aroids, equipment) to `fish-room-sale.html` carousel, excluding DONOTPOST files, blurry newt shot, and duplicate files.
+
+### In Progress
+- Nothing
+
+### For Produce
+> Verify carousel loads all new images on production and push the commit.
 
 ## [2026-04-24 23:30 UTC] — Enabled public access to carousel image folder
 
