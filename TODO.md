@@ -33,3 +33,10 @@ Auto-created by session dispatcher.
 ### Added 2026-04-24 23:12 UTC (auto-dispatcher) - fish-sale-repo
 - Acquire the missing Dragon Puffer photo before posting the r/AquaSwap listing.  
 - Delete branches `claude/check-project-status-uRFJO` and `claude/create-new-repo-qmDe2` if no unique content is needed.
+### Added 2026-04-24 23:20 UTC (auto-dispatcher) - fish-sale-repo
+- Acquire high‑resolution Dragon Puffer photo for the species catalog.
+- Delete the two unmerged experimental branches from the repository.
+- Add unit tests for keyboard navigation and focus-visible behavior.
+### Added 2026-04-24 23:20 UTC (auto-dispatcher) - fish-sale-repo
+- Confirm whether the photo carousel feature is required.
+- Delete `check-project-status-uRFJO` and `create-new-repo-qmDe2` branches if carousel is not needed.

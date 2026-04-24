@@ -1,6 +1,33 @@
-**Last Updated:** 2026-04-24 23:12 UTC
+**Last Updated:** 2026-04-24 23:18 UTC
 
 # Changelog
+
+## [2026-04-24 23:18 UTC] — Cleaned blocker references and audited experimental branches
+
+### Done
+- Removed all occurrences of the “blocker” note from the three files where it appeared.
+- Ran a branch audit and produced a verdict table showing `check-project-status-uRFJO` and `create-new-repo-qmDe2` are safe to delete, pending carousel decision.
+
+### In Progress
+- Decision pending on whether to keep the experimental photo carousel UI from `create-new-repo-qmDe2`.
+
+### For Produce
+> Determine carousel retention and, if declined, delete the two unmerged experimental branches.
+
+## [2026-04-24 23:17 UTC] — Polish pass restored, species data corrected, PR merged
+
+### Done
+- Fixed Taricha quantity from x10 to x5 and removed Common Pleco entry in `fish-room-sale.html`.
+- Restored full polish pass: adjusted line-height, added `focus-visible` styles, improved keyboard navigation, inserted Abigail SVG placeholders.
+- Synced with remote, created branch, opened PR #2 and merged to `main`.
+- Updated `CHANGELOG`, `TODO`, and `.gitignore` to reflect recent changes.
+- Saved project memories about script safety and branch‑before‑edit requirement.
+
+### In Progress
+- Nothing
+
+### For Produce
+> Verify branch‑before‑edit enforcement and confirm no merge collisions before next nightly run.
 
 ## [2026-04-24 23:12 UTC] — Reviewed branch status and posting blockers
 

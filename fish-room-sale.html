@@ -889,27 +889,44 @@ footer span { margin: 0 0.75rem; }
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
 }
 
-.species-thumb {
+/* === CAROUSEL === */
+#main-carousel {
+  position: relative;
   width: 100%;
-  height: 130px;
-  object-fit: cover;
-  flex-shrink: 0;
-  display: block;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  background: rgba(0, 180, 216, 0.04);
+  height: 280px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 0.75rem;
+  background: rgba(0,180,216,0.06);
 }
-
-.species-thumb-placeholder {
-  width: 100%;
-  height: 130px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  opacity: 0.15;
-  background: rgba(0, 180, 216, 0.04);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+.carousel-track-wrap { width: 100%; height: 100%; overflow: hidden; }
+.carousel-track { display: flex; height: 100%; transition: transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94); }
+.carousel-slide { flex: 0 0 100%; height: 100%; }
+.carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.carousel-prev, .carousel-next {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.12);
+  color: #e0eef8; font-size: 1.6rem; line-height: 1;
+  width: 2.5rem; height: 2.5rem; border-radius: 50%;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s; z-index: 2;
+}
+.carousel-prev { left: 0.75rem; }
+.carousel-next { right: 0.75rem; }
+.carousel-prev:hover, .carousel-next:hover { background: rgba(0,0,0,0.72); }
+.carousel-dots {
+  position: absolute; bottom: 0.65rem; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 0.4rem; z-index: 2;
+}
+.carousel-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(255,255,255,0.32); border: none; cursor: pointer; padding: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+.carousel-dot.active { background: rgba(255,255,255,0.9); transform: scale(1.3); }
+.carousel-caption {
+  text-align: center; font-family: var(--font-mono); font-size: 0.65rem;
+  color: rgba(180,210,240,0.45); margin-bottom: 1.5rem; letter-spacing: 0.04em;
 }
 
 .species-info {
@@ -1080,6 +1097,16 @@ footer span { margin: 0 0.75rem; }
     <input type="text" id="species-search" placeholder="Search species, common names, locations...">
   </div>
 
+<div id="main-carousel">
+  <div class="carousel-track-wrap">
+    <div class="carousel-track"></div>
+  </div>
+  <button class="carousel-prev" aria-label="Previous photo">&#8249;</button>
+  <button class="carousel-next" aria-label="Next photo">&#8250;</button>
+  <div class="carousel-dots"></div>
+</div>
+<p class="carousel-caption">actual photos from my fish room &mdash; more available on request, just DM me</p>
+
   <div class="compendium-layout">
 
     <nav class="compendium-rail">
@@ -1141,7 +1168,6 @@ footer span { margin: 0 0.75rem; }
       </div>
       <div id="fish-list" class="panel-grid">
         <div class="species-entry" data-search="Ember Tetra Hyphessobrycon amandae">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Hyphessobrycon_amandae.jpg?width=400" alt="Ember Tetra" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Ember Tetra (×11)</div>
     <div class="species-scientific">Hyphessobrycon amandae</div>
@@ -1155,7 +1181,6 @@ footer span { margin: 0 0.75rem; }
 </div>
 
 <div class="species-entry" data-search="Dragon Puffer Pao palembangensis">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Pao_palembangensis_home.png?width=400" alt="Dragon Puffer" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Dragon Puffer (×1)</div>
     <div class="species-scientific">Pao palembangensis</div>
@@ -1195,7 +1220,6 @@ footer span { margin: 0 0.75rem; }
 </div>
 
 <div class="species-entry" data-search="Kuhli Loach Pangio kuhlii">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Pangio_kuhlii.jpg?width=400" alt="Kuhli Loach" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Kuhli Loach (Multiple)</div>
     <div class="species-scientific">Pangio kuhlii</div>
@@ -1209,7 +1233,6 @@ footer span { margin: 0 0.75rem; }
 </div>
 
 <div class="species-entry" data-search="Endler's Livebearer Poecilia wingei">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Endlers_Guppy_Poecilia_wingei.JPG?width=400" alt="Endler's Livebearer" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Endler's Livebearer (Multiple)</div>
     <div class="species-scientific">Poecilia wingei</div>
@@ -1223,7 +1246,6 @@ footer span { margin: 0 0.75rem; }
 </div>
 
 <div class="species-entry" data-search="Playfair's Killifish Pachypanchax playfairii">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Pachypanchax_playfairii.jpg?width=400" alt="Playfair's Killifish" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Playfair's Killifish</div>
     <div class="species-scientific">Pachypanchax playfairii</div>
@@ -1237,7 +1259,6 @@ footer span { margin: 0 0.75rem; }
 </div>
 
 <div class="species-entry" data-search="Red-eye Puffer Carinotetraodon irrubesco">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Carinotetraodon_irrubesco_male.JPG?width=400" alt="Red-eye Puffer" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Red-eye Puffer (×1 male)</div>
     <div class="species-scientific">Carinotetraodon irrubesco</div>
@@ -1251,7 +1272,6 @@ footer span { margin: 0 0.75rem; }
 </div>
 
 <div class="species-entry" data-search="Brichardi Cichlid Neolamprologus brichardi">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Neolamprologus_brichardi.jpg?width=400" alt="Brichardi Cichlid" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Brichardi Cichlid</div>
     <div class="species-scientific">Neolamprologus brichardi</div>
@@ -1265,7 +1285,6 @@ footer span { margin: 0 0.75rem; }
 </div>
 
 <div class="species-entry" data-search="Golden Killifish Fundulus chrysotus">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Fundulus_chrysotus_National_Aquarium.jpg?width=400" alt="Golden Killifish" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Golden Killifish</div>
     <div class="species-scientific">Fundulus chrysotus</div>
@@ -1279,7 +1298,6 @@ footer span { margin: 0 0.75rem; }
 </div>
 
 <div class="species-entry" data-search="Dwarf Cory Corydoras pygmaeus">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Corydoras_pygmaeus5333.jpg?width=400" alt="Dwarf Cory" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Dwarf Cory (×5 albino + ×1 standard)</div>
     <div class="species-scientific">Corydoras pygmaeus</div>
@@ -1293,7 +1311,6 @@ footer span { margin: 0 0.75rem; }
 </div>
 
 <div class="species-entry" data-search="Shell Dweller Colony Neolamprologus multifasciatus">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Neolamprologus_multifasciatus.jpg?width=400" alt="Shell Dweller Colony" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Shell Dweller Colony</div>
     <div class="species-scientific">Neolamprologus multifasciatus</div>
@@ -1307,7 +1324,6 @@ footer span { margin: 0 0.75rem; }
 </div>
 
 <div class="species-entry" data-search="Gardner's Killifish Fundulopanchax gardneri">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Fundulopanchax_gardneri.jpg?width=400" alt="Gardner's Killifish" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Gardner's Killifish</div>
     <div class="species-scientific">Fundulopanchax gardneri</div>
@@ -1334,7 +1350,6 @@ footer span { margin: 0 0.75rem; }
 </div>
 
 <div class="species-entry" data-search="American Flagfish Jordanella floridae">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Jordanella_floridae.jpg?width=400" alt="American Flagfish" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">American Flagfish (×3 adults + fry)</div>
     <div class="species-scientific">Jordanella floridae</div>
@@ -1391,7 +1406,6 @@ footer span { margin: 0 0.75rem; }
       </div>
       <div id="herp-list" class="panel-grid">
         <div class="species-entry" data-search="Baja California Tree Frog Pseudacris hypochondriaca">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Pseudacris_hypochondriaca_4221.jpg?width=400" alt="Baja California Tree Frog" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Baja California Tree Frog (~5)</div>
     <div class="species-scientific">Pseudacris hypochondriaca</div>
@@ -1418,7 +1432,6 @@ footer span { margin: 0 0.75rem; }
 </div>
 
 <div class="species-entry" data-search="Mediterranean House Gecko Hemidactylus turcicus">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Mediterranean_House_Gecko_(Hemidactylus_turcicus)_(52072035763).jpg?width=400" alt="Mediterranean House Gecko" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Mediterranean House Gecko (×2)</div>
     <div class="species-scientific">Hemidactylus turcicus</div>
@@ -1432,7 +1445,6 @@ footer span { margin: 0 0.75rem; }
 </div>
 
 <div class="species-entry" data-search="Taricha Newt Juvenile Taricha">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Taricha_granulosa_(Rough-skinned_newt).JPG?width=400" alt="Taricha Newt" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Taricha Newt, Juvenile (×5)</div>
     <div class="species-scientific">Taricha sp.</div>
@@ -1459,7 +1471,6 @@ footer span { margin: 0 0.75rem; }
 </div>
 
 <div class="species-entry" data-search="Day Gecko Phelsuma">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Gold_dust_day_gecko_at_flower.jpg?width=400" alt="Day Gecko" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Day Gecko (×1 male)</div>
     <div class="species-scientific">Phelsuma sp.</div>
@@ -1473,7 +1484,6 @@ footer span { margin: 0 0.75rem; }
 </div>
 
 <div class="species-entry" data-search="Crested Dalmatian Gecko Correlophus ciliatus">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Correlophus_ciliatus_33604286.jpg?width=400" alt="Crested Dalmatian Gecko" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Crested Dalmatian Gecko (×1 male)</div>
     <div class="species-scientific">Correlophus ciliatus</div>
@@ -1519,7 +1529,6 @@ footer span { margin: 0 0.75rem; }
 </div>
 
 <div class="species-entry" data-search="Red Swamp Crayfish Procambarus clarkii">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Procambarus_clarkii_(32290488233).jpg?width=400" alt="Red Swamp Crayfish" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Red Swamp Crayfish (×1)</div>
     <div class="species-scientific">Procambarus clarkii</div>
@@ -1533,7 +1542,6 @@ footer span { margin: 0 0.75rem; }
 </div>
 
 <div class="species-entry" data-search="Marmorkrebs Procambarus virginalis">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Procambarus_virginalis_(10.11646-zootaxa.4363.4.6)_Figure_2.png?width=400" alt="Marmorkrebs" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Marmorkrebs (colony)</div>
     <div class="species-scientific">Procambarus virginalis</div>
@@ -1547,7 +1555,6 @@ footer span { margin: 0 0.75rem; }
 </div>
 
 <div class="species-entry" data-search="Cajun Dwarf Crayfish Cambarellus shufeldtii">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Cambarellus_shufeldtii_-_inat_53939299.jpg?width=400" alt="Cajun Dwarf Crayfish" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Cajun Dwarf Crayfish (large colony)</div>
     <div class="species-scientific">Cambarellus shufeldtii</div>
@@ -1574,7 +1581,6 @@ footer span { margin: 0 0.75rem; }
 </div>
 
 <div class="species-entry" data-search="Australian Red Claw Crayfish Cherax quadricarinatus">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Cherax_quadricarinatus.jpg?width=400" alt="Australian Red Claw Crayfish" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Australian Red Claw Crayfish (×1)</div>
     <div class="species-scientific">Cherax quadricarinatus</div>
@@ -1614,7 +1620,6 @@ footer span { margin: 0 0.75rem; }
 </div>
 
 <div class="species-entry" data-search="Springtails Folsomia candida">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Folsomia_candida_-_Soil_Fauna_Diversity.jpeg?width=400" alt="Springtails" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Springtails (multiple containers)</div>
     <div class="species-scientific">Folsomia candida</div>
@@ -1628,7 +1633,6 @@ footer span { margin: 0 0.75rem; }
 </div>
 
 <div class="species-entry" data-search="Electric Blue Crayfish Procambarus alleni">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Procambarus_alleni_6078066.jpg?width=400" alt="Electric Blue Crayfish" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Electric Blue Crayfish (×1)</div>
     <div class="species-scientific">Procambarus alleni</div>
@@ -1708,7 +1712,6 @@ footer span { margin: 0 0.75rem; }
 </div>
 
 <div class="species-entry" data-search="Riccia Riccia fluitans">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Riccia_fluitans.jpeg?width=400" alt="Riccia" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Riccia</div>
     <div class="species-scientific">Riccia fluitans</div>
@@ -1722,7 +1725,6 @@ footer span { margin: 0 0.75rem; }
 </div>
 
 <div class="species-entry" data-search="Hornwort Ceratophyllum demersum">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Ceratophyllum_demersum_211295294.jpg?width=400" alt="Hornwort" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Hornwort</div>
     <div class="species-scientific">Ceratophyllum demersum</div>
@@ -1775,7 +1777,6 @@ footer span { margin: 0 0.75rem; }
 </div>
 
 <div class="species-entry" data-search="Philodendron billietiae">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Philodendron_billietiae_3zz.jpg?width=400" alt="Philodendron billietiae" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Philodendron billietiae</div>
     <div class="species-scientific">Philodendron billietiae</div>
@@ -1789,7 +1790,6 @@ footer span { margin: 0 0.75rem; }
 </div>
 
 <div class="species-entry" data-search="Monstera Albo Monstera deliciosa Albo Variegata">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Fruit_Salad_Plant_(Monstera_deliciosa_%27Albo-Variegata%27)_1.jpg?width=400" alt="Monstera Albo" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Monstera Albo (×2)</div>
     <div class="species-scientific">Monstera deliciosa 'Albo Variegata'</div>
@@ -1816,7 +1816,6 @@ footer span { margin: 0 0.75rem; }
 </div>
 
 <div class="species-entry" data-search="Scindapsus pictus Silver Vine">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Silver_Vine_(Scindapsus_pictus)_7.jpg?width=400" alt="Scindapsus pictus" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Scindapsus pictus</div>
     <div class="species-scientific">Scindapsus pictus</div>
@@ -1895,7 +1894,6 @@ footer span { margin: 0 0.75rem; }
 </div>
 
 <div class="species-entry" data-search="Monstera dubia Hayi shingling">
-  <img class="species-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Monstera_dubia_169279518.jpg?width=400" alt="Monstera dubia" loading="lazy" onerror="this.closest('.species-entry').classList.add('no-thumb'); this.remove()">
   <div class="species-info">
     <div class="species-common">Monstera dubia</div>
     <div class="species-scientific">Monstera dubia</div>
@@ -2622,10 +2620,79 @@ railItems.forEach(function(item) {
   });
 });
 
-// Mark cards with no image
-document.querySelectorAll('.species-entry').forEach(function(entry) {
-  if (!entry.querySelector('.species-thumb')) entry.classList.add('no-thumb');
-});
+// === CAROUSEL ===
+(function() {
+  var photos = [
+    {id:'1WZtTInKvKRbPKSUB4xHbtcrpYBtZl9Bf', alt:'Killifish'},
+    {id:'1UZb601w5EmljO9ifUkM-m4pdKo8vBrzv', alt:'Jewel Cichlid'},
+    {id:'1cQZzRvp35X7cVlEQ3RZjvNmUaG5okkj_', alt:'Shell Dweller'},
+    {id:'19Z0zZFKDDxyITpfE2aXce_1pXIjKFuGH', alt:'Berried Crayfish'},
+    {id:'1MVZSfWA_l0YqCUB_Di7Xmo6NhLT2B21R', alt:'Taricha Newt'},
+    {id:'1nNcpCwznw9rbYKvSMYDFWUL4djlDQgYv', alt:'Spiky Moss'},
+    {id:'1zyDvgn0vFaIrVS3JVxV5fif1lnEe0P4w', alt:'Susswassertang'},
+    {id:'1vmo932ri2kMfd7pfck5VhnDELn2Iurqp', alt:'Plants'},
+    {id:'1zECXBR_WX89EJTbRny3wVWcQzMMLiU8R', alt:'Fish Room Overview'},
+    {id:'1xZ1EvkpqntK1KDFJIYA5icWS9AZX0en0', alt:'Display Tank'},
+    {id:'1o-Hrfi1fMUFPQbP8ytb3sZyd67lOz8SV', alt:'Rack of Tanks'},
+    {id:'1pvS8WKjMxzpF_dU4XSGeQYNpoS_09Xgi', alt:'HOB Filters'},
+    {id:'1UEqCeFWMfH4l5X546HChUgNQ21uBjwI_', alt:'Canister Filter'},
+  ];
+
+  var idx = 0;
+  var timer = null;
+  var track = document.querySelector('.carousel-track');
+  var dots = document.querySelector('.carousel-dots');
+
+  photos.forEach(function(p, i) {
+    var slide = document.createElement('div');
+    slide.className = 'carousel-slide';
+    var img = document.createElement('img');
+    img.src = 'https://drive.google.com/thumbnail?id=' + p.id + '&sz=w1000';
+    img.alt = p.alt;
+    img.loading = i === 0 ? 'eager' : 'lazy';
+    img.onerror = function() { slide.remove(); rebuildDots(); };
+    slide.appendChild(img);
+    track.appendChild(slide);
+    var dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+    dot.addEventListener('click', function() { go(i); });
+    dots.appendChild(dot);
+  });
+
+  function rebuildDots() {
+    var slides = track.querySelectorAll('.carousel-slide');
+    dots.innerHTML = '';
+    slides.forEach(function(_, i) {
+      var dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === idx ? ' active' : '');
+      dot.addEventListener('click', function() { go(i); });
+      dots.appendChild(dot);
+    });
+  }
+
+  function go(n) {
+    var slides = track.querySelectorAll('.carousel-slide');
+    if (!slides.length) return;
+    idx = ((n % slides.length) + slides.length) % slides.length;
+    track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+    document.querySelectorAll('.carousel-dot').forEach(function(d, i) {
+      d.classList.toggle('active', i === idx);
+    });
+  }
+
+  function startTimer() {
+    timer = setInterval(function() { go(idx + 1); }, 4500);
+  }
+
+  var carousel = document.getElementById('main-carousel');
+  carousel.querySelector('.carousel-prev').addEventListener('click', function() { go(idx - 1); });
+  carousel.querySelector('.carousel-next').addEventListener('click', function() { go(idx + 1); });
+  carousel.addEventListener('mouseenter', function() { clearInterval(timer); timer = null; });
+  carousel.addEventListener('mouseleave', startTimer);
+
+  startTimer();
+})();
 </script>
 
 </body>
