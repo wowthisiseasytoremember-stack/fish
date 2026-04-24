@@ -1,6 +1,17 @@
-**Last Updated:** 2026-04-24 23:26 UTC
+**Last Updated:** 2026-04-24 23:30 UTC
 
 # Changelog
+
+## [2026-04-24 23:30 UTC] — Enabled public access to carousel image folder
+
+### Done
+- Changed Google Drive folder sharing to “Anyone with the link – Viewer” so all 13 carousel photos load correctly on the site.
+
+### In Progress
+- Nothing
+
+### For Produce
+> Verify that the carousel displays all images correctly on the live site and resolve any loading issues.
 
 ## [2026-04-24 23:26 UTC] — Added carousel UI and removed stock thumbnails
 
