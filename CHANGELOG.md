@@ -1,6 +1,23 @@
-**Last Updated:** 2026-04-25 00:24 UTC
+**Last Updated:** 2026-04-25 00:28 UTC
 
 # Changelog
+
+## [2026-04-25 00:28 UTC] — Added video carousel with captions and navigation controls
+
+### Done
+- Implemented single‑video view with prev/next arrows flanking the caption.
+- Added caption counter displaying “1 / 3”.
+- Set caption texts:
+  1. “baby newts trying and failing to eat crickets for the first time”
+  2. “dwarf cajun crayfish with salvinia”
+  3. “dwarf cajun closeup”
+- Updated navigation logic to swap iframe src, ensuring only one video plays at a time.
+
+### In Progress
+- Nothing
+
+### For Produce
+> Verify mobile responsiveness of the video carousel and adjust CSS as needed.
 
 ## [2026-04-25 00:24 UTC] — Updated memorial page and wired video clips
 
