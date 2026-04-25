@@ -889,16 +889,15 @@ footer span { margin: 0 0.75rem; }
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
 }
 
-/* === CAROUSEL === */
+/* === CAROUSEL (inside media panel — fills its container) === */
 #main-carousel {
-  position: relative;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  max-width: 640px;
-  margin: 0 auto 0.75rem;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  border-radius: 10px;
+  height: 100%;
+  border-radius: 0;
   background: rgba(0,180,216,0.06);
+  overflow: hidden;
 }
 .carousel-track-wrap { width: 100%; height: 100%; overflow: hidden; }
 .carousel-track { display: flex; height: 100%; transition: transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94); }
@@ -971,39 +970,55 @@ footer span { margin: 0 0.75rem; }
 }
 
 /* === VIDEO WALKTHROUGHS === */
-.videos-section {
+/* === MEDIA PANELS SECTION === */
+.media-panels-section {
   max-width: 1200px;
   margin: 3rem auto 2.5rem;
   padding: 0 1.5rem;
 }
-.videos-heading {
+.media-panels-heading {
   font-family: var(--font-heading);
-  font-weight: 300;
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
-  color: #e8f1fa;
-  margin: 0.25rem 0 0.5rem;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 500;
+  color: #e8f4ff;
+  margin: 0.25rem 0 1.25rem;
   letter-spacing: 0.01em;
 }
-.videos-intro {
-  color: rgba(200,216,232,0.7);
-  max-width: 620px;
-  margin-bottom: 1.75rem;
-  font-size: 0.95rem;
+.media-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
 }
-.video-carousel {
+@media (max-width: 900px) {
+  .media-panels { grid-template-columns: 1fr; }
+  .media-panels-section { margin: 2rem auto 1.5rem; padding: 0 1rem; }
+}
+.media-panel {
   position: relative;
   background: var(--bg-card);
   border: 1px solid var(--glass-border);
   border-radius: 14px;
   overflow: hidden;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+  display: flex;
+  flex-direction: column;
+}
+.media-panel__stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  overflow: hidden;
+}
+.media-panel--videos .video-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 0;
 }
 .video-frame {
   position: relative;
-  width: 100%;
-  padding-top: 56.25%;
   background: #000;
 }
 .video-frame iframe {
@@ -1021,6 +1036,15 @@ footer span { margin: 0 0.75rem; }
   gap: 1rem;
   padding: 0.75rem 1rem;
   border-top: 1px solid var(--glass-border);
+  background: rgba(1,10,20,0.4);
+}
+.video-caption-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  min-width: 0;
 }
 .video-caption-text {
   font-family: var(--font-mono);
@@ -1028,7 +1052,6 @@ footer span { margin: 0 0.75rem; }
   letter-spacing: 0.06em;
   color: rgba(180,210,240,0.8);
   text-align: center;
-  flex: 1;
 }
 .video-nav-btn {
   background: rgba(0,0,0,0.35);
@@ -1053,8 +1076,123 @@ footer span { margin: 0 0.75rem; }
   color: rgba(180,210,240,0.35);
   white-space: nowrap;
 }
-@media (max-width: 720px) {
-  .videos-section { margin: 2rem auto 1.5rem; padding: 0 1rem; }
+.media-panel__caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 0.85rem;
+  border-top: 1px solid var(--glass-border);
+  background: rgba(1,10,20,0.4);
+  min-height: 44px;
+}
+.media-panel__caption-text {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(232,244,255,0.65);
+}
+.media-panel__expand {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(1,10,20,0.55);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #e8f4ff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  opacity: 0.75;
+  transition: opacity 160ms ease, background 160ms ease, transform 160ms ease;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.media-panel__expand:hover,
+.media-panel__expand:focus-visible {
+  opacity: 1;
+  background: rgba(0,180,216,0.35);
+  transform: scale(1.05);
+  outline: none;
+}
+
+/* === MEDIA MODAL === */
+.media-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.media-modal.is-open { display: flex; }
+.media-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(1,10,20,0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: zoom-out;
+}
+.media-modal__inner {
+  position: relative;
+  width: 92vw;
+  height: 88vh;
+  max-width: 1600px;
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.media-modal__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(1,10,20,0.7);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #e8f4ff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 160ms ease, transform 160ms ease;
+}
+.media-modal__close:hover {
+  background: rgba(0,180,216,0.45);
+  transform: scale(1.05);
+}
+.media-modal__stage {
+  flex: 1;
+  position: relative;
+  background: #000;
+  overflow: hidden;
+}
+.media-modal__stage #main-carousel,
+.media-modal__stage .video-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 0;
+  border-radius: 0;
+}
+body.modal-open { overflow: hidden; }
+@media (max-width: 600px) {
+  .media-modal__inner { width: 96vw; height: 92vh; border-radius: 12px; }
+  .media-panel__expand { width: 32px; height: 32px; top: 8px; right: 8px; }
 }
 
 /* === COMPRESSED FOOTER GRID === */
@@ -1084,8 +1222,8 @@ footer span { margin: 0 0.75rem; }
   font-size: 0.95rem;
 }
 .memorial-photo {
-  width: 140px;
-  height: 140px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid rgba(0,180,216,0.25);
@@ -1313,37 +1451,64 @@ footer span { margin: 0 0.75rem; }
     <input type="text" id="species-search" placeholder="Search species, common names, locations...">
   </div>
 
-<div id="main-carousel">
-  <div class="carousel-track-wrap">
-    <div class="carousel-track"></div>
-  </div>
-  <button class="carousel-prev" aria-label="Previous photo">&#8249;</button>
-  <button class="carousel-next" aria-label="Next photo">&#8250;</button>
-  <div class="carousel-dots"></div>
-</div>
-<p class="carousel-caption">actual photos from my fish room &mdash; the cats aren't for sale, the gear is shown as-is (dirty filters and all), more available on request</p>
+<!-- MEDIA PANELS: photos + videos side by side -->
+<section class="media-panels-section">
+  <p class="section-label">Moving Pictures &amp; Stills</p>
+  <h3 class="media-panels-heading">See the Fish Room</h3>
 
-<!-- ============================================================
-     VIDEO WALKTHROUGHS
-     ============================================================ -->
-<section class="videos-section">
-  <p class="section-label">Moving Pictures</p>
-  <h3 class="videos-heading">Video Walkthroughs</h3>
-  <p class="videos-intro">Short clips of the room, tanks running, and specific animals. If you want to see a particular setup before driving out, just ask.</p>
-  <div class="video-carousel">
-    <div class="video-frame">
-      <iframe id="video-main" src="https://drive.google.com/file/d/1KfFMtT4-S97EN6jKFQwlc8PopgZJhnDs/preview" allow="autoplay" allowfullscreen></iframe>
-    </div>
-    <div class="video-caption-bar">
-      <button class="video-nav-btn" id="video-prev" aria-label="Previous video">&#8249;</button>
-      <div style="flex:1; text-align:center;">
-        <div class="video-caption-text" id="video-caption-text">baby newts trying and failing to eat crickets for the first time</div>
-        <div class="video-counter" id="video-counter">1 / 3</div>
+  <div class="media-panels">
+
+    <!-- PHOTO PANEL -->
+    <div class="media-panel media-panel--photos">
+      <button class="media-panel__expand" type="button" aria-label="Expand photos" data-expand="photos">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+      </button>
+      <div class="media-panel__stage">
+        <div id="main-carousel">
+          <div class="carousel-track-wrap">
+            <div class="carousel-track"></div>
+          </div>
+          <button class="carousel-prev" aria-label="Previous photo">&#8249;</button>
+          <button class="carousel-next" aria-label="Next photo">&#8250;</button>
+          <div class="carousel-dots"></div>
+        </div>
       </div>
-      <button class="video-nav-btn" id="video-next" aria-label="Next video">&#8250;</button>
+      <div class="media-panel__caption">
+        <span class="media-panel__caption-text">Photos from the fish room &mdash; cats not for sale, gear shown as-is</span>
+      </div>
     </div>
+
+    <!-- VIDEO PANEL -->
+    <div class="media-panel media-panel--videos">
+      <button class="media-panel__expand" type="button" aria-label="Expand video" data-expand="videos">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+      </button>
+      <div class="media-panel__stage">
+        <div class="video-frame">
+          <iframe id="video-main" src="https://drive.google.com/file/d/1KfFMtT4-S97EN6jKFQwlc8PopgZJhnDs/preview" allow="autoplay" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="video-caption-bar">
+        <button class="video-nav-btn" id="video-prev" aria-label="Previous video">&#8249;</button>
+        <div class="video-caption-center">
+          <div class="video-caption-text" id="video-caption-text">baby newts trying and failing to eat crickets for the first time</div>
+          <div class="video-counter" id="video-counter">1 / 3</div>
+        </div>
+        <button class="video-nav-btn" id="video-next" aria-label="Next video">&#8250;</button>
+      </div>
+    </div>
+
   </div>
 </section>
+
+<!-- MEDIA MODAL -->
+<div class="media-modal" id="media-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Expanded media viewer">
+  <div class="media-modal__backdrop" data-modal-close></div>
+  <div class="media-modal__inner">
+    <button class="media-modal__close" type="button" aria-label="Close" data-modal-close>&times;</button>
+    <div class="media-modal__stage" id="media-modal-stage"></div>
+  </div>
+</div>
 
   <div class="compendium-layout">
 
@@ -3006,6 +3171,51 @@ railItems.forEach(function(item) {
   carousel.addEventListener('mouseleave', startTimer);
 
   startTimer();
+})();
+
+// === MEDIA PANEL EXPAND / MODAL ===
+(function () {
+  var modal = document.getElementById('media-modal');
+  var modalStage = document.getElementById('media-modal-stage');
+  if (!modal || !modalStage) return;
+
+  var activeNode = null;
+  var originParent = null;
+  var originNextSibling = null;
+
+  function openPanel(panelKey) {
+    var source = panelKey === 'photos'
+      ? document.getElementById('main-carousel')
+      : document.querySelector('.media-panel--videos .video-frame');
+    if (!source) return;
+    activeNode = source;
+    originParent = source.parentNode;
+    originNextSibling = source.nextSibling;
+    modalStage.appendChild(source);
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+  }
+
+  function closeModal() {
+    if (activeNode && originParent) {
+      originNextSibling ? originParent.insertBefore(activeNode, originNextSibling) : originParent.appendChild(activeNode);
+    }
+    activeNode = null; originParent = null; originNextSibling = null;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+  }
+
+  document.querySelectorAll('[data-expand]').forEach(function (btn) {
+    btn.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); openPanel(btn.getAttribute('data-expand')); });
+  });
+  modal.querySelectorAll('[data-modal-close]').forEach(function (el) {
+    el.addEventListener('click', function (e) { e.preventDefault(); closeModal(); });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
 })();
 
 // === VIDEO CAROUSEL ===
