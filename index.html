@@ -930,6 +930,116 @@ footer span { margin: 0 0.75rem; }
   color: rgba(180,210,240,0.45); margin-bottom: 1.5rem; letter-spacing: 0.04em;
 }
 
+/* === FOSTER CATS === */
+.fosters-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+.foster-card {
+  margin: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.foster-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 180, 216, 0.4);
+}
+.foster-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+.foster-card figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(180,210,240,0.7);
+  padding: 0.75rem 1rem;
+  text-align: center;
+}
+@media (max-width: 640px) {
+  .fosters-grid { grid-template-columns: 1fr; }
+  .foster-card img { height: 220px; }
+}
+
+/* === VIDEO WALKTHROUGHS === */
+.videos-section {
+  max-width: 1200px;
+  margin: 3rem auto 2.5rem;
+  padding: 0 1.5rem;
+}
+.videos-heading {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  color: #e8f1fa;
+  margin: 0.25rem 0 0.5rem;
+  letter-spacing: 0.01em;
+}
+.videos-intro {
+  color: rgba(200,216,232,0.7);
+  max-width: 620px;
+  margin-bottom: 1.75rem;
+  font-size: 0.95rem;
+}
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.video-card {
+  margin: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.video-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 180, 216, 0.45);
+  box-shadow: 0 12px 36px rgba(0,180,216,0.12);
+}
+.video-frame {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  background: #000;
+  border-bottom: 1px solid var(--glass-border);
+}
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+.video-card figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(180,210,240,0.75);
+  padding: 0.85rem 1.1rem;
+  text-align: center;
+}
+@media (max-width: 720px) {
+  .videos-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .videos-section { margin: 2rem auto 1.5rem; padding: 0 1rem; }
+}
+
 .species-info {
   flex: 1;
   min-width: 0;
@@ -1065,19 +1175,48 @@ footer span { margin: 0 0.75rem; }
     <p class="section-label">Why We're Selling</p>
     <h2 class="section-title">Downsizing Sale</h2>
     <div style="display: flex; gap: 2rem; align-items: flex-start; margin-top: 1.5rem; flex-wrap: wrap;">
-      <!-- ABIGAIL PHOTO PLACEHOLDER — replace src with actual image path when ready -->
-      <div style="flex-shrink: 0; width: 280px; max-width: 100%;">
-        <div style="width: 280px; height: 320px; background: linear-gradient(135deg, rgba(0,180,216,0.06) 0%, rgba(0,0,0,0.25) 100%); border: 2px solid rgba(0,180,216,0.15); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: rgba(180,210,240,0.4); font-family: var(--font-mono); font-size: 0.7rem; text-align: center; padding: 1rem; gap: 0.75rem;">
-          <!-- REPLACE WITH: <img src="parts/abigail-1.jpg" alt="Abigail Breslin" style="width:100%;height:100%;object-fit:cover;border-radius:12px;"> -->
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.5;"><path d="M12 21c-1.5 0-3-1.5-3-3s1.5-3 3-3 3 1.5 3 3-1.5 3-3 3z"/><path d="M5.5 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M18.5 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M8 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M16 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
-          ABIGAIL PHOTO<br>coming soon
-        </div>
+      <!-- ABIGAIL PHOTO STACK -->
+      <div style="flex-shrink: 0; width: 280px; max-width: 100%; display: flex; flex-direction: column; gap: 0.75rem;">
+        <figure style="margin: 0;">
+          <img src="https://drive.google.com/thumbnail?id=1yRxL2fzE7GsNopTF3_qEWXag-oLMN9FY&sz=w1000"
+               alt="Abigail Breslin, our tortoiseshell cat, wearing a small holiday hat"
+               style="width: 280px; height: 320px; object-fit: cover; border-radius: 12px; border: 2px solid rgba(0,180,216,0.25); box-shadow: 0 8px 24px rgba(0,0,0,0.4); display: block;"
+               loading="lazy">
+        </figure>
+        <figure style="margin: 0;">
+          <img src="https://drive.google.com/thumbnail?id=1c-xR8D2RZ4s9EXZVBCtr9uybS4DpkTtw&sz=w1000"
+               alt="Abigail being held outdoors"
+               style="width: 280px; height: 200px; object-fit: cover; border-radius: 12px; border: 2px solid rgba(0,180,216,0.15); box-shadow: 0 6px 18px rgba(0,0,0,0.35); display: block;"
+               loading="lazy">
+          <figcaption style="font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(180,210,240,0.5); margin-top: 0.5rem; text-align: center;">Abigail Breslin &middot; 2012&ndash;2025</figcaption>
+        </figure>
       </div>
       <div class="glass" style="flex: 1; min-width: 260px; padding: 2rem; line-height: 1.8;">
         <p style="margin-bottom: 1rem;">Our cat Abigail Breslin passed away recently at 13 years old. She was beautiful and strong and so smart and opinionated, and we did everything we could for her. That left us with about $4,000 in emergency vet bills that still need to be paid.</p>
         <p style="margin-bottom: 1rem;">So we're downsizing. These animals and setups have been years in the making, and we're not looking to fire-sale them to the first person with cash. We want them going to people who actually keep this stuff and know what they're getting into. If that's you, we'd rather work with you on price than watch something we care about end up neglected.</p>
         <p style="color: var(--color-fish);"><strong>Prices are negotiable, especially if you're bundling.</strong> Reach out and we'll figure it out.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CURRENT FOSTERS
+     ============================================================ -->
+<section class="section fosters-section" style="padding-top: 0.5rem; padding-bottom: 2rem;">
+  <div style="max-width: 800px; margin: 0 auto;">
+    <p class="section-label">Still In The House</p>
+    <h3 style="font-family: var(--font-heading); font-weight: 300; font-size: 2rem; color: #e8f1fa; margin-bottom: 0.5rem;">Current Fosters</h3>
+    <p style="color: rgba(200,216,232,0.75); margin-bottom: 1.5rem; max-width: 560px;">We still foster cats through our local rescue. These two aren't for sale &mdash; they're just passing through on the way to their forever homes.</p>
+    <div class="fosters-grid">
+      <figure class="foster-card">
+        <img src="https://drive.google.com/thumbnail?id=1COLC4LE1XxNwqYR55fVVaSBWNVvh-rLt&sz=w1000" alt="Foster mother cat with four kittens in a nesting box" loading="lazy">
+        <figcaption>Mom &amp; four kittens</figcaption>
+      </figure>
+      <figure class="foster-card">
+        <img src="https://drive.google.com/thumbnail?id=1etxQ1sXH9RnKJuerkEaefFApgzV8csHn&sz=w1000" alt="Two gray and white foster cats snuggling" loading="lazy">
+        <figcaption>Bonded pair, snuggling</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -1106,7 +1245,30 @@ footer span { margin: 0 0.75rem; }
   <button class="carousel-next" aria-label="Next photo">&#8250;</button>
   <div class="carousel-dots"></div>
 </div>
-<p class="carousel-caption">actual photos from my fish room &mdash; more available on request, just DM me</p>
+<p class="carousel-caption">actual photos from my fish room &mdash; the cats aren't for sale, the gear is shown as-is (dirty filters and all), more available on request</p>
+
+<!-- ============================================================
+     VIDEO WALKTHROUGHS
+     ============================================================ -->
+<section class="videos-section">
+  <p class="section-label">Moving Pictures</p>
+  <h3 class="videos-heading">Video Walkthroughs</h3>
+  <p class="videos-intro">Short clips of the room, tanks running, and specific animals. If you want to see a particular setup before driving out, just ask.</p>
+  <div class="videos-grid">
+    <figure class="video-card">
+      <div class="video-frame">
+        <iframe src="https://drive.google.com/file/d/VIDEO_ID_1/preview" allow="autoplay" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <figcaption>Fish room walkthrough</figcaption>
+    </figure>
+    <figure class="video-card">
+      <div class="video-frame">
+        <iframe src="https://drive.google.com/file/d/VIDEO_ID_2/preview" allow="autoplay" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <figcaption>Tank rack, feeding time</figcaption>
+    </figure>
+  </div>
+</section>
 
   <div class="compendium-layout">
 
@@ -2624,31 +2786,111 @@ railItems.forEach(function(item) {
 // === CAROUSEL ===
 (function() {
   var photos = [
+    // Emotional anchor
+    {id:'19c30m3VDRZTaek_RF0VTXJS4CYv7AlgU', alt:'Abigail Breslin, our cat — the reason for this sale'},
+
+    // Fish room establishing shots
     {id:'1IK2qbeitVUojyz0abREqareu5I5lMqX_', alt:'Fish Room Overview'},
-    {id:'1vA_wIE1WrI74DF9brgbytqGXaGA2XH1i', alt:'Aroids and Tanks'},
-    {id:'1o-Hrfi1fMUFPQbP8ytb3sZyr67lOz8SV', alt:'Tank Rack'},
-    {id:'1UZb601w5EmljO9ifUkM-m4pdKo8vBrzv', alt:'Jewel Cichlid'},
-    {id:'1Foh5q3Ydh18meokuH_sMItRo_NUxr9Zg', alt:'Jewel Cichlid Closeup'},
+    {id:'1zECXBR_WX89EJTbRny3wVWcQzMMLiU8R', alt:'Multiple tanks, overhead view'},
+    {id:'1o-Hrfi1fMUFPQbP8ytb3sZyr67lOz8SV', alt:'Tank rack'},
+    {id:'1vA_wIE1WrI74DF9brgbytqGXaGA2XH1i', alt:'Aroids and tanks'},
+    {id:'12LC844-VpEueznMYFch2UMO8626nI7tC', alt:'Plant shelf'},
+
+    // Fish — jewel cichlids
+    {id:'1UZb601w5EmljO9ifUkM-m4pdKo8vBrzv', alt:'Jewel cichlid'},
+    {id:'1Foh5q3Ydh18meokuH_sMItRo_NUxr9Zg', alt:'Jewel cichlid closeup'},
+    {id:'1DXAS-e64CfixfVKXBguPLfwEdZHMbqqf', alt:'Jewel cichlid in tank, angle 1'},
+    {id:'1eUQKP1fojHa4f9nvFPaglIG_Gz8kRtvP', alt:'Jewel cichlid in tank, angle 2'},
+    {id:'1_Jely0wzuda2KTuM1JKRDDJiOAfY6rSc', alt:'Jewel cichlid, full body'},
+    {id:'1ypV4EMfSGJnsWZZJspNVizsXmGkg11d8', alt:'Jewel cichlid, full body angle 2'},
+
+    // Fish — killifish
     {id:'1WZtTInKvKRbPKSUB4xHbtcrpYBtZl9Bf', alt:'Killifish'},
-    {id:'1N8bbrD5mby7Iz9yC9MnZIpTT9IWMFlH9', alt:'Killifish in Container'},
-    {id:'1cQZzRvp35X7cVlEQ3RZjvNmUaG5okkj_', alt:'Shell Dweller'},
-    {id:'1AddzSCd_tXHseZwd9ZbPGeArbj4ygia_', alt:'Shell Dwellers with Shells'},
-    {id:'1MVZSfWA_l0YqCUB_Di7Xmo6NhLT2B21R', alt:'Taricha Newt'},
-    {id:'1TT_rPNlDfG_oTSDEgJD4XDSKh8gq30kO', alt:'Taricha Newt Angle'},
-    {id:'19Z0zZFKDDxyITpfE2aXce_1pXIjKFuGH', alt:'Berried Crayfish'},
-    {id:'1t5hZEfWzry-mmFOeLjAlrOo5Ju1F44c-', alt:'Crayfish Container'},
-    {id:'1nNcpCwznw9rbYKvSMYDFWUL4djlDQgYv', alt:'Spiky Moss'},
+    {id:'1nBhkZN5Fu6lWGWmeWK05dDrIrfdE8_ZR', alt:'Killifish facing right'},
+    {id:'1IfIuFyVrSBCJVdjG-a9UF2-44aQ66z5R', alt:'Killifish facing left'},
+    {id:'1_sSdEPoFDcBkfBVHZ2ioWe-WoNssZc4r', alt:'Killifish side angle'},
+    {id:'1N8bbrD5mby7Iz9yC9MnZIpTT9IWMFlH9', alt:'Killifish in container'},
+    {id:'1RYPHvLVh-8vJT2oYcgL5YfPVYeA-iyJZ', alt:'Killifish container, top down'},
+
+    // Fish — shell dwellers
+    {id:'1cQZzRvp35X7cVlEQ3RZjvNmUaG5okkj_', alt:'Shell dweller'},
+    {id:'1AddzSCd_tXHseZwd9ZbPGeArbj4ygia_', alt:'Shell dwellers with shells'},
+
+    // Herps
+    {id:'1MVZSfWA_l0YqCUB_Di7Xmo6NhLT2B21R', alt:'Taricha newt'},
+    {id:'1TT_rPNlDfG_oTSDEgJD4XDSKh8gq30kO', alt:'Taricha newt, angle'},
+
+    // Inverts
+    {id:'19Z0zZFKDDxyITpfE2aXce_1pXIjKFuGH', alt:'Berried crayfish'},
+    {id:'1t5hZEfWzry-mmFOeLjAlrOo5Ju1F44c-', alt:'Crayfish container'},
+
+    // Aquatic plants
+    {id:'1nNcpCwznw9rbYKvSMYDFWUL4djlDQgYv', alt:'Spiky moss'},
     {id:'1zyDvgn0vFaIrVS3JVxV5fif1lnEe0P4w', alt:'Susswassertang'},
-    {id:'1AFjEWSCU9RWNgwkDqebq1f1L9bjw-WHd', alt:'Riccia Fluitans'},
-    {id:'1WL_XPaeiFLaQQ2KpSOjPO933hsaHRuL8', alt:'Riccia Tank'},
+    {id:'1AFjEWSCU9RWNgwkDqebq1f1L9bjw-WHd', alt:'Riccia fluitans'},
+    {id:'1WL_XPaeiFLaQQ2KpSOjPO933hsaHRuL8', alt:'Riccia tank'},
     {id:'1vmo932ri2kMfd7pfck5VhnDELn2Iurqp', alt:'Aquaplants'},
-    {id:'10kZxSKZdt-0Gd3i7Sk3Fcs-rhG53cNwE', alt:'Monstera Albo'},
-    {id:'1BfCZZ4nfP3qLVI_M1kUfNYadeItNaiPC', alt:'Epipremnum Albo'},
+
+    // Monstera albo
+    {id:'10kZxSKZdt-0Gd3i7Sk3Fcs-rhG53cNwE', alt:'Monstera albo'},
+    {id:'1zC-2RQuO-PUdFAaZkbIHYwhhLj7T50pI', alt:'Monstera albo, fenestrated lead'},
+    {id:'1_ACOpUWanWAmEhS_oBQ4TOxfFItBjmD-', alt:'Monstera albo, fenestrated angle'},
+    {id:'1ivt5nhmr1xIqaprWM1nniPYzbfRf0do9', alt:'Monstera albo, fenestrated angle 2'},
+    {id:'1GSYNskSik5APOs9PZYdkSHHLakX-ZOk2', alt:'Monstera albo, small fenestrated'},
+    {id:'1aeHp5HucpH3oGkrAif8P4wj4mU_Yx-37', alt:'Monstera albo, young plant overhead'},
+    {id:'1fyX9ZqRPrfE_0BtqRNPyf5RAW8ZMKm_L', alt:'Monstera albo, young plant closeup'},
+    {id:'1ceuhOQOMBUTwMHqCNMS7rEKnTgqt-uCv', alt:'Monstera albo, long vines'},
+    {id:'1QJ8JfIBxuk2uJOin6NZ7Lt7RUGZifq-7', alt:'Monstera albo, green and white vine'},
+    {id:'1yYZFwI9W3kzhEqo_afees5shawokwtRw', alt:'Jose Buono / Paraiso Verde'},
+
+    // Epipremnum albo
+    {id:'1BfCZZ4nfP3qLVI_M1kUfNYadeItNaiPC', alt:'Epipremnum albo'},
+    {id:'13lI08C3NEVDcZ8R-yKR3ZmCunMm--S-6', alt:'Epipremnum albo, white leaf closeup'},
+    {id:'1yc-c-beBZd0ZcYKW4wJaJpL7cYisE_GE', alt:'Epipremnum albo, three white leaves'},
+    {id:'1quAoqk1C5-rPH7fWVr-OZ_yOsJJrrGKb', alt:'Epipremnum albo, single white leaf'},
+    {id:'1AJWv3SVI_z8t7ymyE6XM-fjnNm1MVIY5', alt:'Epipremnum albo, pale yellow vine'},
+    {id:'1cwrGAnt05OfjbuX4dmh7OaG_JnDtyzQ4', alt:'Epipremnum albo, pale cream vine'},
+    {id:'1jWgq8c7r0cPhtGl4GkSyqEjfWmXb47IJ', alt:'Epipremnum albo, new growth curled'},
+    {id:'1pRpjBpi0BQCsyNVrLDuCanIinYUlJ6dZ', alt:'Epipremnum albo, hand for scale'},
+    {id:'1z3fGWc_mIiBjQ1i5DgBcWPcwdVGGIYs1', alt:'Epipremnum albo, green and white mottled'},
+    {id:'1Gve38my9cvL50m9Fxf1tLef4L925vGlI', alt:'Epipremnum albo, green and white mix'},
+
+    // Scindapsus & mixed aroids
+    {id:'1S_LiY_IWsAdc3zoBsobp37ETJuVkJyy5', alt:'Scindapsus, mottled'},
+    {id:'1EZKaJAnks_D6Ysi6JCW3K2bBjxGSNnty', alt:'Scindapsus silver sword on coco pole'},
+    {id:'1PKSoGCcXu1kkX6XylrrvSzWk2iAaQJsz', alt:'Variegated green and white mix'},
     {id:'1verD5HlrUv-mk7AuUQnZ610N-nrf90eA', alt:'Anthurium'},
-    {id:'1pumEI034TqYu7oEMDodDBtryvGhRP-gZ', alt:'Aroid Shelf'},
-    {id:'1xZ1EvkpqntK1KDFJIYA5icWS9AZX0en0', alt:'Display Tank'},
-    {id:'1pvS8WKjMxzpF_dU4XSGeQYNpoS_09Xgi', alt:'HOB Filters'},
-    {id:'1bIqj0lh-JH8A8Xjs7Mz1OoAv7yFBc5Rm', alt:'Tank Supplies'},
+    {id:'1pumEI034TqYu7oEMDodDBtryvGhRP-gZ', alt:'Aroid shelf'},
+
+    // Display
+    {id:'1xZ1EvkpqntK1KDFJIYA5icWS9AZX0en0', alt:'Display tank'},
+
+    // Equipment — clean/labeled
+    {id:'1Z1lEF5s1x2stc_zmFmUeK8e6KzNVId-i', alt:'Large tank, labeled'},
+    {id:'1tU3kAD-QOIVzW5xGmS_00PtinQEjXCPP', alt:'Marineland hood label'},
+    {id:'1G51wKJEBzSUyppIZEGMqIBdSaJO72bFn', alt:'Acrylic terrarium, open front'},
+    {id:'1SKKG8_WnAZgX9EwEHOWzQBlTk6fB30TP', alt:'Small acrylic enclosures'},
+    {id:'1Ic5dfJa4b8s8RktNcY8Vas2QGsH6t2mY', alt:'Portable greenhouse shelving'},
+    {id:'1P-4ui0Lj4l_Aduc303KG0R0igTTrJy3W', alt:'Plastic storage tub'},
+    {id:'1rkIWB88TgdIxLRp6RN9xrwBrABau_Kp6', alt:'Lion\'s mane mushroom kit'},
+
+    // Equipment — filters (existing)
+    {id:'1pvS8WKjMxzpF_dU4XSGeQYNpoS_09Xgi', alt:'HOB filters'},
+    {id:'1bIqj0lh-JH8A8Xjs7Mz1OoAv7yFBc5Rm', alt:'Tank supplies'},
+
+    // Equipment — honest condition shots
+    {id:'1kM7ip87r0vpuIlGPDiHHVxvuEOEDzYJj', alt:'HOB filter, blue AquaClear'},
+    {id:'1u9mfQ2pFDBGXJ7c7_zrTbyEBx6Z_9_qB', alt:'HOB filter powerhead'},
+    {id:'17qdUXY5oZBoPMHKJtu5QXsfMGc-o1pXw', alt:'HOB filter, parts disassembled'},
+    {id:'1DoAPCjEHocn9C-o82ZR_YIrLmAR_9UFU', alt:'HOB filter, parts need cleaning'},
+    {id:'1v5WFM92iQNPqUe4lhOUpUT3ujaXcNDn5', alt:'HOB filter closeup, needs cleaning'},
+    {id:'1UEqCeFWMfH4l5X546HChUgNQ21uBjwI_', alt:'Canister filter, used, in box'},
+    {id:'1dpRwcZw6aMReZQErsD7FmVYiP9DWx1WT', alt:'Loose gear box'},
+    {id:'1qzOUioZu-2t3tqOZQEOe7PP8G1qV7LtY', alt:'Rimmed tanks, pair, needs cleaning'},
+    {id:'1dEvxKR80o9aNI0LSS94u0xF-vNRZRSym', alt:'Empty tank with calcium buildup'},
+
+    // Soft closer
+    {id:'1etxQ1sXH9RnKJuerkEaefFApgzV8csHn', alt:'Our current foster cats'},
   ];
 
   var idx = 0;
