@@ -1,6 +1,30 @@
-**Last Updated:** 2026-04-25 00:21 UTC
+**Last Updated:** 2026-04-25 00:24 UTC
 
 # Changelog
+
+## [2026-04-25 00:24 UTC] — Updated memorial page and wired video clips
+
+### Done
+- Updated `memorial.html` to show Abigail with cat grass, cropped circular avatar with blue border.
+- Fixed memorial year range to “2012–2026” in `memorial.html`.
+- Integrated three video assets (`tour_207mb.mp4`, `clip1.mov`, `clip2.mov`) with captions “Fish room tour”, “clip 1”, “clip 2”.
+
+### In Progress
+- Nothing
+
+### For Produce
+> Verify the content of the two short MOV clips and adjust their captions accordingly.
+
+## [2026-04-25 00:22 UTC] — Fixed placeholder video IDs in the repository
+
+### Done
+- Replaced placeholder Google Drive file IDs with the correct IDs for both videos in the codebase.
+
+### In Progress
+- Nothing
+
+### For Produce
+> Verify that the embedded videos load and play correctly on the site.
 
 ## [2026-04-25 00:21 UTC] — Updated site content and expanded media assets
 
