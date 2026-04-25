@@ -1,6 +1,18 @@
-**Last Updated:** 2026-04-24 23:51 UTC
+**Last Updated:** 2026-04-25 00:04 UTC
 
 # Changelog
+
+## [2026-04-25 00:04 UTC] — Planned integration of new photo assets and carousel update
+
+### Done
+- Clarified limitation of `create_file` tool for large binary uploads.
+- Outlined manual upload steps for 7 new photo files to Google Drive.
+
+### In Progress
+- Awaiting user confirmation that the photos have been uploaded to the “Fish Sale Photos” folder and the folder URL is provided.
+
+### For Produce
+> Retrieve the Google Drive folder URL, list file IDs via MCP, and update site carousel, Abigail Breslin section, and foster bonus block.
 
 ## [2026-04-24 23:51 UTC] — Enabled GitHub Pages deployment and renamed site entry file
 
