@@ -1,6 +1,29 @@
-**Last Updated:** 2026-04-25 00:31 UTC
+**Last Updated:** 2026-04-25 01:00 UTC
 
 # Changelog
+
+## [2026-04-25 01:00 UTC] — Site live, all Reddit drafts updated with URL
+
+### Done
+- Site is live at https://wowthisiseasytoremember-stack.github.io/fish/
+- All 4 Reddit post drafts updated: "website not up yet" replaced with live URL in each post body
+- Hero timestamp updated to 2026-04-25
+
+### For Produce
+> Fish room sale site is live at https://wowthisiseasytoremember-stack.github.io/fish/ — all 4 Reddit drafts in queue/drafts/READY-TO-POST.md now reference the URL, ready to post in order: RareHouseplantsBST → isopods → HerpBST → AquaSwap.
+
+## [2026-04-25 00:35 UTC] — Added responsive media layout with expand modal and restored footer card size
+
+### Done
+- Implemented side‑by‑side layout for photos and video (16:9, equal height) under “Moving Pictures & Stills” header; stacked single‑column on mobile.
+- Added expand button (top‑right) to each media panel; clicking opens a 92vw × 88vh modal with blurred backdrop, preserving DOM node state for carousel/video.
+- Restored Abigail footer card width to 220 px; adjusted surrounding footer cards accordingly.
+
+### In Progress
+- Nothing
+
+### For Produce
+> Verify carousel behavior across all target devices and fix any remaining layout quirks.
 
 ## [2026-04-25 00:31 UTC] — Consolidated three stacked sections into a single responsive row of equal-height glass cards
 
