@@ -1,6 +1,20 @@
-**Last Updated:** 2026-04-25 00:28 UTC
+**Last Updated:** 2026-04-25 00:31 UTC
 
 # Changelog
+
+## [2026-04-25 00:31 UTC] — Consolidated three stacked sections into a single responsive row of equal-height glass cards
+
+### Done
+- Implemented side‑by‑side layout of Get in Touch, Abigail Breslin memorial, and Freelance pitch cards with equal height.
+- Removed extra dividers and tightened padding across all components.
+- Added responsive behavior: cards stack vertically on mobile with memorial centered.
+- Updated Venmo handle to `@jakeynguyen16` and Ko‑fi link to `ko-fi.com/thetangletrove`; removed PayPal placeholder.
+
+### In Progress
+- Nothing
+
+### For Produce
+> Verify cross‑device rendering and confirm mobile stack order remains correct.
 
 ## [2026-04-25 00:28 UTC] — Added video carousel with captions and navigation controls
 
