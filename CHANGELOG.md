@@ -1,6 +1,20 @@
-**Last Updated:** 2026-04-25 00:04 UTC
+**Last Updated:** 2026-04-25 00:21 UTC
 
 # Changelog
+
+## [2026-04-25 00:21 UTC] — Updated site content and expanded media assets
+
+### Done
+- Replaced placeholder with Abigail Breslin profile card (photo, caption, link).
+- Added “Current Fosters” glass‑card section marked “not for sale”.
+- Expanded carousel from 25 to 76 images, reordered by category and set Abigail tongue‑out as lead.
+- Implemented video section placeholders and provided instructions for swapping `VIDEO_ID_1` / `VIDEO_ID_2` with Drive IDs.
+
+### In Progress
+- Nothing
+
+### For Produce
+> Insert Drive file IDs for the new videos and commit the updated carousel JSON.
 
 ## [2026-04-25 00:04 UTC] — Planned integration of new photo assets and carousel update
 

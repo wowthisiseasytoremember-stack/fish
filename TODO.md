@@ -46,3 +46,7 @@ Auto-created by session dispatcher.
 ### Added 2026-04-24 23:41 UTC (auto-dispatcher) - fish-sale-repo
 - Perform cross‑browser testing for the new carousel size.
 - Add unit test for carousel dimension logic.
+### Added 2026-04-25 00:22 UTC (auto-dispatcher) - fish-sale-repo
+- Obtain Google Drive URLs and file IDs for the new video assets.
+- Update `VIDEO_ID_1` and `VIDEO_ID_2` placeholders in the code base.
+- Test video grid responsiveness on desktop and mobile.
