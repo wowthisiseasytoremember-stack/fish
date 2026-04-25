@@ -990,13 +990,8 @@ footer span { margin: 0 0.75rem; }
   margin-bottom: 1.75rem;
   font-size: 0.95rem;
 }
-.videos-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-}
-.video-card {
-  margin: 0;
+.video-carousel {
+  position: relative;
   background: var(--bg-card);
   border: 1px solid var(--glass-border);
   border-radius: 14px;
@@ -1004,19 +999,12 @@ footer span { margin: 0 0.75rem; }
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 8px 28px rgba(0,0,0,0.35);
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-.video-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(0, 180, 216, 0.45);
-  box-shadow: 0 12px 36px rgba(0,180,216,0.12);
 }
 .video-frame {
   position: relative;
   width: 100%;
   padding-top: 56.25%;
   background: #000;
-  border-bottom: 1px solid var(--glass-border);
 }
 .video-frame iframe {
   position: absolute;
@@ -1026,17 +1014,46 @@ footer span { margin: 0 0.75rem; }
   border: 0;
   display: block;
 }
-.video-card figcaption {
+.video-caption-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--glass-border);
+}
+.video-caption-text {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(180,210,240,0.75);
-  padding: 0.85rem 1.1rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: rgba(180,210,240,0.8);
   text-align: center;
+  flex: 1;
+}
+.video-nav-btn {
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #e0eef8;
+  font-size: 1.4rem;
+  line-height: 1;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.video-nav-btn:hover { background: rgba(0,0,0,0.65); }
+.video-counter {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: rgba(180,210,240,0.35);
+  white-space: nowrap;
 }
 @media (max-width: 720px) {
-  .videos-grid { grid-template-columns: 1fr; gap: 1rem; }
   .videos-section { margin: 2rem auto 1.5rem; padding: 0 1rem; }
 }
 
@@ -1254,25 +1271,18 @@ footer span { margin: 0 0.75rem; }
   <p class="section-label">Moving Pictures</p>
   <h3 class="videos-heading">Video Walkthroughs</h3>
   <p class="videos-intro">Short clips of the room, tanks running, and specific animals. If you want to see a particular setup before driving out, just ask.</p>
-  <div class="videos-grid">
-    <figure class="video-card">
-      <div class="video-frame">
-        <iframe src="https://drive.google.com/file/d/1KfFMtT4-S97EN6jKFQwlc8PopgZJhnDs/preview" allow="autoplay" allowfullscreen loading="lazy"></iframe>
+  <div class="video-carousel">
+    <div class="video-frame">
+      <iframe id="video-main" src="https://drive.google.com/file/d/1KfFMtT4-S97EN6jKFQwlc8PopgZJhnDs/preview" allow="autoplay" allowfullscreen></iframe>
+    </div>
+    <div class="video-caption-bar">
+      <button class="video-nav-btn" id="video-prev" aria-label="Previous video">&#8249;</button>
+      <div style="flex:1; text-align:center;">
+        <div class="video-caption-text" id="video-caption-text">baby newts trying and failing to eat crickets for the first time</div>
+        <div class="video-counter" id="video-counter">1 / 3</div>
       </div>
-      <figcaption>Fish room tour</figcaption>
-    </figure>
-    <figure class="video-card">
-      <div class="video-frame">
-        <iframe src="https://drive.google.com/file/d/1AapT4ey1z7GK7CrJoz3Y9d1wazimIhu5/preview" allow="autoplay" allowfullscreen loading="lazy"></iframe>
-      </div>
-      <figcaption>Fish room, clip 1</figcaption>
-    </figure>
-    <figure class="video-card">
-      <div class="video-frame">
-        <iframe src="https://drive.google.com/file/d/1ghon3aHFV9mGP98Kg1VdVinfxx6QaBgi/preview" allow="autoplay" allowfullscreen loading="lazy"></iframe>
-      </div>
-      <figcaption>Fish room, clip 2</figcaption>
-    </figure>
+      <button class="video-nav-btn" id="video-next" aria-label="Next video">&#8250;</button>
+    </div>
   </div>
 </section>
 
@@ -2951,6 +2961,29 @@ railItems.forEach(function(item) {
   carousel.addEventListener('mouseleave', startTimer);
 
   startTimer();
+})();
+
+// === VIDEO CAROUSEL ===
+(function() {
+  var videos = [
+    {id:'1KfFMtT4-S97EN6jKFQwlc8PopgZJhnDs', caption:'baby newts trying and failing to eat crickets for the first time'},
+    {id:'1AapT4ey1z7GK7CrJoz3Y9d1wazimIhu5', caption:'dwarf cajun crayfish with salvinia'},
+    {id:'1ghon3aHFV9mGP98Kg1VdVinfxx6QaBgi', caption:'dwarf cajun closeup'},
+  ];
+  var idx = 0;
+  var iframe = document.getElementById('video-main');
+  var captionEl = document.getElementById('video-caption-text');
+  var counterEl = document.getElementById('video-counter');
+
+  function go(n) {
+    idx = ((n % videos.length) + videos.length) % videos.length;
+    iframe.src = 'https://drive.google.com/file/d/' + videos[idx].id + '/preview';
+    captionEl.textContent = videos[idx].caption;
+    counterEl.textContent = (idx + 1) + ' / ' + videos.length;
+  }
+
+  document.getElementById('video-prev').addEventListener('click', function() { go(idx - 1); });
+  document.getElementById('video-next').addEventListener('click', function() { go(idx + 1); });
 })();
 </script>
 
