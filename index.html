@@ -1057,6 +1057,65 @@ footer span { margin: 0 0.75rem; }
   .videos-section { margin: 2rem auto 1.5rem; padding: 0 1rem; }
 }
 
+/* === COMPRESSED FOOTER GRID === */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 1fr;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+.footer-grid .glass {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-fish);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+.footer-value {
+  color: #b8cfe0;
+  font-size: 0.95rem;
+}
+.memorial-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(0,180,216,0.25);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.45);
+  display: block;
+  margin: 0 auto 0.85rem;
+}
+.memorial-name {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: #e0eef8;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.footer-fineprint {
+  font-size: 0.75rem;
+  color: rgba(180,210,240,0.45);
+  margin-top: auto;
+  padding-top: 1rem;
+  line-height: 1.5;
+}
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    max-width: 560px;
+  }
+  .footer-grid .glass { height: auto; }
+}
+
 .species-info {
   flex: 1;
   min-width: 0;
@@ -2328,68 +2387,54 @@ footer span { margin: 0 0.75rem; }
 </section>
 
 
-<!-- ============================================================
-     CONTACT SECTION
-     ============================================================ -->
-<section class="section" style="padding: 3rem 2rem;">
-  <div style="max-width: 600px; margin: 0 auto; text-align: center;">
-    <p class="section-label">Interested?</p>
-    <h2 class="section-title">Get in Touch</h2>
-    <div class="glass" style="padding: 2rem; margin-top: 1.5rem;">
-      <p style="margin-bottom: 1.5rem; line-height: 1.8;">Interested in any of our fish, plants, or equipment? We're committed to finding the best homes for our inhabitants.</p>
-      <div style="margin-bottom: 1rem;">
-        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-fish); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.3rem;">Reddit</div>
-        <div style="color: #b8cfe0;">u/wowthisiseasy</div>
-      </div>
-      <div style="margin-bottom: 1rem;">
-        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-fish); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.3rem;">Email</div>
-        <div style="color: #b8cfe0;">thetangletrove@gmail.com</div>
-      </div>
-      <p style="font-size: 0.8rem; color: rgba(180,210,240,0.5); margin-top: 1.5rem;">Local pickup available &bull; All proceeds go directly to vet bills</p>
-      <p style="font-size: 0.75rem; color: rgba(180,210,240,0.35); margin-top: 0.5rem;">Photos may or may not be of our exact fish &mdash; please reach out for pictures of the actual animal.</p>
-    </div>
-  </div>
-</section>
+<!-- FOOTER: CONTACT + MEMORIAL + FREELANCE -->
+<section class="section" style="padding: 2.5rem 1.5rem 3rem;">
+  <div class="footer-grid">
 
-<!-- ============================================================
-     MEMORIAL + DONATIONS
-     ============================================================ -->
-<div class="divider"><hr></div>
-<section class="section" style="padding: 3rem 2rem; text-align: center;">
-  <div style="max-width: 560px; margin: 0 auto;">
-    <img src="https://drive.google.com/thumbnail?id=1VBh8zqRh3Bj09imQHhY6X0vk71dD2pK_&sz=w1000"
-         alt="Abigail Breslin"
-         style="width: 220px; height: 220px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(0,180,216,0.25); box-shadow: 0 8px 28px rgba(0,0,0,0.45); display: block; margin: 0 auto 1.5rem;"
-         loading="lazy">
-    <p style="font-family: var(--font-heading); font-size: 1.2rem; color: #e0eef8; margin-bottom: 0.5rem;">Abigail Breslin, 2012&ndash;2026</p>
-    <div class="glass" style="padding: 1.75rem; text-align: left;">
-      <p style="line-height: 1.8; margin-bottom: 1.25rem;">If this page helped you find what you were looking for, or if you just want to help us close out Abigail's vet bills, donations are appreciated. Every dollar goes directly toward the $4,000 still outstanding.</p>
-      <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+    <!-- Contact -->
+    <div class="glass" style="padding: 1.5rem;">
+      <p class="footer-label">Get in Touch</p>
+      <p style="line-height: 1.6; margin-bottom: 1rem; font-size: 0.95rem;">Interested in fish, plants, or equipment? We want good homes.</p>
+      <div style="margin-bottom: 0.85rem;">
+        <div class="footer-label">Reddit</div>
+        <div class="footer-value">u/wowthisiseasy</div>
+      </div>
+      <div>
+        <div class="footer-label">Email</div>
+        <div class="footer-value">thetangletrove@gmail.com</div>
+      </div>
+      <p class="footer-fineprint">Local pickup &bull; Proceeds go to vet bills &bull; Photos may not be the exact animal &mdash; ask for current pics.</p>
+    </div>
+
+    <!-- Memorial + Donations -->
+    <div class="glass" style="padding: 1.5rem;">
+      <img src="https://drive.google.com/thumbnail?id=1VBh8zqRh3Bj09imQHhY6X0vk71dD2pK_&sz=w1000"
+           alt="Abigail Breslin"
+           class="memorial-photo"
+           loading="lazy">
+      <p class="memorial-name">Abigail Breslin, 2012&ndash;2026</p>
+      <p style="line-height: 1.6; margin-bottom: 1rem; font-size: 0.95rem;">If this page helped you, or you just want to chip in on Abigail's $4,000 vet bill, donations are appreciated.</p>
+      <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
         <div>
-          <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--color-fish); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.3rem;">Venmo</div>
-          <div style="color: #b8cfe0;">[VENMO_HANDLE]</div>
+          <div class="footer-label">Venmo</div>
+          <div class="footer-value">@jakeynguyen16</div>
         </div>
         <div>
-          <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--color-fish); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.3rem;">PayPal</div>
-          <div style="color: #b8cfe0;">[PAYPAL_HANDLE]</div>
+          <div class="footer-label">Ko-fi</div>
+          <div class="footer-value">ko-fi.com/thetangletrove</div>
         </div>
       </div>
-      <p style="font-size: 0.8rem; color: rgba(180,210,240,0.45); margin-top: 1.25rem;">No pressure at all. Hug your pets.</p>
+      <p class="footer-fineprint">No pressure. Hug your pets.</p>
     </div>
-  </div>
-</section>
 
-<!-- ============================================================
-     FREELANCE SERVICES
-     ============================================================ -->
-<div class="divider"><hr></div>
-<section class="section" style="padding: 2rem 2rem 3rem;">
-  <div style="max-width: 600px; margin: 0 auto;">
-    <div class="glass" style="padding: 1.75rem;">
-      <p style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--color-fish); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem;">While I have your attention</p>
-      <p style="line-height: 1.8; margin-bottom: 0.75rem;">I do freelance work in web development, app development, software, and AI. If you or someone you know needs something built, I'm good at it and I could use the work right now. Not trying to make this a sales pitch on a fish page, but you never know.</p>
-      <p style="color: rgba(180,210,240,0.6); font-size: 0.9rem;"><a href="mailto:thetangletrove@gmail.com" style="color: var(--color-fish);">thetangletrove@gmail.com</a></p>
+    <!-- Freelance -->
+    <div class="glass" style="padding: 1.5rem;">
+      <p class="footer-label">While I have your attention</p>
+      <p style="line-height: 1.6; margin-bottom: 1rem; font-size: 0.95rem;">I do freelance web, app, software, and AI work. If you or someone you know needs something built, I'm good at it and I could use the work.</p>
+      <p style="font-size: 0.9rem;"><a href="mailto:thetangletrove@gmail.com" style="color: var(--color-fish); text-decoration: none; border-bottom: 1px solid rgba(0,180,216,0.4);">thetangletrove@gmail.com</a></p>
+      <p class="footer-fineprint">Not trying to make a fish page a sales pitch &mdash; but you never know.</p>
     </div>
+
   </div>
 </section>
 
