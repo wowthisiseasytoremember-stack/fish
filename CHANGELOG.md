@@ -1,6 +1,30 @@
-**Last Updated:** 2026-04-24 23:39 UTC
+**Last Updated:** 2026-04-24 23:51 UTC
 
 # Changelog
+
+## [2026-04-24 23:51 UTC] — Enabled GitHub Pages deployment and renamed site entry file
+
+### Done
+- Renamed `fish-room-sale.html` to `index.html` and pushed to `main`
+- Enabled GitHub Pages on the repository (source: main branch, root)
+- Published site URL: https://wowthisiseasytoremember-stack.github.io/fish/
+
+### In Progress
+- Nothing
+
+### For Produce
+> Verify that the GitHub Pages site builds successfully and update documentation with the live URL.
+
+## [2026-04-24 23:49 UTC] — Renamed main HTML file and committed change
+
+### Done
+- Renamed `fish-room-sale.html` to `index.html` and created a commit on `main`
+
+### In Progress
+- Enable GitHub Pages in repository settings (source: `main` branch, root)
+
+### For Produce
+> Flip the GitHub Pages toggle to publish the site at the default `.github.io` URL
 
 ## [2026-04-24 23:39 UTC] — Updated carousel dimensions to 640×480 px (4:3) for better portrait handling
 
