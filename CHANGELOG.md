@@ -1,6 +1,20 @@
-**Last Updated:** 2026-04-25 01:00 UTC
+**Last Updated:** 2026-04-25 00:39 UTC
 
 # Changelog
+
+## [2026-04-25 00:39 UTC] — Updated Reddit drafts, refreshed hero timestamp, and recorded session in changelog
+
+### Done
+- Replaced placeholder text in **all 4 Reddit draft files** with `full listing + photos at https://wowthisiseasytoremember-stack.github.io/fish/`.
+- Updated the **hero section timestamp** on the site to the current date.
+- Added this session’s summary to **CHANGELOG.md**.
+- Committed and pushed all changes to the repository.
+
+### In Progress
+- Nothing
+
+### For Produce
+> Prepare cross‑reference `[LINK]` placeholders after each Reddit post goes live.
 
 ## [2026-04-25 01:00 UTC] — Site live, all Reddit drafts updated with URL
 
