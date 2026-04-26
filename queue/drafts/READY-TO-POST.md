@@ -1,5 +1,27 @@
 **Last Updated:** 2026-04-25 01:00 UTC
 
+# Posting Status
+
+## Website
+- [x] Live at https://wowthisiseasytoremember-stack.github.io/fish/
+
+## Reddit
+- [x] r/AquaSwap — POSTED
+- [ ] r/RareHouseplantsBST — draft ready (Post 4 below)
+- [ ] r/isopods — draft ready (Post 3 below)
+- [ ] r/HerpBST — draft ready (Post 2 below)
+
+> After each Reddit post goes live, paste its URL into the `[LINK]` placeholders in the other posts before posting the next one.
+
+## Local / Marketplace
+- [ ] OfferUp — fish + equipment, photos from Drive
+- [ ] Facebook Marketplace — equipment lots, aroids, large tanks
+- [ ] Craigslist — large pickup-only items (big tanks, greenhouse shelving, paludariums)
+- [ ] Nextdoor — local visibility, good for free/low-cost odds and ends
+- [ ] Local fish club / SoCal aquarium groups (SCAS, SCMAS, FB groups)
+
+---
+
 # Ready-to-Post Reddit Listings
 
 Copy-paste each block into the Reddit app. Attach photos from the Google Drive links listed under each post. Use Reddit's native image upload (no Imgur needed).
@@ -105,7 +127,7 @@ brand-new-in-box down to dinged-up quarantine workhorses. i'll tell you the exac
 - Waterbox 10G (new in box)
 - various 5G-30G
 - 1-3G nano tanks (several new in box with filter + light)
-- ~10 tiny rimmed tanks 0.5-2G (some stocked, can come with livestock)
+- ~10 tiny rimmed tanks 0.5-2G 
 - Fluval Spec V (needs cleaning, functional)
 
 **lighting:**
@@ -119,7 +141,7 @@ brand-new-in-box down to dinged-up quarantine workhorses. i'll tell you the exac
 
 **cycling & substrate:**
 - 3-gallon bucket of cycled aquasoil from a 5-year-old tank
-- malaysian trumpet snails from cycled tank
+- malaysian trumpet snails
 - tons of dirty filter media, sponge filters small to huge
 - aquasoil, white sand, LECA
 
@@ -140,7 +162,7 @@ ask about anything specific — there's more than what's listed here.
 
 ---
 
-also listing: herps + bioactive enclosures on r/HerpBST [LINK], isopods + springtails on r/isopods [LINK], rare aroids on r/RareHouseplantsBST [LINK]
+also listing: herps + bioactive enclosures, isopods + springtails and  rare aroids
 
 ---
 
