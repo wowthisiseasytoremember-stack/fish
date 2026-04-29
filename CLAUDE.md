@@ -10,7 +10,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A single-file static site for a fish room downsizing sale — fish, amphibians, plants, and equipment. No build step, no framework, no dependencies. The entire site is one self-contained HTML file (`index.html`) with inline CSS and JS.
 
-**Live URL:** https://wowthisiseasytoremember-stack.github.io/fish/
+**Live URL:** <https://wowthisiseasytoremember-stack.github.io/fish/>
 
 The site is deployed via GitHub Pages directly from the `main` branch root. There is no build step and no server-side rendering.
 
@@ -74,7 +74,7 @@ The site is deployed via GitHub Pages directly from the `main` branch root. Ther
 
 Photos and videos are **not committed to git** — they live locally at `/Users/justin/Downloads/Photos-3-001/` and are served via Google Drive share links. The site uses:
 
-```
+```text
 https://drive.google.com/thumbnail?id=<FILE_ID>&sz=w1000   ← static images
 https://drive.google.com/file/d/<FILE_ID>/preview           ← video embeds
 ```
@@ -106,7 +106,7 @@ These are standalone utilities — none are called by the site or CI:
 
 GitHub Actions runs on every push/PR to `main`:
 
-```
+```text
 .github/workflows/markdown-lint.yml
 ```
 
