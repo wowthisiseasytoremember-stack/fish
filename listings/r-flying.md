@@ -6,6 +6,7 @@
 ---
 
 ## BEFORE POSTING CHECKLIST
+
 - [ ] **Timestamps:** Take photos of each item with a handwritten note showing `u/wowthisiseasy` + today's date
 - [ ] King Schools — verify list of titles and quantities
 
@@ -35,12 +36,14 @@
 ## DRAFT POST
 
 **Title:**
-```
+
+```text
 [SELL] King Schools A&P Mechanic DVD Courses (Airframe/General/Powerplant), Instrument Rating CD-ROM, Cleared for Approach, FAA Test Supplements, Rod Machado — SoCal/ship
 ```
 
 **Body:**
-```
+
+```text
 Selling a big King Schools collection — great for A&P students, instrument rating candidates, and private pilot students. Located in Orange County, CA. Ship CONUS on buyer's dime. PayPal G&S.
 
 ---

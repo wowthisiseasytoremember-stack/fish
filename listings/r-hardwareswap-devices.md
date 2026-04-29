@@ -7,6 +7,7 @@
 ---
 
 ## BEFORE POSTING CHECKLIST
+
 - [ ] **Timestamps:** Take photos of each item with a handwritten note showing `u/wowthisiseasy` + today's date
 - [ ] Items over $400 (Surface Laptop 5) need a **VIDEO timestamp** if under 15 confirmed trades
 - [ ] Confirm Reddit account karma is 100+ (14-year account, almost certainly fine)
@@ -32,12 +33,14 @@
 ## DRAFT POST
 
 **Title:**
-```
+
+```text
 [US-CA] [H] Surface Laptop 5 i7 Unused Refurb, MBP 13" 2020 i5/16GB, MBA 11" 2012 FREE, Surface Pro 7 + Cover, Lenovo G7 i7, Dell Latitude, 2x ATX Cases NIB [W] PayPal / Mac Mini / Apple Silicon MBP
 ```
 
 **Body:**
-```
+
+```text
 Hey HWS! Clearing out a bunch of devices. Based in Orange County, SoCal — happy to meet up anywhere in Southern CA or ship CONUS on buyer's dime.
 
 Timestamps: [ADD LINK]

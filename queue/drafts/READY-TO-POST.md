@@ -1,11 +1,13 @@
-**Last Updated:** 2026-04-25 01:00 UTC
-
 # Posting Status
 
+**Last Updated:** 2026-04-25 01:00 UTC
+
 ## Website
-- [x] Live at https://wowthisiseasytoremember-stack.github.io/fish/
+
+- [x] Live at <https://wowthisiseasytoremember-stack.github.io/fish/>
 
 ## Reddit
+
 - [x] r/AquaSwap — POSTED
 - [ ] r/RareHouseplantsBST — draft ready (Post 4 below)
 - [ ] r/isopods — draft ready (Post 3 below)
@@ -14,6 +16,7 @@
 > After each Reddit post goes live, paste its URL into the `[LINK]` placeholders in the other posts before posting the next one.
 
 ## Local / Marketplace
+
 - [ ] OfferUp — fish + equipment, photos from Drive
 - [ ] Facebook Marketplace — equipment lots, aroids, large tanks
 - [ ] Craigslist — large pickup-only items (big tanks, greenhouse shelving, paludariums)
@@ -22,7 +25,7 @@
 
 ---
 
-# Ready-to-Post Reddit Listings
+## Ready-to-Post Reddit Listings
 
 Copy-paste each block into the Reddit app. Attach photos from the Google Drive links listed under each post. Use Reddit's native image upload (no Imgur needed).
 
@@ -33,7 +36,8 @@ After each post goes live, come back and update the cross-link URLs in the other
 ## POST 1: r/AquaSwap
 
 **Title** (copy exactly):
-```
+
+```text
 [FS] [US-CA] Garden Grove, CA - Prices in post - Full Fish Room Cleanout: Dragon Puffer, Shell Dwellers, Killifish, Puffers, Newts, Crayfish, Rare Mosses & More
 ```
 
@@ -49,7 +53,7 @@ this is a real cleanout — an active fish room plus a garage full of gear accum
 
 many items show wear dirt or neglect — priced accordingly. all animals healthy and disease-free.
 
-full listing + photos at **https://wowthisiseasytoremember-stack.github.io/fish/** — DM me with questions, i'm quick to reply.
+full listing + photos at **<https://wowthisiseasytoremember-stack.github.io/fish/>** — DM me with questions, i'm quick to reply.
 
 local pickup strongly preferred (LA/OC area). shipping is last resort for livestock — buyer pays actual USPS Priority, PayPal G&S only.
 
@@ -120,6 +124,7 @@ Priced by portion — ask.
 brand-new-in-box down to dinged-up quarantine workhorses. i'll tell you the exact condition — no surprises.
 
 **tanks & habitats:**
+
 - 40G Breeder
 - ~45G Paludarium (working waterfall)
 - 20G AquaJapan Rimless
@@ -127,28 +132,33 @@ brand-new-in-box down to dinged-up quarantine workhorses. i'll tell you the exac
 - Waterbox 10G (new in box)
 - various 5G-30G
 - 1-3G nano tanks (several new in box with filter + light)
-- ~10 tiny rimmed tanks 0.5-2G 
+- ~10 tiny rimmed tanks 0.5-2G
 - Fluval Spec V (needs cleaning, functional)
 
 **lighting:**
+
 - new marine/plant LEDs (Marineland, Current, Fluval) — some still in box
 - grow panel lights (new in box)
 - long-necked aquatic plant lights (used/dirty but nicer than budget new)
 - connectable plant light panels
 
 **filtration:**
+
 - canister, HOB, matten, sponge, undergravel
 
 **cycling & substrate:**
+
 - 3-gallon bucket of cycled aquasoil from a 5-year-old tank
 - malaysian trumpet snails
 - tons of dirty filter media, sponge filters small to huge
 - aquasoil, white sand, LECA
 
 **hardscape:**
+
 - large rocks, driftwood, cork bark, botanicals
 
 **supplies & misc:**
+
 - fertilizers, meds, CO2 gear, breeder boxes
 - high-end fish food (Sera, premium)
 - airline and filter tubing rolls, glass intake/outtake tubes
@@ -174,41 +184,42 @@ message me with what you're interested in and what works for your budget. i'm ea
 
 --- END COPY ---
 
-### Photos to attach (download from Google Drive, then upload via Reddit):
+### Photos to attach (download from Google Drive, then upload via Reddit)
 
 | Photo | Link |
 |---|---|
-| **LEAD: Killifish side profile** | https://drive.google.com/file/d/1WZtTInKvKRbPKSUB4xHbtcrpYBtZl9Bf/view |
-| Killifish angle 2 | https://drive.google.com/file/d/1_sSdEPoFDcBkfBVHZ2ioWe-WoNssZc4r/view |
-| Killifish facing right | https://drive.google.com/file/d/1nBhkZN5Fu6lWGWmeWK05dDrIrfdE8_ZR/view |
-| Killifish facing left | https://drive.google.com/file/d/1IfIuFyVrSBCJVdjG-a9UF2-44aQ66z5R/view |
-| Killifish in container wide | https://drive.google.com/file/d/1N8bbrD5mby7Iz9yC9MnZIpTT9IWMFlH9/view |
-| Killifish container top-down | https://drive.google.com/file/d/1RYPHvLVh-8vJT2oYcgL5YfPVYeA-iyJZ/view |
-| Jewel cichlid LEAD (red/blue spots) | https://drive.google.com/file/d/1UZb601w5EmljO9ifUkM-m4pdKo8vBrzv/view |
-| Jewel cichlid face closeup | https://drive.google.com/file/d/1Foh5q3Ydh18meokuH_sMItRo_NUxr9Zg/view |
-| Jewel cichlid full body | https://drive.google.com/file/d/1_Jely0wzuda2KTuM1JKRDDJiOAfY6rSc/view |
-| Jewel cichlid in tank angle 1 | https://drive.google.com/file/d/1DXAS-e64CfixfVKXBguPLfwEdZHMbqqf/view |
-| Shell dweller (multifasciatus) lead | https://drive.google.com/file/d/1cQZzRvp35X7cVlEQ3RZjvNmUaG5okkj_/view |
-| Shell dweller with shells | https://drive.google.com/file/d/1AddzSCd_tXHseZwd9ZbPGeArbj4ygia_/view |
-| Berried crayfish / egg cluster | https://drive.google.com/file/d/19Z0zZFKDDxyITpfE2aXce_1pXIjKFuGH/view |
-| Crayfish top-down container | https://drive.google.com/file/d/1t5hZEfWzry-mmFOeLjAlrOo5Ju1F44c-/view |
-| Spiky moss closeup | https://drive.google.com/file/d/1nNcpCwznw9rbYKvSMYDFWUL4djlDQgYv/view |
-| Susswassertang broad leaf | https://drive.google.com/file/d/1zyDvgn0vFaIrVS3JVxV5fif1lnEe0P4w/view |
-| Riccia fluitans tank | https://drive.google.com/file/d/1AFjEWSCU9RWNgwkDqebq1f1L9bjw-WHd/view |
-| Aquaplant containers flatlay | https://drive.google.com/file/d/1vmo932ri2kMfd7pfck5VhnDELn2Iurqp/view |
-| Fish rack overview | https://drive.google.com/file/d/1o-Hrfi1fMUFPQbP8ytb3sZyr67lOz8SV/view |
-| Room overhead tanks | https://drive.google.com/file/d/1zECXBR_WX89EJTbRny3wVWcQzMMLiU8R/view |
-| Cube tank with driftwood | https://drive.google.com/file/d/1xZ1EvkpqntK1KDFJIYA5icWS9AZX0en0/view |
-| Dirty stacked tanks/supplies | https://drive.google.com/file/d/1bIqj0lh-JH8A8Xjs7Mz1OoAv7yFBc5Rm/view |
-| HOB filters lot overhead | https://drive.google.com/file/d/1pvS8WKjMxzpF_dU4XSGeQYNpoS_09Xgi/view |
-| Canister filter in box | https://drive.google.com/file/d/1UEqCeFWMfH4l5X546HChUgNQ21uBjwI_/view |
+| **LEAD: Killifish side profile** | <https://drive.google.com/file/d/1WZtTInKvKRbPKSUB4xHbtcrpYBtZl9Bf/view> |
+| Killifish angle 2 | <https://drive.google.com/file/d/1_sSdEPoFDcBkfBVHZ2ioWe-WoNssZc4r/view> |
+| Killifish facing right | <https://drive.google.com/file/d/1nBhkZN5Fu6lWGWmeWK05dDrIrfdE8_ZR/view> |
+| Killifish facing left | <https://drive.google.com/file/d/1IfIuFyVrSBCJVdjG-a9UF2-44aQ66z5R/view> |
+| Killifish in container wide | <https://drive.google.com/file/d/1N8bbrD5mby7Iz9yC9MnZIpTT9IWMFlH9/view> |
+| Killifish container top-down | <https://drive.google.com/file/d/1RYPHvLVh-8vJT2oYcgL5YfPVYeA-iyJZ/view> |
+| Jewel cichlid LEAD (red/blue spots) | <https://drive.google.com/file/d/1UZb601w5EmljO9ifUkM-m4pdKo8vBrzv/view> |
+| Jewel cichlid face closeup | <https://drive.google.com/file/d/1Foh5q3Ydh18meokuH_sMItRo_NUxr9Zg/view> |
+| Jewel cichlid full body | <https://drive.google.com/file/d/1_Jely0wzuda2KTuM1JKRDDJiOAfY6rSc/view> |
+| Jewel cichlid in tank angle 1 | <https://drive.google.com/file/d/1DXAS-e64CfixfVKXBguPLfwEdZHMbqqf/view> |
+| Shell dweller (multifasciatus) lead | <https://drive.google.com/file/d/1cQZzRvp35X7cVlEQ3RZjvNmUaG5okkj_/view> |
+| Shell dweller with shells | <https://drive.google.com/file/d/1AddzSCd_tXHseZwd9ZbPGeArbj4ygia_/view> |
+| Berried crayfish / egg cluster | <https://drive.google.com/file/d/19Z0zZFKDDxyITpfE2aXce_1pXIjKFuGH/view> |
+| Crayfish top-down container | <https://drive.google.com/file/d/1t5hZEfWzry-mmFOeLjAlrOo5Ju1F44c-/view> |
+| Spiky moss closeup | <https://drive.google.com/file/d/1nNcpCwznw9rbYKvSMYDFWUL4djlDQgYv/view> |
+| Susswassertang broad leaf | <https://drive.google.com/file/d/1zyDvgn0vFaIrVS3JVxV5fif1lnEe0P4w/view> |
+| Riccia fluitans tank | <https://drive.google.com/file/d/1AFjEWSCU9RWNgwkDqebq1f1L9bjw-WHd/view> |
+| Aquaplant containers flatlay | <https://drive.google.com/file/d/1vmo932ri2kMfd7pfck5VhnDELn2Iurqp/view> |
+| Fish rack overview | <https://drive.google.com/file/d/1o-Hrfi1fMUFPQbP8ytb3sZyr67lOz8SV/view> |
+| Room overhead tanks | <https://drive.google.com/file/d/1zECXBR_WX89EJTbRny3wVWcQzMMLiU8R/view> |
+| Cube tank with driftwood | <https://drive.google.com/file/d/1xZ1EvkpqntK1KDFJIYA5icWS9AZX0en0/view> |
+| Dirty stacked tanks/supplies | <https://drive.google.com/file/d/1bIqj0lh-JH8A8Xjs7Mz1OoAv7yFBc5Rm/view> |
+| HOB filters lot overhead | <https://drive.google.com/file/d/1pvS8WKjMxzpF_dU4XSGeQYNpoS_09Xgi/view> |
+| Canister filter in box | <https://drive.google.com/file/d/1UEqCeFWMfH4l5X546HChUgNQ21uBjwI_/view> |
 
 ---
 
 ## POST 2: r/HerpBST
 
 **Title** (copy exactly):
-```
+
+```text
 [FS] Garden Grove CA - Spanish Ribbed Newts (w/ albinos), Taricha Newts, Crested Dalmatian Gecko w/ full bioactive setup, Tree Frogs, Day Gecko, Exo Terra 18x18x36 + paludariums
 ```
 
@@ -222,7 +233,7 @@ prices are flexible. if you can pay full price or toss something toward Abigail'
 
 optional donations (never expected): Venmo @jakeynguyen16 · Ko-fi: ko-fi.com/thetangletrove
 
-full listing + photos at **https://wowthisiseasytoremember-stack.github.io/fish/** — DM me with questions, i'm quick to reply.
+full listing + photos at **<https://wowthisiseasytoremember-stack.github.io/fish/>** — DM me with questions, i'm quick to reply.
 
 pickup preferred in Garden Grove CA (92843). some animals can ship USPS Priority at buyer's expense — ask per item.
 
@@ -274,22 +285,23 @@ DM me with your interest — i'll be straightforward and flexible.
 
 --- END COPY ---
 
-### Photos to attach:
+### Photos to attach
 
 | Photo | Link |
 |---|---|
-| **LEAD: Taricha newt orange juvenile** | https://drive.google.com/file/d/1MVZSfWA_l0YqCUB_Di7Xmo6NhLT2B21R/view |
-| Taricha newt angle 2 | https://drive.google.com/file/d/1TT_rPNlDfG_oTSDEgJD4XDSKh8gq30kO/view |
-| Small creatures on substrate | https://drive.google.com/file/d/1v-conBKFICBEMdzl3JR2quSGMs9H6r1I/view |
-| Acrylic terrarium open front | https://drive.google.com/file/d/1G51wKJEBzSUyppIZEGMqIBdSaJO72bFn/view |
-| Portable greenhouse shelving | https://drive.google.com/file/d/1Ic5dfJa4b8s8RktNcY8Vas2QGsH6t2mY/view |
+| **LEAD: Taricha newt orange juvenile** | <https://drive.google.com/file/d/1MVZSfWA_l0YqCUB_Di7Xmo6NhLT2B21R/view> |
+| Taricha newt angle 2 | <https://drive.google.com/file/d/1TT_rPNlDfG_oTSDEgJD4XDSKh8gq30kO/view> |
+| Small creatures on substrate | <https://drive.google.com/file/d/1v-conBKFICBEMdzl3JR2quSGMs9H6r1I/view> |
+| Acrylic terrarium open front | <https://drive.google.com/file/d/1G51wKJEBzSUyppIZEGMqIBdSaJO72bFn/view> |
+| Portable greenhouse shelving | <https://drive.google.com/file/d/1Ic5dfJa4b8s8RktNcY8Vas2QGsH6t2mY/view> |
 
 ---
 
 ## POST 3: r/isopods
 
 **Title** (copy exactly):
-```
+
+```text
 [FS] Garden Grove CA - Cubaris (Borneo/Salmon/Papaya), Porcellio morphs, Springtails, Cajun Dwarf Crayfish colony, Scuds — prices flexible, good homes first
 ```
 
@@ -303,7 +315,7 @@ prices are a starting point. if you can pay full price or throw something toward
 
 optional donations: Venmo @jakeynguyen16 · Ko-fi: ko-fi.com/thetangletrove
 
-full listing + photos at **https://wowthisiseasytoremember-stack.github.io/fish/** — DM me with questions, i'm quick to reply.
+full listing + photos at **<https://wowthisiseasytoremember-stack.github.io/fish/>** — DM me with questions, i'm quick to reply.
 
 local pickup preferred in Garden Grove CA (92843). shipping available — deli cups, heat packs, buyer pays shipping
 
@@ -347,20 +359,21 @@ if the price is the only thing stopping you, tell me. i'd rather you take these 
 
 --- END COPY ---
 
-### Photos to attach:
+### Photos to attach
 
 | Photo | Link |
 |---|---|
-| **LEAD: Berried crayfish egg cluster** | https://drive.google.com/file/d/19Z0zZFKDDxyITpfE2aXce_1pXIjKFuGH/view |
-| Crayfish top-down container | https://drive.google.com/file/d/1t5hZEfWzry-mmFOeLjAlrOo5Ju1F44c-/view |
-| Crayfish top-down (2nd angle) | https://drive.google.com/file/d/1Hv_94JEh7EOe8p_a3gH7t8_UJQJj7TxT/view |
+| **LEAD: Berried crayfish egg cluster** | <https://drive.google.com/file/d/19Z0zZFKDDxyITpfE2aXce_1pXIjKFuGH/view> |
+| Crayfish top-down container | <https://drive.google.com/file/d/1t5hZEfWzry-mmFOeLjAlrOo5Ju1F44c-/view> |
+| Crayfish top-down (2nd angle) | <https://drive.google.com/file/d/1Hv_94JEh7EOe8p_a3gH7t8_UJQJj7TxT/view> |
 
 ---
 
 ## POST 4: r/RareHouseplantsBST
 
 **Title** (copy exactly):
-```
+
+```text
 [FS/FT] Garden Grove CA - Monstera Albo (2), Thai Constellation (2), Philodendron Billietiae, Rhaphidophora Hayi, Cebu Blue, Scindapsus + more - prices flexible
 ```
 
@@ -374,7 +387,7 @@ every price is flexible and i'm encouraging offers. if you can pay asking or add
 
 optional donations: Venmo @jakeynguyen16 or Ko-fi: ko-fi.com/thetangletrove
 
-full listing + photos at **https://wowthisiseasytoremember-stack.github.io/fish/** — DM me with questions, i'm quick to reply.
+full listing + photos at **<https://wowthisiseasytoremember-stack.github.io/fish/>** — DM me with questions, i'm quick to reply.
 
 pickup preferred in Garden Grove CA (92843). established plants may ship at buyer's risk — serious inquiries only.
 
@@ -407,6 +420,7 @@ also have aquatic plants: Java Moss, Spiky Moss, Riccia, Susswassertang, Hornwor
 ---
 
 ### ALSO LISTING
+
 - aquatic plants + mosses on r/AquaSwap [LINK]
 - isopods for bioactive on r/isopods [LINK]
 - herps + enclosures on r/HerpBST [LINK]
@@ -415,33 +429,33 @@ send me a message with what catches your eye — i'll send current photos and we
 
 --- END COPY ---
 
-### Photos to attach:
+### Photos to attach
 
 | Photo | Link |
 |---|---|
-| **LEAD: Monstera Albo mostly white** | https://drive.google.com/file/d/10kZxSKZdt-0Gd3i7Sk3Fcs-rhG53cNwE/view |
-| Monstera Albo fenestrated lead 2 | https://drive.google.com/file/d/1zC-2RQuO-PUdFAaZkbIHYwhhLj7T50pI/view |
-| Monstera Albo fenestrated angle 2 | https://drive.google.com/file/d/1ivt5nhmr1xIqaprWM1nniPYzbfRf0do9/view |
-| Monstera Albo fenestrated angle 3 | https://drive.google.com/file/d/1_ACOpUWanWAmEhS_oBQ4TOxfFItBjmD-/view |
-| Monstera Albo green/white vine | https://drive.google.com/file/d/1QJ8JfIBxuk2uJOin6NZ7Lt7RUGZifq-7/view |
-| Monstera Albo small fenestrated | https://drive.google.com/file/d/1GSYNskSik5APOs9PZYdkSHHLakX-ZOk2/view |
-| Monstera Albo established vines | https://drive.google.com/file/d/1ceuhOQOMBUTwMHqCNMS7rEKnTgqt-uCv/view |
-| Monstera Albo young white overhead | https://drive.google.com/file/d/1aeHp5HucpH3oGkrAif8P4wj4mU_Yx-37/view |
-| Monstera Albo young white closeup | https://drive.google.com/file/d/1fyX9ZqRPrfE_0BtqRNPyf5RAW8ZMKm_L/view |
-| Epipremnum Albo pink/white LEAD | https://drive.google.com/file/d/1BfCZZ4nfP3qLVI_M1kUfNYadeItNaiPC/view |
-| Epipremnum Albo white leaf closeup | https://drive.google.com/file/d/13lI08C3NEVDcZ8R-yKR3ZmCunMm--S-6/view |
-| Epipremnum Albo three white leaves | https://drive.google.com/file/d/1yc-c-beBZd0ZcYKW4wJaJpL7cYisE_GE/view |
-| Epipremnum Albo single white leaf | https://drive.google.com/file/d/1quAoqk1C5-rPH7fWVr-OZ_yOsJJrrGKb/view |
-| Epipremnum Albo green/white mix | https://drive.google.com/file/d/1Gve38my9cvL50m9Fxf1tLef4L925vGlI/view |
-| Epipremnum Global Green pots overhead | https://drive.google.com/file/d/1CVZakmD-WR5MdA87XlBYrW5tzVfevdUD/view |
-| Epipremnum Global Green closeup | https://drive.google.com/file/d/16W2Tek_8tkC6b94G0U0eT6qiCEe5doB_/view |
-| Jose Buono / Paraiso Verde mottled | https://drive.google.com/file/d/1yYZFwI9W3kzhEqo_afees5shawokwtRw/view |
-| Scindapsus Pictus / Silver Sword on coco pole | https://drive.google.com/file/d/1EZKaJAnks_D6Ysi6JCW3K2bBjxGSNnty/view |
-| Cebu Blue on coco pole | https://drive.google.com/file/d/186UI4GDz6afliM3PCPMuGwXEWXLPWDbG/view |
-| Anthurium dark green white veins LEAD | https://drive.google.com/file/d/1verD5HlrUv-mk7AuUQnZ610N-nrf90eA/view |
-| Anthurium angle 2 | https://drive.google.com/file/d/1sznTv5ibAqJrqE_63_OuJT2BlB0zq5dU/view |
-| Shelf collection overview | https://drive.google.com/file/d/1pumEI034TqYu7oEMDodDBtryvGhRP-gZ/view |
-| Plant shelf white shelving | https://drive.google.com/file/d/12LC844-VpEueznMYFch2UMO8626nI7tC/view |
+| **LEAD: Monstera Albo mostly white** | <https://drive.google.com/file/d/10kZxSKZdt-0Gd3i7Sk3Fcs-rhG53cNwE/view> |
+| Monstera Albo fenestrated lead 2 | <https://drive.google.com/file/d/1zC-2RQuO-PUdFAaZkbIHYwhhLj7T50pI/view> |
+| Monstera Albo fenestrated angle 2 | <https://drive.google.com/file/d/1ivt5nhmr1xIqaprWM1nniPYzbfRf0do9/view> |
+| Monstera Albo fenestrated angle 3 | <https://drive.google.com/file/d/1_ACOpUWanWAmEhS_oBQ4TOxfFItBjmD-/view> |
+| Monstera Albo green/white vine | <https://drive.google.com/file/d/1QJ8JfIBxuk2uJOin6NZ7Lt7RUGZifq-7/view> |
+| Monstera Albo small fenestrated | <https://drive.google.com/file/d/1GSYNskSik5APOs9PZYdkSHHLakX-ZOk2/view> |
+| Monstera Albo established vines | <https://drive.google.com/file/d/1ceuhOQOMBUTwMHqCNMS7rEKnTgqt-uCv/view> |
+| Monstera Albo young white overhead | <https://drive.google.com/file/d/1aeHp5HucpH3oGkrAif8P4wj4mU_Yx-37/view> |
+| Monstera Albo young white closeup | <https://drive.google.com/file/d/1fyX9ZqRPrfE_0BtqRNPyf5RAW8ZMKm_L/view> |
+| Epipremnum Albo pink/white LEAD | <https://drive.google.com/file/d/1BfCZZ4nfP3qLVI_M1kUfNYadeItNaiPC/view> |
+| Epipremnum Albo white leaf closeup | <https://drive.google.com/file/d/13lI08C3NEVDcZ8R-yKR3ZmCunMm--S-6/view> |
+| Epipremnum Albo three white leaves | <https://drive.google.com/file/d/1yc-c-beBZd0ZcYKW4wJaJpL7cYisE_GE/view> |
+| Epipremnum Albo single white leaf | <https://drive.google.com/file/d/1quAoqk1C5-rPH7fWVr-OZ_yOsJJrrGKb/view> |
+| Epipremnum Albo green/white mix | <https://drive.google.com/file/d/1Gve38my9cvL50m9Fxf1tLef4L925vGlI/view> |
+| Epipremnum Global Green pots overhead | <https://drive.google.com/file/d/1CVZakmD-WR5MdA87XlBYrW5tzVfevdUD/view> |
+| Epipremnum Global Green closeup | <https://drive.google.com/file/d/16W2Tek_8tkC6b94G0U0eT6qiCEe5doB_/view> |
+| Jose Buono / Paraiso Verde mottled | <https://drive.google.com/file/d/1yYZFwI9W3kzhEqo_afees5shawokwtRw/view> |
+| Scindapsus Pictus / Silver Sword on coco pole | <https://drive.google.com/file/d/1EZKaJAnks_D6Ysi6JCW3K2bBjxGSNnty/view> |
+| Cebu Blue on coco pole | <https://drive.google.com/file/d/186UI4GDz6afliM3PCPMuGwXEWXLPWDbG/view> |
+| Anthurium dark green white veins LEAD | <https://drive.google.com/file/d/1verD5HlrUv-mk7AuUQnZ610N-nrf90eA/view> |
+| Anthurium angle 2 | <https://drive.google.com/file/d/1sznTv5ibAqJrqE_63_OuJT2BlB0zq5dU/view> |
+| Shelf collection overview | <https://drive.google.com/file/d/1pumEI034TqYu7oEMDodDBtryvGhRP-gZ/view> |
+| Plant shelf white shelving | <https://drive.google.com/file/d/12LC844-VpEueznMYFch2UMO8626nI7tC/view> |
 
 ---
 

@@ -1,8 +1,9 @@
-**Last Updated:** 2026-04-24 11:30 UTC
-
 # Plant Swap / Rare Houseplants Draft Posts
 
+**Last Updated:** 2026-04-24 11:30 UTC
+
 ## WHERE TO POST
+
 - **r/RareHouseplantsBST** — check sidebar, sales may require flair or be limited to certain days
 - **r/houseplantscirclejerk** — skip, memes only
 - **Facebook: OC Plant Share** — facebook.com/groups/ocplantshare/ — active OC community, best for local pickup
@@ -13,6 +14,7 @@
 ---
 
 ## REDDIT TITLE (r/RareHouseplantsBST)
+
 `[FS/FT] Garden Grove CA - Monstera Albo (2), Thai Constellation (2), Philodendron Billietiae, Rhaphidophora Hayi, Cebu Blue, Scindapsus + more - prices flexible`
 
 ---
@@ -56,6 +58,7 @@ also have aquatic plants: Java Moss, Spiky Moss, Riccia, Süsswassertang, Hornwo
 ---
 
 ### ALSO LISTING
+
 - aquatic plants + mosses on r/AquaSwap [LINK_PENDING]
 - isopods for bioactive on r/isopods [LINK_PENDING]
 - herps + enclosures on r/HerpBST [LINK_PENDING]
@@ -66,7 +69,7 @@ DMs open. happy to send current photos of anything specific.
 
 ## FACEBOOK POST (OC Plant Share / OC Swap groups)
 
-**HAVE: Monstera Albo, Thai Constellation, Philodendron Billietiae + more — Garden Grove CA, prices flexible**
+### HAVE: Monstera Albo, Thai Constellation, Philodendron Billietiae + more — Garden Grove CA, prices flexible
 
 selling my entire plant collection. my cat Abigail passed away and i'm covering vet bills — everything must go to good homes. prices are flexible, i'm not trying to profit, just need the animals and plants taken care of by people who'll love them.
 
@@ -81,11 +84,13 @@ Venmo @jakeynguyen16 if you want to help with Abigail's fund — no pressure at 
 ## INTERNAL NOTES
 
 ### PHOTO NOTES
+
 - Lead photo: aroid-monstera-albo-mostly-white-LEAD.jpg
 - Other key photos: aroid-epipremnum-albo-pink-white-LEAD.jpg, aroid-scindapsus-pictus-silver-sword-coco-pole.jpg
 - Photos at /Users/justin/Downloads/Photos-3-001/
 
 ### RESEARCH NOTES
+
 - Monstera Albo market has softened — $150–$300 per plant is realistic, not $500+
 - Thai Constellation similarly down — $80–$150 is fair
 - Bundle the Monsteras and Philodendron Billietiae together for a strong post title
