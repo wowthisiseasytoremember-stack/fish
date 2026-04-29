@@ -7,6 +7,7 @@
 ---
 
 ## BEFORE POSTING CHECKLIST
+
 - [ ] **Timestamps:** Take photos of each item with a handwritten note showing `u/wowthisiseasy` + today's date
 - [ ] AquaSwap ONLY allows aquatic animals. Frogs, geckos, and terrestrial isopods must go elsewhere
 - [ ] Only 1 [FS] post per week on AquaSwap — edit the post to add items rather than making new ones
@@ -19,6 +20,7 @@
 ## INVENTORY
 
 ### FISH
+
 - Shell Dweller colony (40+) — established colony
 - Black Moscow Guppies (purebred) — Nolan's Aquarium + Aquabid lineage
 - Kuhli Loaches (x5)
@@ -28,20 +30,24 @@
 - American Flag Fish Fry (super tiny, priced for quick rehome)
 
 ### INVERTS
+
 - Dwarf Cajun Crayfish (C. shufeldtii) — tons available
 - Procambarus species crayfish — variety available (Do NOT call them "cloning crayfish" — illegal in CA)
 - Springtails
 
 ### AQUATIC HERPS
+
 - Spanish Ribbled Newt Larvae (super tiny, still very young)
 
 ### PLANTS
+
 - Rare Moss Portions — Spiky, Peacock, and Willow moss available
 - Guppy Grass — some has hair algae (Flag Fish eat it up, great natural food source!)
 - Salvinia + Hair Algae Mix — likely contains American Flag Fish eggs!
 - Hornwort — tons available
 
 ### EQUIPMENT
+
 - Tanks, lights, air pumps, substrate, hardscape — various sizes/types
 
 ---
@@ -49,17 +55,20 @@
 ## DRAFT POST
 
 **Title (Option A — urgent/fundraiser angle):**
-```
+
+```text
 [FS] [US-CA] Garden Grove, CA - $1+ - HUGE Clearout: Shell Dweller Colony, Rare Mosses, Purebred Black Moscow Guppies, Crayfish, Plants & Equipment (Cat Medical Fund)
 ```
 
 **Title (Option B — detail focused):**
-```
+
+```text
 [FS] [US-CA] Garden Grove, CA - Prices in post - Shell Dweller Colony 40+, Black Moscow Guppies, Dwarf Crayfish, Rare Mosses, Hornwort, Equipment
 ```
 
 **Body:**
-```
+
+```text
 Hey everyone — dealing with some very unexpected and expensive medical bills for my cat, so I have to break down my setups and rehome a bunch of my animals. Everything is priced to move. VERY open to bundles — the more you take the more I'll throw in for free (lights, air pumps, substrate, hardscape, etc.). Just ask!
 
 📍 Garden Grove, CA (Orange County) | 💳 PayPal G&S only | 🚗 Local pickup strongly preferred for livestock | 📦 Plants can ship

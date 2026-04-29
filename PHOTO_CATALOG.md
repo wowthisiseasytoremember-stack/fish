@@ -1,6 +1,6 @@
-**Last Updated:** 2026-04-23 00:45 UTC
-
 # Photo Catalog — Fish Room Sale
+
+**Last Updated:** 2026-04-23 00:45 UTC
 
 Source folder (local only, not in git): `/Users/justin/Downloads/Photos-3-001/`
 

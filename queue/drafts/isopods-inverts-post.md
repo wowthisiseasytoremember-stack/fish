@@ -1,8 +1,9 @@
-**Last Updated:** 2026-04-24 11:30 UTC
-
 # Isopods / Inverts / Bioactive Draft Posts
 
+**Last Updated:** 2026-04-24 11:30 UTC
+
 ## WHERE TO POST
+
 - **r/isopods** — active community, check sidebar for BST rules
 - **Dendroboard.com classifieds** — dendroboard.com/forum/classifieds/ — best forum for bioactive inverts
 - **Arachnoboards classifieds** — arachnoboards.com — active for isopods and springtails
@@ -12,6 +13,7 @@
 ---
 
 ## REDDIT TITLE (r/isopods or Dendroboard)
+
 `[FS] Garden Grove CA - Cubaris (Borneo/Salmon/Papaya), Porcellio morphs, Springtails, Cajun Dwarf Crayfish colony, Scuds — prices flexible, good homes first`
 
 ---
@@ -67,13 +69,16 @@ if you're building your first bioactive i can put together a starter combo — s
 ## INTERNAL NOTES
 
 ### PHOTO NOTES
+
 - Lead photo: invert-berried-crayfish-egg-cluster.jpeg
 - Photos at /Users/justin/Downloads/Photos-3-001/
 
 ### SHIPPING & REGULATORY
+
 - USDA permit technically required to ship isopods across state lines. For local CA sales this doesn't apply. For shipping out of state, flag this to buyer in DM.
 
 ### CONTENT NOTES
+
 - Isopod species list: need to confirm exact species before posting — photograph and ID the containers
 - Cajun dwarf crayfish colony is a good lead item — plant-safe dwarf crayfish have strong demand in planted tank and bioactive communities
 - Bundle springtails + isopods as a "bioactive starter kit" — sells faster than individual listings
