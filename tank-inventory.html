@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fish Room Tank Inventory</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b1326;
+            --bg-glow: #0f2040;
+            --teal: #00F0FF;
+            --teal-dim: rgba(0, 240, 255, 0.15);
+            --amber: #FFB000;
+            --blue: #3b82f6;
+            --purple: #a855f7;
+            --green: #22c55e;
+            --gray: #6b7280;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --glass-bg: rgba(11, 19, 38, 0.7);
+            --glass-border: rgba(0, 240, 255, 0.2);
+            --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+        
+        * { box-sizing: border-box; }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Deep Water Background Gradient */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 50% 0%, var(--bg-glow) 0%, var(--bg-color) 70%, #050a14 100%);
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        /* Bioluminescent Bubbles Animation */
+        .bubbles {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .bubble {
+            position: absolute;
+            bottom: -20px;
+            background: radial-gradient(circle at 30% 30%, rgba(0, 240, 255, 0.4), rgba(0, 240, 255, 0.05));
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.2), inset 0 0 10px rgba(0, 240, 255, 0.2);
+            animation: rise infinite ease-in;
+            opacity: 0;
+        }
+        @keyframes rise {
+            0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+            10% { opacity: 0.8; }
+            50% { transform: translateY(-50vh) translateX(20px) scale(1.1); }
+            90% { opacity: 0.5; }
+            100% { transform: translateY(-100vh) translateX(-20px) scale(1.3); opacity: 0; }
+        }
+
+        /* Header / Stats Bar */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 19, 38, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(0, 240, 255, 0.6);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        h1::before {
+            content: '';
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: var(--teal);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--teal);
+        }
+
+        .stats {
+            display: flex;
+            gap: 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .stat {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+        .stat span {
+            color: var(--teal);
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* CSS Grid Room Map */
+        .map-section {
+            margin-bottom: 4rem;
+        }
+        
+        .map-title {
+            text-align: center;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .room-map {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-rows: 100px 200px 100px;
+            gap: 1.5rem;
+            padding: 2rem;
+            background: rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            position: relative;
+        }
+
+        .map-rack {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(4px);
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .map-rack::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(0,240,255,0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .map-rack:hover {
+            transform: translateY(-4px) scale(1.02);
+            border-color: var(--teal);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2), inset 0 0 15px rgba(0, 240, 255, 0.1);
+            z-index: 10;
+        }
+        .map-rack:hover::before {
+            opacity: 1;
+        }
+        
+        .map-rack h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #fff;
+            font-family: 'Space Grotesk', sans-serif;
+            text-shadow: 0 0 5px rgba(255,255,255,0.3);
+            z-index: 1;
+        }
+        .map-rack p {
+            margin: 0.5rem 0 0;
+            font-size: 0.75rem;
+            color: var(--teal);
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            z-index: 1;
+        }
+
+        /* Map Positioning */
+        .wall-west { grid-column: 1 / 4; grid-row: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; background: transparent; border: none; padding: 0; }
+        .wall-west .map-rack { width: 100%; height: 100%; }
+        
+        .wall-north { grid-column: 3; grid-row: 2; display: grid; grid-template-rows: 1fr 1fr; gap: 1rem; }
+        
+        .wall-east { grid-column: 1 / 4; grid-row: 3; }
+        
+        .wall-south { grid-column: 1; grid-row: 2; display: grid; grid-template-rows: 1fr 1fr; gap: 1rem; }
+        
+        .freestanding { grid-column: 2; grid-row: 2; border-color: var(--amber); }
+        .freestanding h3 { color: var(--amber); }
+        .freestanding p { color: var(--amber); }
+        .freestanding:hover { border-color: var(--amber); box-shadow: 0 0 20px rgba(255, 176, 0, 0.2), inset 0 0 15px rgba(255, 176, 0, 0.1); }
+        
+        .corner-sw { position: absolute; bottom: 85px; left: 10px; width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-align: center; border: 1px dashed var(--teal); background: rgba(0,0,0,0.5); }
+        .corner-sw h3 { font-size: 0.8rem; }
+
+        /* Inventory Cards */
+        .inventory-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .rack-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            box-shadow: var(--glass-shadow);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .rack-card:hover {
+            border-color: rgba(0, 240, 255, 0.4);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 240, 255, 0.05);
+        }
+
+        .rack-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--teal), transparent);
+            opacity: 0.3;
+        }
+
+        .rack-header {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem 2.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .rack-header h2 {
+            margin: 0;
+            color: #fff;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+        }
+        
+        .rack-misc {
+            padding: 1rem 2.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-style: italic;
+            background: rgba(255,255,255,0.02);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .rack-misc p { margin: 0.2rem 0; }
+
+        .shelf {
+            padding: 1.5rem 2.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: background 0.2s ease;
+        }
+        .shelf:hover {
+            background: rgba(0, 240, 255, 0.02);
+        }
+        .shelf:last-child {
+            border-bottom: none;
+        }
+        .shelf h3 {
+            margin: 0 0 1.2rem 0;
+            color: var(--teal);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .shelf h3::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--amber);
+            border-radius: 1px;
+            transform: rotate(45deg);
+        }
+
+        .tank-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1rem;
+        }
+
+        .tank-item {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .tank-item:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.15);
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .tank-title {
+            font-size: 1rem;
+            line-height: 1.4;
+            color: var(--text-main);
+        }
+        .tank-title strong {
+            color: #fff;
+            font-weight: 700;
+        }
+        .tank-title em {
+            color: var(--teal);
+            font-style: italic;
+            opacity: 0.9;
+        }
+        
+        .tank-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            padding-left: 0.8rem;
+            border-left: 2px solid rgba(255,255,255,0.1);
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: auto;
+            padding-top: 0.5rem;
+        }
+        .badge {
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .badge::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+        
+        /* Category Badges */
+        .badge.fish { background: rgba(59, 130, 246, 0.1); color: var(--blue); border: 1px solid rgba(59, 130, 246, 0.3); }
+        .badge.fish::before { background: var(--blue); box-shadow: 0 0 5px var(--blue); }
+        
+        .badge.herps { background: rgba(255, 176, 0, 0.1); color: var(--amber); border: 1px solid rgba(255, 176, 0, 0.3); }
+        .badge.herps::before { background: var(--amber); box-shadow: 0 0 5px var(--amber); }
+        
+        .badge.inverts { background: rgba(168, 85, 247, 0.1); color: var(--purple); border: 1px solid rgba(168, 85, 247, 0.3); }
+        .badge.inverts::before { background: var(--purple); box-shadow: 0 0 5px var(--purple); }
+        
+        .badge.plants { background: rgba(34, 197, 94, 0.1); color: var(--green); border: 1px solid rgba(34, 197, 94, 0.3); }
+        .badge.plants::before { background: var(--green); box-shadow: 0 0 5px var(--green); }
+        
+        /* Status Chips */
+        .badge.empty { background: rgba(107, 114, 128, 0.1); color: var(--gray); border: 1px solid rgba(107, 114, 128, 0.3); }
+        .badge.empty::before { background: var(--gray); }
+        
+        .badge.active { background: transparent; color: var(--teal); border: 1px dashed rgba(0, 240, 255, 0.4); }
+        .badge.active::before { background: var(--teal); box-shadow: 0 0 5px var(--teal); }
+        
+        .badge.construction { background: transparent; color: var(--amber); border: 1px dashed rgba(255, 176, 0, 0.4); }
+        .badge.construction::before { background: var(--amber); }
+        
+        .badge.pending { background: transparent; color: var(--text-muted); border: 1px dashed rgba(255,255,255,0.2); }
+        .badge.pending::before { background: var(--text-muted); }
+
+        @media (max-width: 768px) {
+            .room-map {
+                display: flex;
+                flex-direction: column;
+                height: auto;
+            }
+            .wall-west, .wall-north, .wall-south { display: flex; flex-direction: column; }
+            .corner-sw { position: relative; bottom: 0; left: 0; width: 100%; height: auto; border-radius: 8px; padding: 1rem; }
+            .stats { flex-direction: column; gap: 0.5rem; align-items: flex-end; }
+            .stat { flex-direction: row; gap: 0.5rem; align-items: baseline; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bubbles" id="bubbles"></div>
+
+    <header>
+        <h1>Tank Inventory</h1>
+        <div class="stats">
+            <div class="stat">Total Tanks <span>~45</span></div>
+            <div class="stat">Living Inhabitants <span>100+</span></div>
+            <div class="stat">Species tracked <span>35+</span></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="map-section">
+            <h2 class="map-title">Room Layout (Top-Down)</h2>
+            <div class="room-map">
+                <!-- West Wall (Top) -->
+                <div class="wall-west">
+                    <a href="#west-wall-rack-6" class="map-rack">
+                        <h3>Rack 6</h3>
+                        <p>Paludarium / Jewel</p>
+                    </a>
+                    <a href="#west-wall-rack-7" class="map-rack">
+                        <h3>Rack 7</h3>
+                        <p>Crested Gecko</p>
+                    </a>
+                </div>
+                
+                <!-- North Wall (Right) -->
+                <div class="wall-north">
+                    <a href="#north-wall-rack-2-gray-rack" class="map-rack">
+                        <h3>Rack 2</h3>
+                        <p>Killifish / Puffers</p>
+                    </a>
+                    <a href="#north-wall-rack-3" class="map-rack">
+                        <h3>Rack 3</h3>
+                        <p>Dragon Puffer</p>
+                    </a>
+                </div>
+                
+                <!-- Entrance Wall (Bottom) -->
+                <a href="#house-entrance-wall-rack-1-black-rack" class="map-rack wall-east">
+                    <h3>Rack 1</h3>
+                    <p>Entrance / Black Rack</p>
+                </a>
+                
+                <!-- South Wall (Left) -->
+                <div class="wall-south">
+                    <a href="#south-wall-rack-5" class="map-rack">
+                        <h3>Rack 5</h3>
+                        <p>Killifish / UNS</p>
+                    </a>
+                    <a href="#south-wall-stand-1" class="map-rack">
+                        <h3>Stand 1</h3>
+                        <p>Flagfish</p>
+                    </a>
+                </div>
+                
+                <!-- Center -->
+                <a href="#center-freestanding-rack-4" class="map-rack freestanding">
+                    <h3>Rack 4</h3>
+                    <p>High Plant Density</p>
+                </a>
+                
+                <!-- SW Corner -->
+                <a href="#south-west-corner-corner-stand" class="map-rack corner-sw">
+                    <h3>Corner</h3>
+                </a>
+            </div>
+        </section>
+
+        <section class="inventory-list">
+
+            <article class="rack-card" id="house-entrance-wall-rack-1-black-rack">
+                <div class="rack-header">
+                    <h2>House / Entrance Wall — Rack 1 (Black Rack)</h2>
+                </div><div class="rack-misc"><p><em>East wall, contains the garage entry door.</em></p></div>
+                <div class="shelf">
+                    <h3>Top / Above Rack</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Zoo Med Mesh Enclosure (Large)</strong> — Baja California Tree Frogs (~5)</div><div class="badges"><span class="badge herps">Herps</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Wall Shelf (right of mesh)</strong> — Clear plastic cups, storage boxes labeled "GRO"</div></div>
+                    </div>
+                </div>
+                <div class="shelf">
+                    <h3>Middle Shelf</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Baby Brine Shrimp Jar</strong> — Active culture</div><div class="badges"><span class="badge inverts">Inverts</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Temporary Enclosure</strong> — 1 California Tree Frog</div><div class="badges"><span class="badge herps">Herps</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Enclosure</strong> — 2 Mediterranean House Geckos</div><div class="badges"><span class="badge herps">Herps</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Moss Jar</strong> — <em>Taxiphyllum</em> "Spiky" Moss</div><div class="badges"><span class="badge plants">Plants</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>5 Gallon Rimmed Tank</strong></div><div class="badges"><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Inhabitants:</strong> 11 Ember Tetras</div><div class="badges"><span class="badge fish">Fish</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Equipment:</strong> Matten filter</div><div class="badges"><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Label:</strong> "Panda Cory" (mislabeled)</div><div class="badges"><span class="badge fish">Fish</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>2.5 Gallon Terrarium</strong> — On its side (horizontal, growing in); Java moss, <em>Riccia</em>, terrestrial mosses; wood, foam background</div><div class="badges"><span class="badge plants">Plants</span><span class="badge active">Active</span></div></div>
+                    </div>
+                </div>
+                <div class="shelf">
+                    <h3>Shelf 3</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Large Clear Plastic Tub</strong> — 5 Juvenile Taricha Newts; sponge filter; plants</div><div class="badges"><span class="badge herps">Herps</span><span class="badge plants">Plants</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Terrarium Door</strong> — Leaning (from floor terrarium below)</div><div class="badges"><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>5 Gallon Rimmed Tank</strong> — Aquasoil, scuds, Hornwort; mostly drained</div><div class="badges"><span class="badge inverts">Inverts</span><span class="badge plants">Plants</span><span class="badge empty">Empty</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>10 Gallon Rimless Tank</strong> — Java moss, white sand; half-drained; built-in plastic stand</div><div class="badges"><span class="badge plants">Plants</span><span class="badge empty">Empty</span></div></div>
+                    </div>
+                </div>
+                <div class="shelf">
+                    <h3>Bottom Shelf</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>20 Gallon Long Terrarium</strong> — Various isopods; partially torn down; LECA drainage layer</div><div class="badges"><span class="badge inverts">Inverts</span><span class="badge active">Active</span></div></div>
+                    </div>
+                </div>
+                <div class="shelf">
+                    <h3>Lower / Floor</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>20 Gallon Long (Marineland)</strong> — 3 Spanish Ribbed Newts (2M/1F; 1M/1F Albino); Marineland light, sponge filter</div><div class="badges"><span class="badge herps">Herps</span><span class="badge active">Active</span></div></div>
+                    </div>
+                </div>
+            </article>
+            <article class="rack-card" id="right-of-rack-1-floor">
+                <div class="rack-header">
+                    <h2>Right of Rack 1 (floor)</h2>
+                </div><div class="rack-misc"><p><strong>Bowfront / Half-Moon Tank (~10–20g)</strong> — Storage (cables, tape, misc)</p></div>
+            </article>
+            <article class="rack-card" id="corner-transition-between-rack-1-and-north-wall-floor">
+                <div class="rack-header">
+                    <h2>Corner Transition (between Rack 1 and North Wall floor)</h2>
+                </div><div class="rack-misc"><p><strong>15 Gallon Column Tank</strong> — 1 <em>Procambarus clarkii</em> (Red Swamp Crayfish); canister filter; tannin-heavy dark water, large rock structure</p><p><strong>5 Gallon White Bucket</strong> (underneath column tank) — Floating plants (formerly scud culture)</p></div>
+            </article>
+            <article class="rack-card" id="north-wall-rack-3">
+                <div class="rack-header">
+                    <h2>North Wall — Rack 3</h2>
+                </div><div class="rack-misc"><p><em>Leftmost rack on the north wall.</em></p></div>
+                <div class="shelf">
+                    <h3>Top Shelf</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>40 Gallon Breeder</strong> — 1 <em>Pao palembangensis</em> (Dragon Puffer); light gravel, moss, ceramic pot/hide; two black gooseneck LED lights</div><div class="badges"><span class="badge fish">Fish</span><span class="badge plants">Plants</span><span class="badge active">Active</span></div></div>
+                    </div>
+                </div>
+                <div class="shelf">
+                    <h3>Bottom Shelf</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>30 Gallon Tank</strong> — Orange Platy, Black Moscow Guppies, Kuhli Loaches, Pleco, Endler; Matten filter; label "III"</div><div class="badges"><span class="badge fish">Fish</span><span class="badge active">Active</span></div></div>
+                    </div>
+                </div>
+            </article>
+            <article class="rack-card" id="north-wall-center-left-floor-stacks">
+                <div class="rack-header">
+                    <h2>North Wall — Center-Left (floor / stacks)</h2>
+                </div><div class="rack-misc"><p><em>Between Rack 3 and Rack 2.</em></p><p><strong>Stacked 5 Gallon Tanks</strong> — Top: terrarium (wood, substrate wall); Bottom: empty</p><p><strong>Zoo Med 10 Gallon Front-Opening Terrarium</strong> (floor) — Empty</p><p><strong>Wedge Tank (triangular, ~10–15g, Top Fin)</strong> (floor, center of room) — Storage; tools, "Hydrafacial" mug, #LUBE LIFE bottle on lid; metal tray on top</p><p><strong>10 Gallon Zoo Med Terrarium</strong> (floor, front of Rack 4) — Empty</p><p><strong>2 Gallon Tank</strong> (floor, center of room) — Empty</p></div>
+            </article>
+            <article class="rack-card" id="north-wall-rack-2-gray-rack">
+                <div class="rack-header">
+                    <h2>North Wall — Rack 2 (Gray Rack)</h2>
+                </div><div class="rack-misc"><p><em>Center of north wall.</em></p></div>
+                <div class="shelf">
+                    <h3>Top (wall shelves above rack)</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Plant Grow-out Box</strong> — Various plants</div><div class="badges"><span class="badge plants">Plants</span><span class="badge active">Active</span></div></div>
+                    </div>
+                </div>
+                <div class="shelf">
+                    <h3>Middle Shelf</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>10 Gallon Rimless (left)</strong> — Süsswassertang, Moss; mostly drained; large black hang-on-back filter</div><div class="badges"><span class="badge plants">Plants</span><span class="badge empty">Empty</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>20 Gallon AquaJapan Rimless (right)</strong> — 1 male <em>Pachypanchax playfairii</em> (Playfair's Killifish); <em>Epipremnum aureum</em> "Lemon Lime", <em>Epipremnum pinnatum</em>; half-full dark water; note "Water Change Day"</div><div class="badges"><span class="badge fish">Fish</span><span class="badge plants">Plants</span><span class="badge active">Active</span></div></div>
+                    </div>
+                </div>
+                <div class="shelf">
+                    <h3>Shelf 3</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Plastic Bins (left)</strong> — Terrarium substrates</div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Shallow Clear Tub (center)</strong> — Tiny <em>Procambarus virginalis</em> (Marmorkrebs)</div><div class="badges"><span class="badge inverts">Inverts</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>10 Gallon Rimmed (right)</strong> — Süsswassertang; half-drained; undergravel filter</div><div class="badges"><span class="badge plants">Plants</span><span class="badge empty">Empty</span></div></div>
+                    </div>
+                </div>
+                <div class="shelf">
+                    <h3>Shelf 4 (bottom)</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>10 Gallon Rimmed (left)</strong> — 1 male <em>Carinotetraodon irrubesco</em> (Red-eye Puffer); Matten filter</div><div class="badges"><span class="badge fish">Fish</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>10 Gallon Rimmed (right)</strong> — Empty/Drained; aquasoil</div><div class="badges"><span class="badge empty">Empty</span></div></div>
+                    </div>
+                </div>
+                <div class="shelf">
+                    <h3>Floor (Rack 2 area)</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>15 Gallon Long/Tall</strong> — Colony of <em>Procambarus virginalis</em>; terracotta pot halves, botanicals</div><div class="badges"><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>28 Gallon JBJ Nano Cube</strong> — 1 male <em>Neolamprologus brichardi</em> (Brichardi Cichlid)</div><div class="badges"><span class="badge fish">Fish</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>20 Gallon Rimmed</strong> — 4 <em>Fundulus chrysotus</em> (Golden Killifish, Louisiana native); wire mesh lid</div><div class="badges"><span class="badge fish">Fish</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Clear Plastic Tub (blue handles)</strong> — Large colony <em>Cambarellus shufeldtii</em> (Cajun Dwarf Crayfish, Louisiana native); coconut hide, duckweed</div><div class="badges"><span class="badge fish">Fish</span><span class="badge inverts">Inverts</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>10 Gallon Rimmed</strong> — Unknown crayfish species + babies; sponge filter</div><div class="badges"><span class="badge fish">Fish</span><span class="badge inverts">Inverts</span><span class="badge pending">Pending ID</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>10 Gallon Rimmed</strong> — 5 Albino Dwarf Corys + 1 regular Dwarf Cory; sponge filter</div><div class="badges"><span class="badge fish">Fish</span><span class="badge active">Active</span></div></div>
+                    </div>
+                </div>
+            </article>
+            <article class="rack-card" id="center-freestanding-rack-4">
+                <div class="rack-header">
+                    <h2>Center (Freestanding) — Rack 4</h2>
+                </div><div class="rack-misc"><p><em>Middle of room. High plant density.</em></p></div>
+                <div class="shelf">
+                    <h3>Shelf A (top)</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title"><em>Plants left to right:</em></div><div class="badges"><span class="badge plants">Plants</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><em>Philodendron billietiae</em> — orange petiole, smooth form</div><div class="badges"><span class="badge plants">Plants</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title">Monstera albo (<em>Monstera deliciosa</em> 'Albo Variegata')</div><div class="badges"><span class="badge plants">Plants</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><em>Epipremnum pinnatum</em></div><div class="badges"><span class="badge plants">Plants</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><em>Epipremnum pinnatum</em> albo variegata</div><div class="badges"><span class="badge plants">Plants</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><em>Scindapsus pictus</em></div><div class="badges"><span class="badge plants">Plants</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><em>Scindapsus</em> "Thai Jade" — ID tentative</div><div class="badges"><span class="badge plants">Plants</span><span class="badge pending">Pending ID</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title">Philodendron 'Silver Sword' (<em>Philodendron hastatum</em>)</div><div class="badges"><span class="badge plants">Plants</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><em>Syngonium podophyllum</em> 'Santa Maria'</div><div class="badges"><span class="badge plants">Plants</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title">Large specimen — either <em>Philodendron</em> 'José Buono' variegated or <em>Philodendron paraiso verde</em> — unconfirmed</div><div class="badges"><span class="badge plants">Plants</span><span class="badge pending">Pending ID</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>1.5 Gallon Rimless Cube Tank</strong> — Java moss, tissue cultured from wild-form <em>Vesicularia dubyana</em>; taxonomy disputed — current valid name unclear</div><div class="badges"><span class="badge plants">Plants</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><em>Epipremnum aureum</em> "Global Green"</div><div class="badges"><span class="badge plants">Plants</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><em>Epipremnum pinnatum</em> 'Cebu Blue'</div><div class="badges"><span class="badge plants">Plants</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><em>Top right of photo:</em></div><div class="badges"><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><em>Epipremnum aureum</em> "Lime Green"</div><div class="badges"><span class="badge plants">Plants</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><em>Far left, hanging in red-lid container:</em></div><div class="badges"><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title">Half <em>E. aureum</em> "Global Green", half unknown patented <em>Epipremnum</em> cultivar — trademark name TBD</div><div class="badges"><span class="badge plants">Plants</span><span class="badge pending">Pending ID</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><em>Not visible in photo but also on this shelf:</em></div><div class="badges"><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><em>Monstera karstenianum</em> 'Peru'</div><div class="badges"><span class="badge plants">Plants</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><em>Monstera dubia</em> (sold as 'Hayi' — tentative)</div><div class="badges"><span class="badge plants">Plants</span><span class="badge pending">Pending ID</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><em>Rhaphidophora hayi</em></div><div class="badges"><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title">Second Monstera albo (<em>Monstera deliciosa</em> 'Albo Variegata')</div><div class="badges"><span class="badge plants">Plants</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title">2x <em>Monstera deliciosa</em> 'Thai Constellation'</div><div class="badges"><span class="badge plants">Plants</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title">Second pot <em>Epipremnum aureum</em> "Global Green"</div><div class="badges"><span class="badge plants">Plants</span><span class="badge active">Active</span></div></div>
+                    </div>
+                </div>
+                <div class="shelf">
+                    <h3>Shelf B</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>10 Gallon Rimmed</strong> — Full <em>Neolamprologus multifasciatus</em> (shell dweller) colony</div><div class="badges"><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Half-Rimmed Tank</strong> — 3 male <em>Fundulopanchax gardneri</em> (Gardner's Killifish)</div><div class="badges"><span class="badge fish">Fish</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Exo Terra 18x18x36 Terrarium (right)</strong> — Empty; half set up</div><div class="badges"><span class="badge empty">Empty</span></div></div>
+                    </div>
+                </div>
+                <div class="shelf">
+                    <h3>Shelf C</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Large Clear Plastic Tub</strong> — 5 Juvenile Taricha Newts; sponge filter</div><div class="badges"><span class="badge herps">Herps</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>5 Gallon Half-Rimmed Tank</strong> — Scuds, Hornwort; mostly drained; aquasoil</div><div class="badges"><span class="badge inverts">Inverts</span><span class="badge plants">Plants</span><span class="badge empty">Empty</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>10 Gallon Rimless</strong> (behind 5g) — Java moss, white sand; half-drained; built-in plastic stand</div><div class="badges"><span class="badge plants">Plants</span><span class="badge empty">Empty</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>14 Gallon Cube Tank</strong> — Empty/Drained</div><div class="badges"><span class="badge empty">Empty</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Springtail Containers</strong> — Stacked plastic containers; active cultures</div><div class="badges"><span class="badge inverts">Inverts</span><span class="badge active">Active</span></div></div>
+                    </div>
+                </div>
+                <div class="shelf">
+                    <h3>Shelf D (bottom)</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>10 Gallon Rimmed Tank (left)</strong> — Empty; foam background on back wall; originally set up for reptiles</div><div class="badges"><span class="badge herps">Herps</span><span class="badge empty">Empty</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Plastic Box (right)</strong> — Filled with hardscape (rocks/wood)</div><div class="badges"><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Small Plastic Reptile Carrier (right)</strong> — 1 male Day Gecko</div><div class="badges"><span class="badge herps">Herps</span><span class="badge active">Active</span></div></div>
+                    </div>
+                </div>
+                <div class="shelf">
+                    <h3>Floor (left of Rack 4)</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>20 Gallon Rimmed</strong> — 1 <em>Cherax quadricarinatus</em> (Australian Red Claw Crayfish); chipped tank, water kept below chip; dark water</div><div class="badges"><span class="badge fish">Fish</span><span class="badge inverts">Inverts</span><span class="badge active">Active</span></div></div>
+                    </div>
+                </div>
+            </article>
+            <article class="rack-card" id="south-wall-rack-5">
+                <div class="rack-header">
+                    <h2>South Wall — Rack 5</h2>
+                </div>
+                <div class="shelf">
+                    <h3>Top Shelf</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Killifish Fry Tub</strong> — Fry</div><div class="badges"><span class="badge fish">Fish</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>23 Gallon Long</strong> — Albino Pleco, male Killifish</div><div class="badges"><span class="badge fish">Fish</span><span class="badge active">Active</span></div></div>
+                    </div>
+                </div>
+                <div class="shelf">
+                    <h3>Middle Shelf</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>12 Gallon Rimless</strong> — Storage (empty)</div><div class="badges"><span class="badge empty">Empty</span></div></div>
+                    </div>
+                </div>
+                <div class="shelf">
+                    <h3>Bottom Shelf</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>6 Gallon Long UNS Rimless</strong> — Random plants; dark substrate</div><div class="badges"><span class="badge plants">Plants</span><span class="badge active">Active</span></div></div>
+                    </div>
+                </div>
+            </article>
+            <article class="rack-card" id="south-wall-stand-1">
+                <div class="rack-header">
+                    <h2>South Wall — Stand 1</h2>
+                </div><div class="rack-misc"><p><strong>20 Gallon Rimless</strong> — 3 American Flagfish + fry</p></div>
+                <div class="shelf">
+                    <h3>Inside / Under Stand</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>10 Gallon Half-Rimmed</strong> — 1 Jewel Cichlid (<em>Hemichromis</em> sp.)</div><div class="badges"><span class="badge fish">Fish</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>~4 Gallon Rimless</strong> — Hornwort; possibly 1 Brazos Dwarf Crayfish (<em>Cambarellus texanus</em>) — unconfirmed</div><div class="badges"><span class="badge fish">Fish</span><span class="badge inverts">Inverts</span><span class="badge plants">Plants</span><span class="badge pending">Pending ID</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Plastic Containers</strong> — Isopod cultures, moss</div><div class="badges"><span class="badge inverts">Inverts</span><span class="badge plants">Plants</span><span class="badge active">Active</span></div></div>
+                    </div>
+                </div>
+                <div class="shelf">
+                    <h3>Floor (stand proximity)</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>2 Gallon Rimless</strong> — Empty (storage)</div><div class="badges"><span class="badge empty">Empty</span></div></div>
+                    </div>
+                </div>
+            </article>
+            <article class="rack-card" id="south-west-corner-corner-stand">
+                <div class="rack-header">
+                    <h2>South-West Corner — Corner Stand</h2>
+                </div><div class="rack-misc"><p><em>Small rack in the corner between the South Wall and West Wall.</em></p><p><strong>White 5 Gallon Bucket</strong> — <em>Procambarus alleni</em> (Blue Crayfish)</p></div>
+            </article>
+            <article class="rack-card" id="west-wall-rack-6">
+                <div class="rack-header">
+                    <h2>West Wall — Rack 6</h2>
+                </div><div class="rack-misc"><p><em>Right of Rack 7. Logged photo 29.</em></p></div>
+                <div class="shelf">
+                    <h3>Top Shelf</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Rimmed AIO ~5 Gallon Tank</strong> — Assorted plants (cuttings/trash)</div><div class="badges"><span class="badge plants">Plants</span><span class="badge active">Active</span></div></div>
+                    </div>
+                </div>
+                <div class="shelf">
+                    <h3>Middle Shelf</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Assorted Jars</strong> — Random tracking/discard jars (in front)</div><div class="badges"><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>~45 Gallon Paludarium</strong> (behind jars)</div><div class="badges"><span class="badge herps">Herps</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Status:</strong> Setup complete — drainage layer, waterfall</div><div class="badges"><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Inhabitants:</strong> None currently</div><div class="badges"><span class="badge active">Active</span></div></div>
+                    </div>
+                </div>
+                <div class="shelf">
+                    <h3>Bottom Shelf</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>35 Gallon Acrylic Hex</strong> — 1 adult Jewel Cichlid (<em>Hemichromis</em> sp.)</div><div class="badges"><span class="badge fish">Fish</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Half-Rimmed 10 Gallon</strong> — Empty/Drained</div><div class="badges"><span class="badge empty">Empty</span></div></div>
+                    </div>
+                </div>
+            </article>
+            <article class="rack-card" id="between-rack-6-and-rack-7-floor-stacked">
+                <div class="rack-header">
+                    <h2>Between Rack 6 and Rack 7 (floor / stacked)</h2>
+                </div><div class="rack-misc"><p><em>Gap between the two west wall racks.</em></p><p><strong>White 5 Gallon Bucket</strong> — Albino/Ghost Crayfish</p><p><strong>~5 Gallon Tank (top)</strong> — Empty/Drained</p><p><strong>~5 Gallon Tank (bottom, stacked under top)</strong> — Empty/Drained</p><p><strong>"Compact Fish Tank / Tararium 260B" box</strong> — Brand new tank, unopened</p></div>
+            </article>
+            <article class="rack-card" id="west-wall-rack-7">
+                <div class="rack-header">
+                    <h2>West Wall — Rack 7</h2>
+                </div><div class="rack-misc"><p><em>Leftmost rack on the west wall. Crested Gecko rack.</em></p></div>
+                <div class="shelf">
+                    <h3>Top Shelf</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>40 Gallon Paludarium</strong> — Under construction; full-screen top, LED strip, foam/textured background; no inhabitants</div><div class="badges"><span class="badge herps">Herps</span><span class="badge construction">Under Construction</span></div></div>
+                    </div>
+                </div>
+                <div class="shelf">
+                    <h3>Middle Shelf</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>Exo Terra 18x18x36 Terrarium</strong> — 1 male Crested Dalmatian Gecko (needs a home); LECA drainage, cork bark, wood/egg crate hides</div><div class="badges"><span class="badge herps">Herps</span><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title"><strong>North Spore Lion's Mane Grow Kit</strong> — Sprouted inside bag</div><div class="badges"><span class="badge active">Active</span></div></div>
+                        <div class="tank-item">
+                            <div class="tank-title">Misc: Clear jars, terrarium parts</div><div class="badges"><span class="badge active">Active</span></div></div>
+                    </div>
+                </div>
+                <div class="shelf">
+                    <h3>Bottom Shelf</h3>
+                    <div class="tank-grid">
+                        <div class="tank-item">
+                            <div class="tank-title">Storage for empty plastic containers</div><div class="badges"><span class="badge empty">Empty</span></div></div>
+                    </div>
+                </div>
+            </article>
+            <article class="rack-card" id="floor-between-rack-4-and-west-wall">
+                <div class="rack-header">
+                    <h2>Floor — Between Rack 4 and West Wall</h2>
+                </div><div class="rack-misc"><p><em>Area between the freestanding middle rack and the west wall racks.</em></p><p><strong>White 5 Gallon Bucket (left)</strong> — Albino/Ghost Crayfish <em>(note: also visible from west wall area)</em></p><p><strong>White 5 Gallon Bucket (center, under box)</strong> — Louisiana Grass Shrimp</p><p><strong>Cardboard Box (on top of bucket)</strong> — Various small plastic/acrylic reptile enclosures</p></div>
+            </article>
+            <article class="rack-card" id="floor-misc">
+                <div class="rack-header">
+                    <h2>Floor / Misc</h2>
+                </div><div class="rack-misc"><p><strong>10 Gallon Waterbox</strong> (in cardboard box, inside clear tote) — New/unused, no permanent home yet</p><p>Circular fan</p><p>Blue pressurized sprayer</p><p>Green soda can, orange soda can</p><p>Broom</p><p>"Pampers" box</p><p>Various storage bins</p></div>
+            </article>
+        </section>
+    </main>
+
+    <script>
+        // Generate dynamic animated bubbles
+        const bubblesContainer = document.getElementById('bubbles');
+        const bubbleCount = Math.floor(window.innerWidth / 30); // scale with screen width
+        
+        for (let i = 0; i < bubbleCount; i++) {
+            const bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            
+            // Randomize properties for organic feel
+            const size = Math.random() * 15 + 3; // 3px to 18px
+            const left = Math.random() * 100; // 0vw to 100vw
+            const duration = Math.random() * 12 + 6; // 6s to 18s rise
+            const delay = Math.random() * 15; // 0s to 15s delay
+            
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            bubble.style.left = `${left}vw`;
+            bubble.style.animationDuration = `${duration}s`;
+            bubble.style.animationDelay = `${delay}s`;
+            
+            bubblesContainer.appendChild(bubble);
+        }
+    </script>
+</body>
+</html>

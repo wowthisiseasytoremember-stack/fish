@@ -1,6 +1,18 @@
-**Last Updated:** 2026-04-25 00:39 UTC
+**Last Updated:** 2026-04-26 01:11 UTC
 
 # Changelog
+
+## [2026-04-26 01:11 UTC] — Launched website and posted initial Reddit announcement
+
+### Done
+- Website live (deployment of fish-sale-repo site)
+- r/AquaSwap Reddit post published
+
+### In Progress
+- Remaining Reddit drafts (r/RareHouseplantsBST, r/isopods, r/HerpBST) awaiting posting and link insertion
+
+### For Produce
+> Continue posting the remaining Reddit drafts in order, inserting each new URL into the placeholders of the pending drafts.
 
 ## [2026-04-25 00:39 UTC] — Updated Reddit drafts, refreshed hero timestamp, and recorded session in changelog
 
