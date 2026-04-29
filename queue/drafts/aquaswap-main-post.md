@@ -1,13 +1,15 @@
-**Last Updated:** 2026-04-24 11:30 UTC
-
 # r/aquaswap Post — Final Draft
 
+**Last Updated:** 2026-04-24 11:30 UTC
+
 ## TITLE
+
 `[FS] [US-CA] Garden Grove, CA - Prices in post - Full Fish Room Cleanout: Dragon Puffer, Shell Dwellers, Killifish, Puffers, Newts, Crayfish, Rare Mosses & More`
 
 ---
 
 ## PHOTOS
+
 DM for photos of any specific animal, plant, or equipment. I'll send current actual shots. General room/rack photos on request.
 
 *r/aquaswap requires actual photos. Do not post without at least one photo attached.*
@@ -137,17 +139,20 @@ GLWS all!
 ## INTERNAL NOTES (do not post)
 
 ### Animal & Care Notes
+
 - **Marmorkrebs** (*Procambarus virginalis*) — illegal in CA. Listed as "Procambarus sp." in post. Full detail on website only. Vet buyers before any transaction. Do NOT use the common name or scientific name in the post.
 - **Taricha** — tetrodotoxin-bearing. Experienced keepers only. Buyer assumes responsibility for local regs. Priced higher than generic newts. CA native — chytrid risk on release.
 - **Cajun Dwarf Crayfish** — ~25 available, ~half blue morph. Not commonly available. Sell as lot or individually.
 - **Cherax** — huge specimen, confirm price before posting.
 
 ### PHOTO NOTES
+
 - Lead photo: fish-killifish-side-profile-LEAD.JPG
 - BLOCKER: Dragon Puffer photo missing — do NOT post without it
 - Photos at /Users/justin/Downloads/Photos-3-001/ — upload to Imgur before posting
 
 ### Posting Rules
+
 - **Karma check** — post when account has recent activity (90/10 rule). Check karma before submitting.
 - **Aquaswap scope** — frogs, geckos, terrestrial isopods do NOT belong on r/aquaswap. Those go to r/HerpBST or r/reptiles. Aroids go to r/RareHouseplantsBST.
 - **No Tropical Aroids in body** — aroids section removed, listed separately for r/RareHouseplantsBST.
@@ -155,6 +160,7 @@ GLWS all!
 - **Cross-links** — fill in actual Reddit post URLs before posting [LINK_PENDING] items.
 
 ### Pre-Post Checklist
+
 - [ ] Dragon Puffer photo uploaded to Imgur
 - [ ] All placeholder URLs filled ([KO-FI_URL], [WEBSITE_URL] replaced with "putting a website together")
 - [ ] Karma verified (90/10 rule)

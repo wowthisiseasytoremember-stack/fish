@@ -1,8 +1,9 @@
-**Last Updated:** 2026-04-24 11:30 UTC
-
 # Herp BST / Terrarium Draft Posts
 
+**Last Updated:** 2026-04-24 11:30 UTC
+
 ## WHERE TO POST
+
 - **r/HerpBST** — dedicated buy/sell/trade sub, check pinned rules before posting
 - **r/reptiles** — check sidebar for classifieds rules
 - **Facebook: Southern California Reptile Chats and Rehoming** — private group, request to join
@@ -13,6 +14,7 @@
 ---
 
 ## REDDIT TITLE (r/HerpBST)
+
 `[FS] Garden Grove CA - Spanish Ribbed Newts (w/ albinos), Taricha Newts, Crested Dalmatian Gecko w/ full bioactive setup, Tree Frogs, Day Gecko, Exo Terra 18x18x36 + paludariums`
 
 ---
@@ -85,5 +87,6 @@ also listing: fish + aquatic gear on r/AquaSwap [LINK_PENDING], isopods + spring
 - Dendroboard.com classifieds section is good for the tree frogs and newts specifically
 
 ## PHOTO NOTES
+
 - Lead photo: herp-taricha-newt-orange-juvenile-LEAD.jpeg
 - Photos at /Users/justin/Downloads/Photos-3-001/

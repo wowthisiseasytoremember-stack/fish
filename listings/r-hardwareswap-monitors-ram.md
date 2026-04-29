@@ -7,6 +7,7 @@
 ---
 
 ## BEFORE POSTING CHECKLIST
+
 - [ ] **Timestamps:** Take photos of each item with a handwritten note showing `u/wowthisiseasy` + today's date
 - [ ] Still need: 19" monitor brand, Dell monitor model
 - [ ] RAM specs confirm: OWC and Crucial kits both 16GB 2x8GB
@@ -46,12 +47,14 @@
 ## DRAFT POST
 
 **Title:**
-```
+
+```text
 [US-CA] [H] 19" 2K Monitor, Dell 1080p Monitor, OWC 16GB DDR3 SO-DIMM Kit, Crucial 16GB DDR3L SO-DIMM Kit, Vintage Mac Software [W] PayPal
 ```
 
 **Body:**
-```
+
+```text
 More stuff from the same cleanout. OC/SoCal local or ship on buyer's dime.
 
 Timestamps: [ADD LINK]

@@ -6,6 +6,7 @@
 ---
 
 ## BEFORE POSTING CHECKLIST
+
 - [ ] **Timestamps:** Take photos of each item with a handwritten note showing `u/wowthisiseasy` + today's date
 - [ ] TAM case price (suggest $200 OBO as starting point)
 - [ ] Confirm all vintage discs are in good condition
@@ -50,12 +51,14 @@
 ## DRAFT POST
 
 **Title:**
-```
+
+```text
 [SELL] Twentieth Anniversary Macintosh leather case + Mac OS 8 discs + TAM Drive Setup CD, Apple CD-ROM binder w/ vintage discs, HyperCard, Claris FileMaker Pro floppy, Mac OS 7.5/8.5/Leopard — SoCal/ship
 ```
 
 **Body:**
-```
+
+```text
 Cleaning out a treasure trove of vintage Apple stuff. All items have been stored carefully. Located in Orange County, CA — happy to ship.
 
 Timestamps: [ADD LINK]
