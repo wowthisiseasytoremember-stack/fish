@@ -1,236 +1,292 @@
-**Last Updated:** 2026-04-26 01:11 UTC
-
 # Changelog
+
+**Last Updated:** 2026-04-26 01:11 UTC
 
 ## [2026-04-26 01:11 UTC] — Launched website and posted initial Reddit announcement
 
 ### Done
+
 - Website live (deployment of fish-sale-repo site)
 - r/AquaSwap Reddit post published
 
 ### In Progress
+
 - Remaining Reddit drafts (r/RareHouseplantsBST, r/isopods, r/HerpBST) awaiting posting and link insertion
 
 ### For Produce
+
 > Continue posting the remaining Reddit drafts in order, inserting each new URL into the placeholders of the pending drafts.
 
 ## [2026-04-25 00:39 UTC] — Updated Reddit drafts, refreshed hero timestamp, and recorded session in changelog
 
 ### Done
-- Replaced placeholder text in **all 4 Reddit draft files** with `full listing + photos at https://wowthisiseasytoremember-stack.github.io/fish/`.
+
+- Replaced placeholder text in **all 4 Reddit draft files** with `full listing + photos at <https://wowthisiseasytoremember-stack.github.io/fish/`.>
 - Updated the **hero section timestamp** on the site to the current date.
 - Added this session’s summary to **CHANGELOG.md**.
 - Committed and pushed all changes to the repository.
 
 ### In Progress
+
 - Nothing
 
 ### For Produce
+
 > Prepare cross‑reference `[LINK]` placeholders after each Reddit post goes live.
 
 ## [2026-04-25 01:00 UTC] — Site live, all Reddit drafts updated with URL
 
 ### Done
-- Site is live at https://wowthisiseasytoremember-stack.github.io/fish/
+
+- Site is live at <https://wowthisiseasytoremember-stack.github.io/fish/>
 - All 4 Reddit post drafts updated: "website not up yet" replaced with live URL in each post body
 - Hero timestamp updated to 2026-04-25
 
 ### For Produce
-> Fish room sale site is live at https://wowthisiseasytoremember-stack.github.io/fish/ — all 4 Reddit drafts in queue/drafts/READY-TO-POST.md now reference the URL, ready to post in order: RareHouseplantsBST → isopods → HerpBST → AquaSwap.
+
+> Fish room sale site is live at <https://wowthisiseasytoremember-stack.github.io/fish/> — all 4 Reddit drafts in queue/drafts/READY-TO-POST.md now reference the URL, ready to post in order: RareHouseplantsBST → isopods → HerpBST → AquaSwap.
 
 ## [2026-04-25 00:35 UTC] — Added responsive media layout with expand modal and restored footer card size
 
 ### Done
+
 - Implemented side‑by‑side layout for photos and video (16:9, equal height) under “Moving Pictures & Stills” header; stacked single‑column on mobile.
 - Added expand button (top‑right) to each media panel; clicking opens a 92vw × 88vh modal with blurred backdrop, preserving DOM node state for carousel/video.
 - Restored Abigail footer card width to 220 px; adjusted surrounding footer cards accordingly.
 
 ### In Progress
+
 - Nothing
 
 ### For Produce
+
 > Verify carousel behavior across all target devices and fix any remaining layout quirks.
 
 ## [2026-04-25 00:31 UTC] — Consolidated three stacked sections into a single responsive row of equal-height glass cards
 
 ### Done
+
 - Implemented side‑by‑side layout of Get in Touch, Abigail Breslin memorial, and Freelance pitch cards with equal height.
 - Removed extra dividers and tightened padding across all components.
 - Added responsive behavior: cards stack vertically on mobile with memorial centered.
 - Updated Venmo handle to `@jakeynguyen16` and Ko‑fi link to `ko-fi.com/thetangletrove`; removed PayPal placeholder.
 
 ### In Progress
+
 - Nothing
 
 ### For Produce
+
 > Verify cross‑device rendering and confirm mobile stack order remains correct.
 
 ## [2026-04-25 00:28 UTC] — Added video carousel with captions and navigation controls
 
 ### Done
+
 - Implemented single‑video view with prev/next arrows flanking the caption.
 - Added caption counter displaying “1 / 3”.
 - Set caption texts:
+
   1. “baby newts trying and failing to eat crickets for the first time”
   2. “dwarf cajun crayfish with salvinia”
   3. “dwarf cajun closeup”
+
 - Updated navigation logic to swap iframe src, ensuring only one video plays at a time.
 
 ### In Progress
+
 - Nothing
 
 ### For Produce
+
 > Verify mobile responsiveness of the video carousel and adjust CSS as needed.
 
 ## [2026-04-25 00:24 UTC] — Updated memorial page and wired video clips
 
 ### Done
+
 - Updated `memorial.html` to show Abigail with cat grass, cropped circular avatar with blue border.
 - Fixed memorial year range to “2012–2026” in `memorial.html`.
 - Integrated three video assets (`tour_207mb.mp4`, `clip1.mov`, `clip2.mov`) with captions “Fish room tour”, “clip 1”, “clip 2”.
 
 ### In Progress
+
 - Nothing
 
 ### For Produce
+
 > Verify the content of the two short MOV clips and adjust their captions accordingly.
 
 ## [2026-04-25 00:22 UTC] — Fixed placeholder video IDs in the repository
 
 ### Done
+
 - Replaced placeholder Google Drive file IDs with the correct IDs for both videos in the codebase.
 
 ### In Progress
+
 - Nothing
 
 ### For Produce
+
 > Verify that the embedded videos load and play correctly on the site.
 
 ## [2026-04-25 00:21 UTC] — Updated site content and expanded media assets
 
 ### Done
+
 - Replaced placeholder with Abigail Breslin profile card (photo, caption, link).
 - Added “Current Fosters” glass‑card section marked “not for sale”.
 - Expanded carousel from 25 to 76 images, reordered by category and set Abigail tongue‑out as lead.
 - Implemented video section placeholders and provided instructions for swapping `VIDEO_ID_1` / `VIDEO_ID_2` with Drive IDs.
 
 ### In Progress
+
 - Nothing
 
 ### For Produce
+
 > Insert Drive file IDs for the new videos and commit the updated carousel JSON.
 
 ## [2026-04-25 00:04 UTC] — Planned integration of new photo assets and carousel update
 
 ### Done
+
 - Clarified limitation of `create_file` tool for large binary uploads.
 - Outlined manual upload steps for 7 new photo files to Google Drive.
 
 ### In Progress
+
 - Awaiting user confirmation that the photos have been uploaded to the “Fish Sale Photos” folder and the folder URL is provided.
 
 ### For Produce
+
 > Retrieve the Google Drive folder URL, list file IDs via MCP, and update site carousel, Abigail Breslin section, and foster bonus block.
 
 ## [2026-04-24 23:51 UTC] — Enabled GitHub Pages deployment and renamed site entry file
 
 ### Done
+
 - Renamed `fish-room-sale.html` to `index.html` and pushed to `main`
 - Enabled GitHub Pages on the repository (source: main branch, root)
-- Published site URL: https://wowthisiseasytoremember-stack.github.io/fish/
+- Published site URL: <https://wowthisiseasytoremember-stack.github.io/fish/>
 
 ### In Progress
+
 - Nothing
 
 ### For Produce
+
 > Verify that the GitHub Pages site builds successfully and update documentation with the live URL.
 
 ## [2026-04-24 23:49 UTC] — Renamed main HTML file and committed change
 
 ### Done
+
 - Renamed `fish-room-sale.html` to `index.html` and created a commit on `main`
 
 ### In Progress
+
 - Enable GitHub Pages in repository settings (source: `main` branch, root)
 
 ### For Produce
+
 > Flip the GitHub Pages toggle to publish the site at the default `.github.io` URL
 
 ## [2026-04-24 23:39 UTC] — Updated carousel dimensions to 640×480 px (4:3) for better portrait handling
 
 ### Done
+
 - Modified `src/components/Carousel.jsx` to use a centered 640×480 px container.
 - Adjusted CSS in `styles/carousel.css` for new aspect ratio and centering.
 - Updated responsive breakpoints to accommodate the new size.
 
 ### In Progress
+
 - Nothing
 
 ### For Produce
+
 > Verify carousel appearance on mobile devices and merge the changes to `main`.
 
 ## [2026-04-24 23:38 UTC] — Fixed photo display in carousel to fully contain images with letterboxing
 
 ### Done
+
 - Updated carousel CSS/HTML to use `contain` mode, ensuring full photo visibility with black side bars when aspect ratios differ.
 - Refreshed page behavior so images now fit entirely inside the carousel frame.
 
 ### In Progress
+
 - Nothing
 
 ### For Produce
+
 > Verify carousel responsiveness on mobile devices and adjust breakpoints if needed.
 
 ## [2026-04-24 23:35 UTC] — Integrated 25 new photos into the carousel and prepared commit
 
 ### Done
+
 - Added 25 real photos (room overviews, fish, herps, inverts, plants, aroids, equipment) to `fish-room-sale.html` carousel, excluding DONOTPOST files, blurry newt shot, and duplicate files.
 
 ### In Progress
+
 - Nothing
 
 ### For Produce
+
 > Verify carousel loads all new images on production and push the commit.
 
 ## [2026-04-24 23:30 UTC] — Enabled public access to carousel image folder
 
 ### Done
+
 - Changed Google Drive folder sharing to “Anyone with the link – Viewer” so all 13 carousel photos load correctly on the site.
 
 ### In Progress
+
 - Nothing
 
 ### For Produce
+
 > Verify that the carousel displays all images correctly on the live site and resolve any loading issues.
 
 ## [2026-04-24 23:26 UTC] — Added carousel UI and removed stock thumbnails
 
 ### Done
+
 - Removed 31 `<img class="species-thumb">` tags and their CSS from `fish-room-sale.html`.
 - Implemented a 13‑slide carousel above the species compendium with auto‑advance, hover‑pause, navigation buttons, and dot indicators.
 - Added caption below the carousel: “actual photos from my fish room — more available on request, just DM me”.
 
 ### In Progress
+
 - Nothing
 
 ### For Produce
+
 > Verify carousel image URLs are publicly accessible and delete the two stale branches.
 
 ## [2026-04-24 23:18 UTC] — Cleaned blocker references and audited experimental branches
 
 ### Done
+
 - Removed all occurrences of the “blocker” note from the three files where it appeared.
 - Ran a branch audit and produced a verdict table showing `check-project-status-uRFJO` and `create-new-repo-qmDe2` are safe to delete, pending carousel decision.
 
 ### In Progress
+
 - Decision pending on whether to keep the experimental photo carousel UI from `create-new-repo-qmDe2`.
 
 ### For Produce
+
 > Determine carousel retention and, if declined, delete the two unmerged experimental branches.
 
 ## [2026-04-24 23:17 UTC] — Polish pass restored, species data corrected, PR merged
 
 ### Done
+
 - Fixed Taricha quantity from x10 to x5 and removed Common Pleco entry in `fish-room-sale.html`.
 - Restored full polish pass: adjusted line-height, added `focus-visible` styles, improved keyboard navigation, inserted Abigail SVG placeholders.
 - Synced with remote, created branch, opened PR #2 and merged to `main`.
@@ -238,52 +294,64 @@
 - Saved project memories about script safety and branch‑before‑edit requirement.
 
 ### In Progress
+
 - Nothing
 
 ### For Produce
+
 > Verify branch‑before‑edit enforcement and confirm no merge collisions before next nightly run.
 
 ## [2026-04-24 23:12 UTC] — Reviewed branch status and posting blockers
 
 ### Done
+
 - Analyzed unmerged branches `claude/check-project-status-uRFJO` and `claude/create-new-repo-qmDe2`, confirming their work is superseded by READY-TO-POST.md.
 - Identified the missing Dragon Puffer photo as the sole hard blocker before the r/AquaSwap listing can be posted.
 - Documented Reddit MCP limitations regarding image uploads.
 
 ### In Progress
+
 - Nothing
 
 ### For Produce
+
 > Verify the Dragon Puffer image is obtained and decide whether to delete the two experimental branches.
 
 ## [2026-04-24 23:05 UTC] — cherry‑picked final post drafts into READY-TO-POST.md
 
 ### Done
+
 - Updated `queue/drafts/READY-TO-POST.md` with unified language across all four Reddit posts (other cats, no judgment, quick reply, stronger CTAs) and post‑specific tweaks (equipment bullets, tag lines, donation framing, specificity, storage notes) all in lowercase Gear 3 voice.
 
 ### In Progress
+
 - Nothing
 
 ### For Produce
+
 > Prepare formatted Reddit markdown from `READY-TO-POST.md` for manual publishing.
 
 ## [2026-04-24 12:20 UTC] — Ready-to-post deliverable with copy-paste blocks and photo lists
 
 ### Done
+
 - Created `queue/drafts/READY-TO-POST.md` with all 4 Reddit posts formatted as copy-paste blocks
 - Organized 91 Google Drive photos into per-post tables with direct view links
 - Added posting order recommendation (plants first, aquaswap last due to Dragon Puffer photo blocker)
 - Included cross-link placeholders, compliance reminders, and DONOTPOST warnings
 
 ### Blocked
+
 - Dragon Puffer photo still missing — aquaswap post cannot go live without it
 
 ### For Produce
+
 > Fish sale: all 4 Reddit post drafts ready as copy-paste blocks in READY-TO-POST.md with organized photo links. Dragon Puffer photo is the only blocker for the aquaswap post — the other 3 can post now.
 
 ## [2026-04-24 12:01 UTC] — Data fixes, polish restore, PR #2 opened and merged
 
 ### Done
+
 - Taricha Newt quantity corrected x10 → x5 (per fish-room-content-brief.txt)
 - Common Pleco card removed (not in content brief — only Albino Pleco exists)
 - Restored polish lost in PR #1 merge: body line-height 1.65, focus-visible outlines, keyboard Enter/Space on category rail, Abigail placeholder SVG paw-print icons with themed borders
@@ -292,48 +360,60 @@
 - Synced local with remote (pull --rebase), cut branch, opened PR #2, merged
 
 ### In Progress
+
 - [VENMO_HANDLE] and [PAYPAL_HANDLE] placeholders in Abigail memorial section still need real values
 
 ### For Produce
+
 > fish-sale-repo: PR #2 merged — Taricha/Pleco data fixes and polish restored. Venmo/PayPal handles still placeholder. Site is otherwise ready for Reddit posting.
 
 ## [2026-04-24 11:58 UTC] — Discussed Reddit posting workflow for fish sale announcements
 
 ### Done
+
 - None (no code changes were made)
 
 ### In Progress
+
 - Decision pending on Reddit posting method (Option A preferred, awaiting user confirmation)
 
 ### For Produce
+
 > Determine the Reddit posting workflow and generate copy‑paste markdown for the sale posts.
 
 ## [2026-04-24 10:29 UTC] — Planned safe reintegration of data fixes after merge conflict
 
 ### Done
+
 - None (no code changes applied yet)
 
 ### In Progress
+
 - Coordination plan to stash local CHANGELOG edit, pull remote, create branch `claude/polish-data-fixes-2026-04-24`, reapply three data fixes, and open a PR.
 
 ### For Produce
+
 > Execute the housekeeping, branching, and data‑fix steps and submit a PR for review.
 
 ## [2026-04-24 10:20 UTC] — Updated Claude model to Opus and enabled experimental agent teams flag
 
 ### Done
+
 - Switched Claude `model` setting from `sonnet` to `opus` (Opus 4.6) in the project configuration.
 - Added missing environment variable `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS="1"` to enable agent‑teams functionality.
 
 ### In Progress
+
 - Nothing
 
 ### For Produce
+
 > Verify that the new Opus model behaves as expected and begin polishing site planning tasks.
 
 ## [2026-04-24 02:00 UTC] — Polish pass + data fixes on sale site
 
 ### Done
+
 - Removed Ko-fi placeholder row (no URL yet) from Abigail's Vet Fund; Venmo now the only payment option, centered cleanly
 - Corrected Taricha Newt count ×10 → ×5 to match fish-room-content-brief.txt and Tank Inventory.md
 - Removed phantom "Common Pleco" card not present in any inventory source; Albino Pleco card preserved
@@ -346,61 +426,76 @@
 - Moved `photos/Photos-3-001/` (personal notebook scans — medical/vet to-dos) out of repo to `~/Documents/notebook-scans/`; added `photos/` to `.gitignore`
 
 ### In Progress
+
 - (none from this pass)
 
 ### Blocked
+
 - Ko-fi URL not yet provided — donation block currently Venmo-only
 - Abigail photos still placeholder (awaiting parts/abigail-1.jpg + parts/abigail-2.jpg)
 
 ### For Produce
+
 > Fish-sale site polished — Ko-fi row removed until URL provided, data errors fixed (Taricha ×5, no Common Pleco), accessibility and typography improvements applied. Ready to review in browser.
 
 ## [2026-04-23 03:01 UTC] — advised manual cleanup of Xcode DerivedData and session env size check
 
 ### Done
+
 - Communicated safe removal of `~/Library/Developer/Xcode/DerivedData/*` to free 1.4 GB
 - Provided commands to verify `~/.claude/session-env` and `~/.claude/projects` sizes
 
 ### In Progress
+
 - Nothing (awaiting user to execute cleanup commands)
 
 ### For Produce
+
 > Verify that disk space has been reclaimed and resume planning polish for the fish-sale site.
 
 ## [2026-04-23 02:28 UTC] — Published final drafts and documentation to GitHub
 
 ### Done
+
 - Added `queue/drafts/aquaswap-main-post.md` with incorporated feedback
 - Added `PHOTO_CATALOG.md` detailing photo source, order, and gaps
 - Added `HANDOFF.md` outlining current state, blockers, and next‑session checklist
 - Pushed all three files to the remote repository
 
 ### In Progress
+
 - Photo upload to Google Drive (user must drag `Photos-3-001` folder into Drive)
 
 ### For Produce
+
 > Next session: complete the Drive folder upload and obtain a Dragon Puffer photo for the headline.
 
 ## [2026-04-23 02:19 UTC] — Added guidance to extend ADC scopes for Claude Drive upload
 
 ### Done
+
 - Provided command to add Drive scope to Application Default Credentials for bulk photo upload
 
 ### In Progress
+
 - Claude Drive authentication and photo upload (awaiting user to execute the suggested `gcloud auth application-default login` command)
 
 ### For Produce
+
 > Next session: run the ADC scope command, re‑authenticate Claude Drive, and execute the upload script to transfer the 87 photos.
 
 ## [2026-04-23 00:00 UTC] — No code changes; pending authentication for photo upload
 
 ### Done
+
 - None (no files created or modified)
 
 ### In Progress
+
 - Authentication flow for Claude Drive access to upload the photo folder (awaiting user action)
 
 ### For Produce
+
 > Next session: complete Claude Drive authentication and upload the product photos to the repository.
 
 ## [2026-04-22 23:30 UTC] — Reddit MCP wired up, draft reviewed, ready to post pending photos
