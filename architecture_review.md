@@ -6,13 +6,13 @@
 
 ---
 
-### Complete claude.md Context
+## Complete claude.md Context
 
 > The following is the complete contents of `CLAUDE.md` as of 2026-05-01. This is the baseline knowledge all contributors share. All subsequent analysis in this document references and builds upon it.
 
 ---
 
-# CLAUDE.md
+## CLAUDE.md
 
 **Last Updated:** 2026-04-29 UTC
 
@@ -197,19 +197,20 @@ Always verify after edits:
 
 ---
 
-### System Purpose & Goals
+## System Purpose & Goals
 
-#### What CLAUDE.md already states
+### What CLAUDE.md already states
 
 The repository is a static sale site for a fish room downsizing event. The seller (based in LA/Orange County) is liquidating fish, amphibians, plants, and aquarium equipment via GitHub Pages, with Reddit and Facebook as discovery channels.
 
-#### What deep analysis reveals
+### What deep analysis reveals
 
 **1. The site is a dual-purpose asset.** It serves as both a sale listing AND a technical portfolio. The footer's third column contains a freelance software development pitch (lines 2,596–2,600 of `index.html`). The site's technical sophistication — animated canvas, modal system, carousel — is intentionally excessive for a classified ad, serving as a live demonstration of frontend skill.
 
 **2. The downsizing is crisis-driven.** The driving event is the death of the owner's cat, Abigail Breslin (2012–2026), and associated ~$4,000 in veterinary bills. Every Reddit post draft (`aquaswap-main-post.md`, `herpbst-post.md`, etc.) leads with this narrative. The site's memorial section and donation links (Venmo `@jakeynguyen16`, Ko-fi `thetangletrove`) are emotionally integrated into the sale flow — a deliberate design decision to build buyer trust and enable charitable contribution.
 
 **3. The inventory is diverse and multi-hobby.** The sale spans four distinct hobby communities:
+
 - **Aquarium:** 16 fish species, aquatic inverts, aquatic plants, filtration/tank hardware
 - **Herpetology:** 6 amphibian/reptile species (some native CA — legally sensitive)
 - **Houseplants:** 15+ collector-grade tropical aroids (Monstera Albo, Thai Constellation)
@@ -223,7 +224,7 @@ The tech/vintage items indicate the fish room is not the only thing being liquid
 
 ---
 
-### High-Level Architecture
+## High-Level Architecture
 
 **Classification:** Static monolith + disconnected utility scripts + manual content workflow
 
@@ -261,6 +262,7 @@ graph TD
 ```
 
 **Deployment topology:**
+
 - Push to `main` → GitHub Pages serves from repo root
 - No build step: `index.html` is the artifact
 - No CDN (GitHub Pages is the CDN)
@@ -271,7 +273,7 @@ graph TD
 
 ---
 
-### Module Map & Core Dependencies
+## Module Map & Core Dependencies
 
 | Component | Path | Purpose | Key Internal Deps | External Deps | Why |
 |---|---|---|---|---|---|
@@ -292,6 +294,7 @@ graph TD
 | Photo catalog | `PHOTO_CATALOG.md` | Maps local filenames → Drive IDs → subreddits | `HANDOFF.md` | Google Drive | Coordinates media between local storage and site |
 
 **Notable absent files referenced by the codebase:**
+
 - `tank_tasks/` — ~123 MD files; required by `generate_listings.py`, `update_html.py`, and the CI lint config
 - `parsed.json` — required by `generate_html.py` to produce `tank-inventory.html`
 - `task_data.json` — required by `enrich_html.py`
@@ -300,9 +303,9 @@ graph TD
 
 ---
 
-### Critical Execution Flows
+## Critical Execution Flows
 
-#### Flow 1: Page Load (Browser → Fully Rendered Site)
+### Flow 1: Page Load (Browser → Fully Rendered Site)
 
 1. Browser requests `https://wowthisiseasytoremember-stack.github.io/fish/`
 2. GitHub Pages serves `index.html` (127 KB, no compression configured)
@@ -327,7 +330,7 @@ graph TD
 
 ---
 
-#### Flow 2: Category Switch (User Clicks Rail Nav)
+### Flow 2: Category Switch (User Clicks Rail Nav)
 
 Entry point: `index.html` line ~2,910 — click handler on `.rail-item`
 
@@ -351,11 +354,12 @@ Entry point: `index.html` line ~2,910 — click handler on `.rail-item`
 
 ---
 
-#### Flow 3: Photo Carousel Initialization and Navigation
+### Flow 3: Photo Carousel Initialization and Navigation
 
 Entry point: `index.html` line ~3,010 — IIFE runs on script parse
 
 **Initialization:**
+
 1. `photos` array (~100 `{id, alt}` objects) iterated
 2. For each photo: `<div class="carousel-slide">` created; `<img>` with `src="https://drive.google.com/thumbnail?id=${p.id}&sz=w1000"` injected
 3. `onerror` handler on each `<img>`: removes the slide from DOM, calls `rebuildDots()` to sync dot count
@@ -364,6 +368,7 @@ Entry point: `index.html` line ~3,010 — IIFE runs on script parse
 6. `startTimer()` — `setInterval(go(idx+1), 4500)` begins
 
 **Navigation (`go(n)`):**
+
 1. `idx = ((n % photos.length) + photos.length) % photos.length` — wraps modularly
 2. `track.style.transform = 'translateX(-' + (idx * slideWidth) + 'px)'`
 3. All dots' `.active` class cleared; dot at index `idx` gets `.active`
@@ -373,7 +378,7 @@ Entry point: `index.html` line ~3,010 — IIFE runs on script parse
 
 ---
 
-#### Flow 4: Media Modal Expand
+### Flow 4: Media Modal Expand
 
 Entry point: `index.html` line ~3,177 — click on `[data-expand="photos"]` or `[data-expand="videos"]`
 
@@ -394,7 +399,7 @@ Entry point: `index.html` line ~3,177 — click on `[data-expand="photos"]` or `
 
 ---
 
-#### Flow 5: Content Update Workflow (Developer Updating Inventory)
+### Flow 5: Content Update Workflow (Developer Updating Inventory)
 
 This is the primary human workflow for maintaining the site.
 
@@ -412,15 +417,18 @@ This is the primary human workflow for maintaining the site.
 
 ---
 
-### Developer Critique Context
+## Developer Critique Context
 
-#### 1. Google Drive as CDN — Single Point of Failure
+### 1. Google Drive as CDN — Single Point of Failure
 
 All site media (100+ photos + 3 videos) is served from Google Drive via thumbnail URLs:
-```
+
+```text
 https://drive.google.com/thumbnail?id=<FILE_ID>&sz=w1000
 ```
+
 Google Drive is not designed as a CDN. Known failure modes:
+
 - **Quota exceeded:** Drive throttles thumbnail requests when files get too many views; returns a quota page instead of an image. The carousel's `onerror` handler removes failed slides silently — the entire carousel can drain to empty.
 - **Authentication changes:** Google periodically requires files to be re-shared or re-published. ID rotation breaks all hardcoded references.
 - **No cache headers:** Drive thumbnails may not be cached by the browser optimally.
@@ -430,9 +438,10 @@ Google Drive is not designed as a CDN. Known failure modes:
 
 ---
 
-#### 2. `tank_tasks/` — Missing Directory, Active References
+### 2. `tank_tasks/` — Missing Directory, Active References
 
 The `tank_tasks/` directory does not exist in the current repo checkout, but it is referenced by:
+
 - `CLAUDE.md` (file structure table)
 - `generate_listings.py` (line 6: globs `tank_tasks/*.md`)
 - `scripts/update_html.py` (line 6: reads all `.md` from `tasks_dir`)
@@ -445,7 +454,7 @@ These scripts silently produce empty output when run (no files found, no crash �
 
 ---
 
-#### 3. Script Ecosystem — Broken, Stale, and Non-Portable
+### 3. Script Ecosystem — Broken, Stale, and Non-Portable
 
 All scripts are in a degraded state:
 
@@ -464,7 +473,7 @@ All scripts are in a degraded state:
 
 ---
 
-#### 4. Modal DOM Reparenting — Orphan Risk
+### 4. Modal DOM Reparenting — Orphan Risk
 
 The media modal (`index.html` lines 3,177–3,219) uses DOM reparenting instead of cloning to preserve carousel/video state. The save/restore pattern:
 
@@ -477,15 +486,16 @@ originParent.insertBefore(origin, originNextSibling);
 ```
 
 This pattern is fragile in several ways:
+
 - If another script modifies `originParent`'s children while the modal is open, `insertBefore(origin, originNextSibling)` may throw `HierarchyRequestError` or place the node incorrectly
 - If the user opens the modal while a carousel animation is mid-transition, the transform state carries into the modal
 - There is no `try/catch` around the restoration — a failure orphans the carousel node permanently until page reload
 
 ---
 
-#### 5. Canvas Performance — No Scroll-Aware Pause
+### 5. Canvas Performance — No Scroll-Aware Pause
 
-The canvas background (`index.html` lines 2,623–2,854) runs a `requestAnimationFrame` loop with 186+ moving objects (160 particles + 18 bubbles + 8 kelp + 5 rays + dynamic bioluminescent pulses). 
+The canvas background (`index.html` lines 2,623–2,854) runs a `requestAnimationFrame` loop with 186+ moving objects (160 particles + 18 bubbles + 8 kelp + 5 rays + dynamic bioluminescent pulses).
 
 - **Tab visibility:** The loop correctly pauses on `visibilitychange` (hidden tab)
 - **Reduced motion:** `prefers-reduced-motion` is respected (canvas hidden)
@@ -495,7 +505,7 @@ On a mid-range device with a large viewport, the canvas renders ~240 objects per
 
 ---
 
-#### 6. Search Filter — Scope Limitation
+### 6. Search Filter — Scope Limitation
 
 The search implementation (`index.html` lines 2,891–2,908) operates only on the **active category panel**. Search state is not global:
 
@@ -507,7 +517,7 @@ When a user types "java moss" and the active panel is "Fish", zero results appea
 
 ---
 
-#### 7. Stats Bar — Documentation Inaccuracy
+### 7. Stats Bar — Documentation Inaccuracy
 
 CLAUDE.md states the stats bar has "animated counters." In reality, only **one counter is animated**: `#stat-years` (target=9), using IntersectionObserver + `animateCount()`. The other three stats display static text:
 
@@ -519,9 +529,10 @@ The IntersectionObserver is registered with `{threshold: 0.5}` — the animation
 
 ---
 
-#### 8. Species Compendium — No Data Layer
+### 8. Species Compendium — No Data Layer
 
 All species content is hardcoded HTML. There is no JSON/YAML data layer, no template, and no generator for the production site. Adding a new species requires:
+
 1. Manually writing a `<div class="species-entry">` block with correct `data-search`, badge classes, detail text
 2. Placing it in the correct category list (`#fish-list`, etc.)
 3. Updating `fish-room-content-brief.txt`
@@ -532,9 +543,10 @@ The `scripts/` directory contains tools that were *intended* to automate this (v
 
 ---
 
-#### 9. `tank-inventory.html` — Orphaned Generated Artifact
+### 9. `tank-inventory.html` — Orphaned Generated Artifact
 
 `tank-inventory.html` (55 KB) is committed to the repo but:
+
 - Is not linked from `index.html`
 - Is not linked from any Reddit post draft
 - Requires `parsed.json` (not committed) to regenerate
@@ -545,9 +557,10 @@ It appears to be an internal tool from an earlier development phase, committed b
 
 ---
 
-#### 10. Multi-Platform Publishing — No Automation
+### 10. Multi-Platform Publishing — No Automation
 
 The multi-channel publishing workflow (13 platform-specific draft files across 7+ Reddit communities + Facebook) is entirely manual:
+
 - Draft files contain `[LINK]` placeholders to be filled post-publication
 - `READY-TO-POST.md` is a checklist updated manually
 - No scheduling, no analytics integration, no status tracking beyond the checklist
@@ -557,7 +570,7 @@ For a single seller, this is likely adequate. If the pattern scaled, a simple po
 
 ---
 
-### Ambiguities & Open Questions
+## Ambiguities & Open Questions
 
 1. **`tank_tasks/` — where is it?** [UNCERTAIN] Referenced in 4 places but absent from the repo. Was it kept local intentionally? Was it deleted? Was it on a branch that was never merged? Without it, `generate_listings.py`, `update_html.py`, and the CI lint count are all incomplete.
 
