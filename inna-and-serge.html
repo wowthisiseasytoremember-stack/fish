@@ -118,9 +118,7 @@
     .eyebrow,
     .section-label,
     .group-label,
-    .price-label,
-    .count-tag,
-    .tiny-label {
+    .price-label {
       font-family: var(--serif);
       letter-spacing: 0.16em;
       text-transform: uppercase;
@@ -267,59 +265,18 @@
     }
 
     .count-big {
-      font-size: 2.4rem;
-      font-weight: 700;
+      font-family: var(--serif);
+      font-weight: 650;
       line-height: 1;
       letter-spacing: -0.06em;
       color: var(--moss);
       flex-shrink: 0;
     }
 
-    .latin {
-      display: block;
-      margin-top: var(--space-xs);
-      padding-top: var(--space-xs);
-      border-top: 0.5px solid rgb(107 124 92 / 22%);
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 0.95rem;
-      letter-spacing: 0.02em;
-    }
-
-    .count-tag {
-      display: inline-block;
-      padding: 0.34rem 0.48rem;
-      border: 0.5px solid rgb(107 124 92 / 28%);
-      color: var(--moss);
-      font-size: 0.7rem;
-      line-height: 1;
-      white-space: nowrap;
-    }
-
-    .facts {
-      margin: var(--space-md) 0 0;
-      padding: 0;
-      list-style: disc;
-      list-style-position: outside;
-      max-width: 62ch;
-    }
-
-    .facts li,
-    .free-lines li {
-      position: relative;
-      padding-left: 1.1em;
-    }
-
-    .facts li::marker,
-    .free-lines li::marker {
-      content: "— ";
-      color: var(--moss);
-      font-size: 0.75em;
-    }
-
-    .facts li + li {
-      margin-top: var(--space-xs);
-    }
+    /* progressive crescendo: each number steps up in presence */
+    .count-n1 { font-size: 2.4rem; }
+    .count-n2 { font-size: 3.4rem; color: #5a6e4d; }
+    .count-n3 { font-size: 4.6rem; color: #4a5d3e; }
 
     .section-rule {
       height: 1px;
@@ -374,6 +331,12 @@
     .free-lines li {
       padding: var(--space-sm) 0 var(--space-sm) 1.1em;
       border-bottom: 0.5px solid rgb(107 124 92 / 18%);
+    }
+
+    .free-lines li::marker {
+      content: "— ";
+      color: var(--moss);
+      font-size: 0.75em;
     }
 
     .free-lines strong {
@@ -506,21 +469,21 @@
 
         <article class="specimen-card">
           <div class="specimen-head">
-            <span class="count-big">3</span>
+            <span class="count-big count-n1">3</span>
             <h3>Spanish ribbed newts</h3>
           </div>
         </article>
 
         <article class="specimen-card">
           <div class="specimen-head">
-            <span class="count-big">4</span>
+            <span class="count-big count-n2">4</span>
             <h3>Rough-skinned newts</h3>
           </div>
         </article>
 
         <article class="specimen-card">
           <div class="specimen-head">
-            <span class="count-big">5</span>
+            <span class="count-big count-n3">5</span>
             <h3>Baja California tree frogs</h3>
           </div>
         </article>
