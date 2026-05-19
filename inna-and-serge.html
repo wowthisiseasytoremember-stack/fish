@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amphibian Bundle — Inna & Serge</title>
+  <meta name="description" content="A complete amphibian setup: Spanish ribbed newts, Taricha, tree frogs, enclosures, and all the gear. $500 OBO.">
+  <meta property="og:title" content="Amphibian Bundle — Inna & Serge">
+  <meta property="og:description" content="Twelve animals, terrariums, hardscape, food, plants — everything you need for a full amphibian setup. $500 OBO.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wowthisiseasytoremember-stack.github.io/fish/inna-and-serge">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Cpath d='M18 8c-5.5 0-10 4.5-10 10s4.5 10 10 10 10-4.5 10-10S23.5 8 18 8z' fill='%236b7c5c'/%3E%3Cpath d='M14 16c-.8 0-1.5.7-1.5 1.5S13.2 19 14 19s1.5-.7 1.5-1.5S14.8 16 14 16zm8 0c-.8 0-1.5.7-1.5 1.5S21.2 19 22 19s1.5-.7 1.5-1.5S22.8 16 22 16z' fill='%23f7f5f0'/%3E%3C/svg%3E" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    /* =============================================================
+       CSS CUSTOM PROPERTIES
+       ============================================================= */
+    :root {
+      --paper: #f7f5f0;
+      --moss: #6b7c5c;
+      --moss-light: #8a9f78;
+      --moss-pale: rgb(107 124 92 / 12%);
+      --ink: #2c2a26;
+      --ink-soft: rgb(44 42 38 / 72%);
+      --ink-muted: rgb(44 42 38 / 58%);
+      --wash: rgb(107 124 92 / 12%);
+      --space-xs: 0.5rem;
+      --space-sm: 0.75rem;
+      --space-md: 1.125rem;
+      --space-lg: 1.6875rem;
+      --space-xl: 2.53125rem;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+      --mono: "SF Mono", "Menlo", "Monaco", "Cascadia Code", monospace;
+      --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+      --ease-fade: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      color-scheme: light;
+      -webkit-tap-highlight-color: rgb(107 124 92 / 15%);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: var(--space-lg) var(--space-md) var(--space-xl);
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      position: relative;
+      isolation: isolate;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxODAgMTgwJz48ZmlsdGVyIGlkPSduJz48ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgYmFzZUZyZXF1ZW5jeT0nLjg1JyBudW1PY3RhdmVzPScyJyBzdGl0Y2hUaWxlcz0nc3RpdGNoJy8+PGZlQ29sb3JNYXRyaXggdHlwZT0nc2F0dXJhdGUnIHZhbHVlcz0nMCcvPjxmZUNvbXBvbmVudFRyYW5zZmVyPjxmZUZ1bmNBIHR5cGU9J3RhYmxlJyB0YWJsZVZhbHVlcz0nMCAwIDAgLjAzNSAuMDM1Jy8+PC9mZUNvbXBvbmVudFRyYW5zZmVyPjwvZmlsdGVyPjxyZWN0IHdpZHRoPScxODAnIGhlaWdodD0nMTgwJyBmaWx0ZXI9J3VybCglMjNuKScvPjwvc3ZnPg==");
+      background-repeat: repeat;
+      background-size: 180px 180px;
+      mix-blend-mode: multiply;
+    }
+
+    ::selection {
+      background: rgb(107 124 92 / 20%);
+      color: var(--ink);
+    }
+
+    /* =============================================================
+       LAYOUT
+       ============================================================= */
+    main {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 65ch);
+      margin: 0 auto;
+    }
+
+    .sheet {
+      display: grid;
+      gap: var(--space-lg);
+    }
+
+    @keyframes fade-up {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero,
+    .section,
+    .closing {
+      position: relative;
+    }
+
+    /* =============================================================
+       HERO
+       ============================================================= */
+    .hero {
+      padding-top: var(--space-lg);
+      text-align: center;
+      animation: fade-up 0.8s var(--ease-fade) both;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: calc(var(--space-xs) * -1) 0 auto;
+      height: 12rem;
+      background-image: radial-gradient(circle at 50% 0%, var(--wash), transparent 72%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero > :not(.ornament) {
+      position: relative;
+      z-index: 1;
+    }
+
+    .ornament {
+      position: absolute;
+      top: 0;
+      width: 5.5rem;
+      height: 5.5rem;
+      color: var(--moss);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .ornament.left  { left: 0; }
+    .ornament.right { right: 0; transform: scaleX(-1); }
+
+    .eyebrow,
+    .section-label,
+    .group-label,
+    .price-label,
+    .count-tag,
+    .tiny-label {
+      font-family: var(--serif);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow {
+      margin: 0 0 var(--space-sm);
+      font-size: 0.78rem;
+      color: var(--moss);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.6rem, 10vw, 4.8rem);
+      line-height: 0.92;
+      letter-spacing: -0.05em;
+      font-weight: 650;
+    }
+
+    .lede {
+      margin: var(--space-md) auto 0;
+      max-width: 62ch;
+      font-size: 1.03rem;
+    }
+
+    .price-note {
+      max-width: 62ch;
+      margin: var(--space-lg) auto 0;
+      padding: var(--space-sm) 0 var(--space-sm) var(--space-md);
+      border-left: 0.5px solid var(--ink-muted);
+      text-align: left;
+    }
+
+    .price-label {
+      display: inline-block;
+      padding: 0.35rem 0.55rem;
+      border: 0.5px solid rgb(107 124 92 / 28%);
+      color: var(--moss);
+      font-size: 0.72rem;
+      line-height: 1;
+    }
+
+    .price-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: var(--space-xs) var(--space-sm);
+      margin-top: var(--space-sm);
+    }
+
+    .price {
+      margin: 0;
+      font-size: clamp(2.1rem, 7vw, 3.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      font-weight: 650;
+    }
+
+    .obo {
+      display: inline-block;
+      margin-top: 0.15rem;
+      padding: 0.28rem 0.48rem;
+      border: 0.5px solid rgb(107 124 92 / 28%);
+      color: var(--moss);
+      font-size: 0.56em;
+      line-height: 1;
+      vertical-align: middle;
+      letter-spacing: 0.14em;
+    }
+
+    .price-copy,
+    .section-note,
+    .closing p,
+    .free-note {
+      margin: var(--space-sm) 0 0;
+      max-width: 62ch;
+    }
+
+    .price-copy {
+      font-size: 0.97rem;
+      line-height: 1.7;
+      color: var(--ink-soft);
+    }
+
+    /* =============================================================
+       SECTIONS
+       ============================================================= */
+    .section {
+      padding-top: var(--space-sm);
+      animation: fade-up 0.7s var(--ease-fade) both;
+    }
+    .section:nth-of-type(1) { animation-delay: 0.2s; }
+    .section:nth-of-type(2) { animation-delay: 0.35s; }
+
+    .section-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: var(--space-xs) var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+
+    .section-label {
+      display: inline-block;
+      padding: 0.35rem 0.55rem;
+      border: 0.5px solid rgb(107 124 92 / 28%);
+      color: var(--moss);
+      font-size: 0.72rem;
+      line-height: 1;
+    }
+
+    .section-note {
+      font-size: 0.94rem;
+      color: var(--ink-soft);
+    }
+
+    .specimen-card {
+      border: 0.5px solid rgba(107, 124, 92, 0.25);
+      background: linear-gradient(180deg, rgb(107 124 92 / 4%), rgb(107 124 92 / 2%));
+      padding: var(--space-md);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .specimen-card + .specimen-card {
+      margin-top: var(--space-md);
+    }
+
+    .specimen-card:hover {
+      background: linear-gradient(180deg, rgb(107 124 92 / 7%), rgb(107 124 92 / 4%));
+      box-shadow: 0 2px 16px rgb(107 124 92 / 8%);
+    }
+
+    .specimen-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: var(--space-xs) var(--space-sm);
+    }
+
+    .specimen-head h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      line-height: 1.18;
+      font-weight: 650;
+      letter-spacing: -0.025em;
+    }
+
+    .latin {
+      display: block;
+      margin-top: var(--space-xs);
+      padding-top: var(--space-xs);
+      border-top: 0.5px solid rgb(107 124 92 / 22%);
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+    }
+
+    .count-tag {
+      display: inline-block;
+      padding: 0.34rem 0.48rem;
+      border: 0.5px solid rgb(107 124 92 / 28%);
+      color: var(--moss);
+      font-size: 0.7rem;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .facts {
+      margin: var(--space-md) 0 0;
+      padding: 0;
+      list-style: disc;
+      list-style-position: outside;
+      max-width: 62ch;
+    }
+
+    .facts li,
+    .free-lines li {
+      position: relative;
+      padding-left: 1.1em;
+    }
+
+    .facts li::marker,
+    .free-lines li::marker {
+      content: "— ";
+      color: var(--moss);
+      font-size: 0.75em;
+    }
+
+    .facts li + li {
+      margin-top: var(--space-xs);
+    }
+
+    .section-rule {
+      height: 1px;
+      border: 0;
+      margin: var(--space-lg) 0;
+      background: linear-gradient(to right, transparent, rgb(107 124 92 / 30%), transparent);
+    }
+
+    /* =============================================================
+       FREE STUFF
+       ============================================================= */
+    .free-stuff {
+      padding: var(--space-md);
+      background:
+        radial-gradient(circle at 50% 0%, rgb(107 124 92 / 3%), transparent 72%),
+        linear-gradient(180deg, rgb(107 124 92 / 4%), rgb(107 124 92 / 2%));
+      border: 0.5px solid rgb(107 124 92 / 25%);
+      overflow: hidden;
+    }
+
+    .free-stuff > :not(.ornament) {
+      position: relative;
+      z-index: 1;
+    }
+
+    .free-head {
+      margin-bottom: var(--space-md);
+    }
+
+    .free-note {
+      font-size: 0.97rem;
+      max-width: 60ch;
+    }
+
+    .free-groups {
+      display: grid;
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
+    }
+
+    .free-group + .free-group {
+      padding-top: var(--space-lg);
+      border-top: 0.5px solid rgb(107 124 92 / 22%);
+    }
+
+    .group-label {
+      display: inline-block;
+      margin: 0 0 var(--space-sm);
+      font-size: 0.74rem;
+      color: var(--moss);
+    }
+
+    .free-lines {
+      margin: 0;
+      padding: 0;
+      list-style: disc;
+      list-style-position: outside;
+      border-top: 0.5px solid rgb(107 124 92 / 22%);
+    }
+
+    .free-lines li {
+      padding: var(--space-sm) 0 var(--space-sm) 1.1em;
+      border-bottom: 0.5px solid rgb(107 124 92 / 18%);
+    }
+
+    .free-lines strong {
+      display: block;
+      font-weight: 650;
+      letter-spacing: -0.01em;
+    }
+
+    .free-lines span {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--ink-soft);
+    }
+
+    /* =============================================================
+       CLOSING
+       ============================================================= */
+    .closing {
+      padding: var(--space-sm) 0 var(--space-xs);
+      border-top: 0.5px solid rgb(44 42 38 / 18%);
+      animation: fade-up 0.7s var(--ease-fade) both;
+      animation-delay: 0.5s;
+    }
+
+    .closing p {
+      padding-top: var(--space-sm);
+      font-size: 0.98rem;
+      text-align: left;
+    }
+
+    .closing strong {
+      font-weight: 700;
+    }
+
+    /* =============================================================
+       SHARE / ACTIONS BAR
+       ============================================================= */
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      justify-content: center;
+      margin-top: var(--space-lg);
+      animation: fade-up 0.7s var(--ease-fade) both;
+      animation-delay: 0.6s;
+    }
+
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1rem;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      color: var(--moss);
+      background: transparent;
+      border: 0.5px solid rgb(107 124 92 / 28%);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      line-height: 1;
+    }
+
+    .action-btn:hover {
+      background: rgb(107 124 92 / 8%);
+      border-color: var(--moss);
+    }
+
+    .action-btn:active {
+      background: rgb(107 124 92 / 15%);
+    }
+
+    .action-btn svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+
+    .action-toast {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(1rem);
+      padding: 0.6rem 1.2rem;
+      background: var(--ink);
+      color: var(--paper);
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      border-radius: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s var(--ease-fade);
+      z-index: 100;
+    }
+
+    .action-toast.visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* =============================================================
+       RESPONSIVE
+       ============================================================= */
+    @media (max-width: 767px) {
+      body {
+        padding: var(--space-md) var(--space-sm) var(--space-lg);
+      }
+
+      .ornament { display: none; }
+
+      .hero { padding-top: var(--space-md); }
+
+      .price-note,
+      .specimen-card,
+      .free-stuff {
+        padding-left: var(--space-sm);
+        padding-right: var(--space-sm);
+      }
+
+      .specimen-head {
+        align-items: flex-start;
+      }
+
+      .actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .action-btn {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 380px) {
+      h1 { font-size: 2.2rem; }
+    }
+
+    /* =============================================================
+       PRINT
+       ============================================================= */
+    @media print {
+      @page {
+        margin: 0.45in;
+        size: letter;
+      }
+
+      html, body { background: var(--paper); }
+
+      body {
+        padding: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      body::before,
+      .ornament,
+      .actions {
+        display: none !important;
+      }
+
+      main {
+        width: 100%;
+        max-width: none;
+      }
+
+      .sheet { gap: var(--space-md); }
+
+      .hero,
+      .section,
+      .free-stuff,
+      .closing {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .free-stuff { margin-top: var(--space-md); }
+
+      .specimen-card:hover {
+        background: linear-gradient(180deg, rgb(107 124 92 / 4%), rgb(107 124 92 / 2%));
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <article class="sheet">
+      <header class="hero">
+        <svg class="ornament left" aria-hidden="true" viewBox="0 0 120 120" fill="none">
+          <path d="M18 102C20 78 30 59 49 43C63 31 74 23 94 19" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M34 86C28 83 24 78 20 71" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M46 67C40 64 35 59 33 53" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M59 52C54 48 51 44 49 38" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M74 37C68 34 64 29 62 24" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M29 78C32 74 37 71 43 70" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M50 59C55 56 61 55 67 56" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M68 44C74 41 80 40 87 41" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <ellipse cx="27" cy="74" rx="4.2" ry="1.8" transform="rotate(-35 27 74)" fill="currentColor"/>
+          <ellipse cx="43" cy="55" rx="4.2" ry="1.8" transform="rotate(-35 43 55)" fill="currentColor"/>
+          <ellipse cx="61" cy="40" rx="4.2" ry="1.8" transform="rotate(-35 61 40)" fill="currentColor"/>
+          <ellipse cx="79" cy="28" rx="4.2" ry="1.8" transform="rotate(-35 79 28)" fill="currentColor"/>
+        </svg>
+        <svg class="ornament right" aria-hidden="true" viewBox="0 0 120 120" fill="none">
+          <path d="M18 102C20 78 30 59 49 43C63 31 74 23 94 19" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M34 86C28 83 24 78 20 71" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M46 67C40 64 35 59 33 53" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M59 52C54 48 51 44 49 38" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M74 37C68 34 64 29 62 24" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M29 78C32 74 37 71 43 70" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M50 59C55 56 61 55 67 56" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M68 44C74 41 80 40 87 41" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <ellipse cx="27" cy="74" rx="4.2" ry="1.8" transform="rotate(-35 27 74)" fill="currentColor"/>
+          <ellipse cx="43" cy="55" rx="4.2" ry="1.8" transform="rotate(-35 43 55)" fill="currentColor"/>
+          <ellipse cx="61" cy="40" rx="4.2" ry="1.8" transform="rotate(-35 61 40)" fill="currentColor"/>
+          <ellipse cx="79" cy="28" rx="4.2" ry="1.8" transform="rotate(-35 79 28)" fill="currentColor"/>
+        </svg>
+
+        <p class="eyebrow">For Inna & Serge</p>
+        <h1>Amphibian bundle</h1>
+        <p class="lede">
+          I put this together so you can see the whole thing in one place. It's a lot of animals, a lot of habitat, and a very generous pile of free extras, so I wanted the page to feel as considered as the setup itself.
+        </p>
+
+        <aside class="price-note">
+          <span class="price-label">Asking price</span>
+          <div class="price-row">
+            <p class="price">$500 <span class="obo">OBO</span></p>
+          </div>
+          <p class="price-copy">
+            I'm not great at picking prices, so I looked things up, added it all up, and got to roughly $750. The Taricha alone are the kind of thing people usually want around $100 each if they can even find them. $500 is the number I came up with because we do need the vet-bill help, and I'd rather be straight with you than pretend I have a perfect answer.
+          </p>
+        </aside>
+      </header>
+
+      <section class="section" aria-labelledby="animals-title">
+        <div class="section-head">
+          <span class="section-label" id="animals-title">The animals</span>
+          <p class="section-note">Twelve total, split by species and ready to go as a single bundle.</p>
+        </div>
+
+        <article class="specimen-card">
+          <div class="specimen-head">
+            <h3>Spanish ribbed newts</h3>
+            <span class="count-tag">3 total</span>
+          </div>
+          <span class="latin">Pleurodeles waltl</span>
+          <ul class="facts">
+            <li><strong>2 albino</strong></li>
+            <li><strong>1 wild type</strong></li>
+          </ul>
+        </article>
+
+        <article class="specimen-card">
+          <div class="specimen-head">
+            <h3>Rough-skinned newts</h3>
+            <span class="count-tag">4 juveniles</span>
+          </div>
+          <span class="latin">Taricha granulosa</span>
+          <ul class="facts">
+            <li><strong>About 4 inches, roughly 1 year old</strong></li>
+            <li>Tank-raised hatches.</li>
+            <li>Eggs collected legally and ethically in SoCal, from Ventura to San Diego County.</li>
+            <li>Rare in the hobby and not easy to source; if you can find Taricha at all, they often run around $100 each.</li>
+          </ul>
+        </article>
+
+        <article class="specimen-card">
+          <div class="specimen-head">
+            <h3>Baja California tree frogs</h3>
+            <span class="count-tag">5 juveniles</span>
+          </div>
+          <span class="latin">Pseudacris hypochondriaca</span>
+          <ul class="facts">
+            <li><strong>Healthy, active juveniles</strong></li>
+            <li>Tank-raised hatches from legally and ethically collected eggs.</li>
+            <li>Good fit for warm, humid setups.</li>
+          </ul>
+        </article>
+      </section>
+
+      <hr class="section-rule" aria-hidden="true">
+
+      <section class="section free-stuff" aria-labelledby="free-title">
+        <svg class="ornament left" aria-hidden="true" viewBox="0 0 120 120" fill="none">
+          <path d="M18 102C20 78 30 59 49 43C63 31 74 23 94 19" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M34 86C28 83 24 78 20 71" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M46 67C40 64 35 59 33 53" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M59 52C54 48 51 44 49 38" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M74 37C68 34 64 29 62 24" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M29 78C32 74 37 71 43 70" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M50 59C55 56 61 55 67 56" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M68 44C74 41 80 40 87 41" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <ellipse cx="27" cy="74" rx="4.2" ry="1.8" transform="rotate(-35 27 74)" fill="currentColor"/>
+          <ellipse cx="43" cy="55" rx="4.2" ry="1.8" transform="rotate(-35 43 55)" fill="currentColor"/>
+          <ellipse cx="61" cy="40" rx="4.2" ry="1.8" transform="rotate(-35 61 40)" fill="currentColor"/>
+          <ellipse cx="79" cy="28" rx="4.2" ry="1.8" transform="rotate(-35 79 28)" fill="currentColor"/>
+        </svg>
+        <svg class="ornament right" aria-hidden="true" viewBox="0 0 120 120" fill="none">
+          <path d="M18 102C20 78 30 59 49 43C63 31 74 23 94 19" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M34 86C28 83 24 78 20 71" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M46 67C40 64 35 59 33 53" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M59 52C54 48 51 44 49 38" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M74 37C68 34 64 29 62 24" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M29 78C32 74 37 71 43 70" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M50 59C55 56 61 55 67 56" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M68 44C74 41 80 40 87 41" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <ellipse cx="27" cy="74" rx="4.2" ry="1.8" transform="rotate(-35 27 74)" fill="currentColor"/>
+          <ellipse cx="43" cy="55" rx="4.2" ry="1.8" transform="rotate(-35 43 55)" fill="currentColor"/>
+          <ellipse cx="61" cy="40" rx="4.2" ry="1.8" transform="rotate(-35 61 40)" fill="currentColor"/>
+          <ellipse cx="79" cy="28" rx="4.2" ry="1.8" transform="rotate(-35 79 28)" fill="currentColor"/>
+        </svg>
+
+        <div class="free-head">
+          <div class="section-head">
+            <span class="section-label" id="free-title">Included free</span>
+            <p class="section-note">The animals are the point; everything below is there to make the handoff easier and more generous.</p>
+          </div>
+          <p class="free-note">
+            I was originally planning to sell all this gear and the extras separately, but since you're getting the animals too, I'd rather just have the whole terrarium life go with them. Take whatever you need.
+          </p>
+        </div>
+
+        <div class="free-groups">
+          <div class="free-group">
+            <p class="group-label">Enclosures &amp; hardware</p>
+            <ul class="free-lines">
+              <li>
+                <strong>Zoo Med 40-gallon front-opening terrarium</strong>
+                <span>Basically brand new. The lid is missing and needs light repair.</span>
+              </li>
+              <li>
+                <strong>40-gallon sliding-mesh-top terrarium</strong>
+                <span>Optional, take it if you want more space.</span>
+              </li>
+              <li>
+                <strong>Wire mesh enclosure</strong>
+                <span>Aquarium-style top.</span>
+              </li>
+              <li>
+                <strong>LED / UVB / general lighting</strong>
+                <span>Ready to use.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="free-group">
+            <p class="group-label">Habitat &amp; food</p>
+            <ul class="free-lines">
+              <li>
+                <strong>Hardscape</strong>
+                <span>Driftwood, rocks, and hides.</span>
+              </li>
+              <li>
+                <strong>Floating platforms</strong>
+                <span>For the amphibious half of the arrangement.</span>
+              </li>
+              <li>
+                <strong>Newt &amp; tadpole foods</strong>
+                <span>Various brands.</span>
+              </li>
+              <li>
+                <strong>Aquatic plants</strong>
+                <span>Anubias, Java fern, and friends.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="free-group">
+            <p class="group-label">Bonus bits</p>
+            <ul class="free-lines">
+              <li>
+                <strong>Isopods</strong>
+                <span>Cleanup crew.</span>
+              </li>
+              <li>
+                <strong>Extra plants &amp; substrates</strong>
+                <span>Odds and ends for reworking the setup.</span>
+              </li>
+              <li>
+                <strong>Small tanks &amp; random decor</strong>
+                <span>A little extra room to improvise.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <footer class="closing">
+        <p>
+          If <strong>$500</strong> feels too high or too low, just tell me straight. I'm not married to the number; I mostly want it to feel fair.
+        </p>
+      </footer>
+
+      <div class="actions">
+        <button class="action-btn" onclick="window.print()" type="button">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 5V2h8v3"/>
+            <rect x="2" y="5" width="12" height="8" rx="1"/>
+            <path d="M12 9h-8"/>
+            <path d="M4 11h8"/>
+          </svg>
+          Print / PDF
+        </button>
+        <button class="action-btn" onclick="copyLink()" type="button">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 10l4-4"/>
+            <path d="M11 5.5l2.3-2.3a1.5 1.5 0 0 1 2 2L13 7.5"/>
+            <path d="M5 10.5l-2.3 2.3a1.5 1.5 0 0 0 2 2L7 12.5"/>
+          </svg>
+          Copy link
+        </button>
+      </div>
+    </article>
+  </main>
+
+  <div id="toast" class="action-toast" aria-live="polite"></div>
+
+  <script>
+    function copyLink() {
+      const url = window.location.href;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function() {
+          showToast('Link copied');
+        });
+      } else {
+        // Fallback
+        var input = document.createElement('input');
+        input.value = url;
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand('copy');
+        document.body.removeChild(input);
+        showToast('Link copied');
+      }
+    }
+
+    function showToast(msg) {
+      var toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('visible');
+      clearTimeout(toast._timeout);
+      toast._timeout = setTimeout(function() {
+        toast.classList.remove('visible');
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
