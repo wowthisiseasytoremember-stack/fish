@@ -92,30 +92,12 @@
       gap: var(--space-lg);
     }
 
-    @keyframes fade-up {
-      from {
-        opacity: 0;
-        transform: translateY(12px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .hero,
-    .section,
-    .closing {
-      position: relative;
-    }
-
     /* =============================================================
        HERO
        ============================================================= */
     .hero {
       padding-top: var(--space-lg);
       text-align: center;
-      animation: fade-up 0.8s var(--ease-fade) both;
     }
 
     .hero::before {
@@ -132,19 +114,6 @@
       position: relative;
       z-index: 1;
     }
-
-    .ornament {
-      position: absolute;
-      top: 0;
-      width: 5.5rem;
-      height: 5.5rem;
-      color: var(--moss);
-      opacity: 0.5;
-      pointer-events: none;
-    }
-
-    .ornament.left  { left: 0; }
-    .ornament.right { right: 0; transform: scaleX(-1); }
 
     .eyebrow,
     .section-label,
@@ -241,10 +210,7 @@
        ============================================================= */
     .section {
       padding-top: var(--space-sm);
-      animation: fade-up 0.7s var(--ease-fade) both;
     }
-    .section:nth-of-type(1) { animation-delay: 0.2s; }
-    .section:nth-of-type(2) { animation-delay: 0.35s; }
 
     .section-head {
       display: flex;
@@ -298,6 +264,15 @@
       line-height: 1.18;
       font-weight: 650;
       letter-spacing: -0.025em;
+    }
+
+    .count-big {
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.06em;
+      color: var(--moss);
+      flex-shrink: 0;
     }
 
     .latin {
@@ -365,15 +340,6 @@
       overflow: hidden;
     }
 
-    .free-stuff > :not(.ornament) {
-      position: relative;
-      z-index: 1;
-    }
-
-    .free-head {
-      margin-bottom: var(--space-md);
-    }
-
     .free-note {
       font-size: 0.97rem;
       max-width: 60ch;
@@ -428,8 +394,6 @@
     .closing {
       padding: var(--space-sm) 0 var(--space-xs);
       border-top: 0.5px solid rgb(44 42 38 / 18%);
-      animation: fade-up 0.7s var(--ease-fade) both;
-      animation-delay: 0.5s;
     }
 
     .closing p {
@@ -443,82 +407,12 @@
     }
 
     /* =============================================================
-       SHARE / ACTIONS BAR
-       ============================================================= */
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-sm);
-      justify-content: center;
-      margin-top: var(--space-lg);
-      animation: fade-up 0.7s var(--ease-fade) both;
-      animation-delay: 0.6s;
-    }
-
-    .action-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.55rem 1rem;
-      font-family: var(--sans);
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.03em;
-      color: var(--moss);
-      background: transparent;
-      border: 0.5px solid rgb(107 124 92 / 28%);
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      line-height: 1;
-    }
-
-    .action-btn:hover {
-      background: rgb(107 124 92 / 8%);
-      border-color: var(--moss);
-    }
-
-    .action-btn:active {
-      background: rgb(107 124 92 / 15%);
-    }
-
-    .action-btn svg {
-      width: 14px;
-      height: 14px;
-      flex-shrink: 0;
-    }
-
-    .action-toast {
-      position: fixed;
-      bottom: 1.5rem;
-      left: 50%;
-      transform: translateX(-50%) translateY(1rem);
-      padding: 0.6rem 1.2rem;
-      background: var(--ink);
-      color: var(--paper);
-      font-family: var(--sans);
-      font-size: 0.85rem;
-      border-radius: 0;
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.3s var(--ease-fade);
-      z-index: 100;
-    }
-
-    .action-toast.visible {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-
-    /* =============================================================
        RESPONSIVE
        ============================================================= */
     @media (max-width: 767px) {
       body {
         padding: var(--space-md) var(--space-sm) var(--space-lg);
       }
-
-      .ornament { display: none; }
 
       .hero { padding-top: var(--space-md); }
 
@@ -531,15 +425,6 @@
 
       .specimen-head {
         align-items: flex-start;
-      }
-
-      .actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .action-btn {
-        justify-content: center;
       }
     }
 
@@ -564,9 +449,7 @@
         print-color-adjust: exact;
       }
 
-      body::before,
-      .ornament,
-      .actions {
+      body::before {
         display: none !important;
       }
 
@@ -598,39 +481,10 @@
   <main>
     <article class="sheet">
       <header class="hero">
-        <svg class="ornament left" aria-hidden="true" viewBox="0 0 120 120" fill="none">
-          <path d="M18 102C20 78 30 59 49 43C63 31 74 23 94 19" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M34 86C28 83 24 78 20 71" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M46 67C40 64 35 59 33 53" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M59 52C54 48 51 44 49 38" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M74 37C68 34 64 29 62 24" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M29 78C32 74 37 71 43 70" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M50 59C55 56 61 55 67 56" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M68 44C74 41 80 40 87 41" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <ellipse cx="27" cy="74" rx="4.2" ry="1.8" transform="rotate(-35 27 74)" fill="currentColor"/>
-          <ellipse cx="43" cy="55" rx="4.2" ry="1.8" transform="rotate(-35 43 55)" fill="currentColor"/>
-          <ellipse cx="61" cy="40" rx="4.2" ry="1.8" transform="rotate(-35 61 40)" fill="currentColor"/>
-          <ellipse cx="79" cy="28" rx="4.2" ry="1.8" transform="rotate(-35 79 28)" fill="currentColor"/>
-        </svg>
-        <svg class="ornament right" aria-hidden="true" viewBox="0 0 120 120" fill="none">
-          <path d="M18 102C20 78 30 59 49 43C63 31 74 23 94 19" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M34 86C28 83 24 78 20 71" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M46 67C40 64 35 59 33 53" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M59 52C54 48 51 44 49 38" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M74 37C68 34 64 29 62 24" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M29 78C32 74 37 71 43 70" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M50 59C55 56 61 55 67 56" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M68 44C74 41 80 40 87 41" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <ellipse cx="27" cy="74" rx="4.2" ry="1.8" transform="rotate(-35 27 74)" fill="currentColor"/>
-          <ellipse cx="43" cy="55" rx="4.2" ry="1.8" transform="rotate(-35 43 55)" fill="currentColor"/>
-          <ellipse cx="61" cy="40" rx="4.2" ry="1.8" transform="rotate(-35 61 40)" fill="currentColor"/>
-          <ellipse cx="79" cy="28" rx="4.2" ry="1.8" transform="rotate(-35 79 28)" fill="currentColor"/>
-        </svg>
-
         <p class="eyebrow">For Inna & Serge</p>
         <h1>Amphibian bundle</h1>
         <p class="lede">
-          I put this together so you can see the whole thing in one place. It's a lot of animals, a lot of habitat, and a very generous pile of free extras, so I wanted the page to feel as considered as the setup itself.
+          I put this together so you can see everything in one place. It's a lot of animals, a lot of habitat, and a generous pile of extras — wanted it all in one page so it's easy to talk about.
         </p>
 
         <aside class="price-note">
@@ -639,7 +493,7 @@
             <p class="price">$500 <span class="obo">OBO</span></p>
           </div>
           <p class="price-copy">
-            I'm not great at picking prices, so I looked things up, added it all up, and got to roughly $750. The Taricha alone are the kind of thing people usually want around $100 each if they can even find them. $500 is the number I came up with because we do need the vet-bill help, and I'd rather be straight with you than pretend I have a perfect answer.
+            I looked things up and got to about $750 worth of stuff. The Taricha alone usually go for around $100 each if you can find them at all. But $500 is where I landed, because honestly you seem like good people and I'd rather they go somewhere they'll be taken care of than hold out for top dollar. If $600 isn't going to be a problem on your end though, the extra hundred would honestly help a lot — we've got a vet bill that could use it. Either way, I'm happy talking about what feels fair.
           </p>
         </aside>
       </header>
@@ -647,80 +501,34 @@
       <section class="section" aria-labelledby="animals-title">
         <div class="section-head">
           <span class="section-label" id="animals-title">The animals</span>
-          <p class="section-note">Twelve total, split by species and ready to go as a single bundle.</p>
+          <p class="section-note">Twelve total, ready to go as a single bundle.</p>
         </div>
 
         <article class="specimen-card">
           <div class="specimen-head">
+            <span class="count-big">3</span>
             <h3>Spanish ribbed newts</h3>
-            <span class="count-tag">3 total</span>
           </div>
-          <span class="latin">Pleurodeles waltl</span>
-          <ul class="facts">
-            <li><strong>2 albino</strong></li>
-            <li><strong>1 wild type</strong></li>
-          </ul>
         </article>
 
         <article class="specimen-card">
           <div class="specimen-head">
+            <span class="count-big">4</span>
             <h3>Rough-skinned newts</h3>
-            <span class="count-tag">4 juveniles</span>
           </div>
-          <span class="latin">Taricha granulosa</span>
-          <ul class="facts">
-            <li><strong>About 4 inches, roughly 1 year old</strong></li>
-            <li>Tank-raised hatches.</li>
-            <li>Eggs collected legally and ethically in SoCal, from Ventura to San Diego County.</li>
-            <li>Rare in the hobby and not easy to source; if you can find Taricha at all, they often run around $100 each.</li>
-          </ul>
         </article>
 
         <article class="specimen-card">
           <div class="specimen-head">
+            <span class="count-big">5</span>
             <h3>Baja California tree frogs</h3>
-            <span class="count-tag">5 juveniles</span>
           </div>
-          <span class="latin">Pseudacris hypochondriaca</span>
-          <ul class="facts">
-            <li><strong>Healthy, active juveniles</strong></li>
-            <li>Tank-raised hatches from legally and ethically collected eggs.</li>
-            <li>Good fit for warm, humid setups.</li>
-          </ul>
         </article>
       </section>
 
       <hr class="section-rule" aria-hidden="true">
 
       <section class="section free-stuff" aria-labelledby="free-title">
-        <svg class="ornament left" aria-hidden="true" viewBox="0 0 120 120" fill="none">
-          <path d="M18 102C20 78 30 59 49 43C63 31 74 23 94 19" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M34 86C28 83 24 78 20 71" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M46 67C40 64 35 59 33 53" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M59 52C54 48 51 44 49 38" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M74 37C68 34 64 29 62 24" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M29 78C32 74 37 71 43 70" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M50 59C55 56 61 55 67 56" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M68 44C74 41 80 40 87 41" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <ellipse cx="27" cy="74" rx="4.2" ry="1.8" transform="rotate(-35 27 74)" fill="currentColor"/>
-          <ellipse cx="43" cy="55" rx="4.2" ry="1.8" transform="rotate(-35 43 55)" fill="currentColor"/>
-          <ellipse cx="61" cy="40" rx="4.2" ry="1.8" transform="rotate(-35 61 40)" fill="currentColor"/>
-          <ellipse cx="79" cy="28" rx="4.2" ry="1.8" transform="rotate(-35 79 28)" fill="currentColor"/>
-        </svg>
-        <svg class="ornament right" aria-hidden="true" viewBox="0 0 120 120" fill="none">
-          <path d="M18 102C20 78 30 59 49 43C63 31 74 23 94 19" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M34 86C28 83 24 78 20 71" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M46 67C40 64 35 59 33 53" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M59 52C54 48 51 44 49 38" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M74 37C68 34 64 29 62 24" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M29 78C32 74 37 71 43 70" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M50 59C55 56 61 55 67 56" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M68 44C74 41 80 40 87 41" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <ellipse cx="27" cy="74" rx="4.2" ry="1.8" transform="rotate(-35 27 74)" fill="currentColor"/>
-          <ellipse cx="43" cy="55" rx="4.2" ry="1.8" transform="rotate(-35 43 55)" fill="currentColor"/>
-          <ellipse cx="61" cy="40" rx="4.2" ry="1.8" transform="rotate(-35 61 40)" fill="currentColor"/>
-          <ellipse cx="79" cy="28" rx="4.2" ry="1.8" transform="rotate(-35 79 28)" fill="currentColor"/>
-        </svg>
 
         <div class="free-head">
           <div class="section-head">
@@ -803,29 +611,8 @@
         </p>
       </footer>
 
-      <div class="actions">
-        <button class="action-btn" onclick="window.print()" type="button">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 5V2h8v3"/>
-            <rect x="2" y="5" width="12" height="8" rx="1"/>
-            <path d="M12 9h-8"/>
-            <path d="M4 11h8"/>
-          </svg>
-          Print / PDF
-        </button>
-        <button class="action-btn" onclick="copyLink()" type="button">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M6 10l4-4"/>
-            <path d="M11 5.5l2.3-2.3a1.5 1.5 0 0 1 2 2L13 7.5"/>
-            <path d="M5 10.5l-2.3 2.3a1.5 1.5 0 0 0 2 2L7 12.5"/>
-          </svg>
-          Copy link
-        </button>
-      </div>
     </article>
   </main>
-
-  <div id="toast" class="action-toast" aria-live="polite"></div>
 
   <canvas id="sparkle-canvas" aria-hidden="true"></canvas>
 
@@ -1069,34 +856,6 @@
 
       tick();
     })();
-
-    function copyLink() {
-      const url = window.location.href;
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(url).then(function() {
-          showToast('Link copied');
-        });
-      } else {
-        // Fallback
-        var input = document.createElement('input');
-        input.value = url;
-        document.body.appendChild(input);
-        input.select();
-        document.execCommand('copy');
-        document.body.removeChild(input);
-        showToast('Link copied');
-      }
-    }
-
-    function showToast(msg) {
-      var toast = document.getElementById('toast');
-      toast.textContent = msg;
-      toast.classList.add('visible');
-      clearTimeout(toast._timeout);
-      toast._timeout = setTimeout(function() {
-        toast.classList.remove('visible');
-      }, 2000);
-    }
   </script>
 </body>
 </html>
