@@ -724,13 +724,18 @@
       // ── animation loop ──
       var frame = 0;
 
-      // ── Salamander state (outside tick so it persists) ──
-      var salamander = {
-        x: -200, y: 0,
-        phase: 'wait',
+      // ── Salamander — a proper little character ──
+      var sally = {
+        x: W + 80,
+        y: H - 50,
+        dir: -1,
         timer: 0,
         tongue: 0,
-        visible: false
+        speed: 0.6,
+        restCounter: 0,
+        resting: false,
+        phase: 'wait',
+        walkPhase: 0
       };
 
       function tick() {
@@ -848,110 +853,204 @@
           startNameDraw();
         }
 
-        // ── Salamander at the close ──
-        var closeEl = document.querySelector('.closing');
-        if (closeEl) {
-          var cr = closeEl.getBoundingClientRect();
-          salamander.y = cr.top + cr.height / 2;
+        // ── Salamander — bottom-scuttling explorer ──
+        if (frame > 80) {
+          sally.y = H - 50;
 
-          if (salamander.phase === 'wait') {
-            salamander.timer++;
-            if (salamander.timer > 180) {
-              salamander.phase = 'crawl';
-              salamander.x = W + 60;
-              salamander.timer = 0;
+          // Phase transitions
+          if (sally.phase === 'wait') {
+            sally.timer++;
+            if (sally.timer > 120) {
+              sally.phase = 'crawl';
+              sally.x = W + 60;
             }
           }
 
-          if (salamander.phase === 'crawl') {
-            salamander.timer++;
-            var targetX = cr.right - 70;
-            salamander.x += (targetX - salamander.x) * 0.025;
-            if (Math.abs(salamander.x - targetX) < 1 || salamander.timer > 200) {
-              salamander.x = targetX;
-              salamander.phase = 'settle';
-              salamander.timer = 0;
+          if (sally.phase === 'crawl') {
+            sally.x -= 1.2;
+            if (sally.x < W - 120) {
+              sally.phase = 'wander';
+              sally.dir = -1;
             }
           }
 
-          if (salamander.phase === 'settle') {
-            salamander.timer++;
-            // Tongue flicker: on for ~30 frames, off for ~100
-            if (salamander.timer % 150 < 30) {
-              salamander.tongue = Math.min(1, salamander.tongue + 0.06);
+          if (sally.phase === 'wander') {
+            // Random direction changes
+            sally.restCounter++;
+            if (sally.restCounter > 200 + Math.random() * 300) {
+              sally.resting = !sally.resting;
+              sally.restCounter = 0;
+              if (!sally.resting) {
+                sally.dir = (Math.random() > 0.5 ? 1 : -1);
+                sally.speed = 0.3 + Math.random() * 0.8;
+              }
+            }
+
+            if (!sally.resting) {
+              sally.x += sally.dir * sally.speed;
+              sally.walkPhase += 0.08;
+              // Reverse at edges
+              if (sally.x > W - 40) sally.dir = -1;
+              if (sally.x < 60) sally.dir = 1;
+            }
+
+            // Tongue flickers when resting
+            if (sally.resting) {
+              if (sally.restCounter % 120 < 25) {
+                sally.tongue = Math.min(1, sally.tongue + 0.05);
+              } else {
+                sally.tongue = Math.max(0, sally.tongue - 0.03);
+              }
             } else {
-              salamander.tongue = Math.max(0, salamander.tongue - 0.03);
+              sally.tongue = Math.max(0, sally.tongue - 0.02);
             }
           }
 
-          if (salamander.phase !== 'wait' || salamander.timer > 120) {
-            drawSalamander(salamander);
-          }
+          drawSalamander(sally);
         }
 
         function drawSalamander(s) {
           var x = s.x, y = s.y;
           var moss = '#6b7c5c';
-          var mossLight = 'rgba(107,124,92,0.6)';
+          var mossDk = '#4a5d3e';
+          var mossLt = 'rgba(107,124,92,0.5)';
+          var paper = '#f7f5f0';
 
           ctx.save();
           ctx.translate(x, y);
 
-          // Tail (curves behind)
+          // Face the direction of travel
+          var facing = s.dir || -1;
+          if (facing === 1) ctx.scale(-1, 1);
+
+          var w = s.walkPhase || 0;
+          var bodyWave = Math.sin(w) * 2;
+          var legSwing = Math.sin(w) * 0.3;
+
+          // Tail — long, tapering, with a gentle curve
           ctx.beginPath();
-          ctx.moveTo(-22, 0);
-          ctx.quadraticCurveTo(-40, -8, -48, -2);
-          ctx.quadraticCurveTo(-52, 2, -44, 6);
-          ctx.lineWidth = 5;
+          ctx.moveTo(-18 + bodyWave * 0.3, 0);
+          for (var t = 0; t <= 1; t += 0.05) {
+            var tx = -18 - t * 42;
+            var ty = Math.sin(t * 3.5 + w * 0.5) * 3 + t * t * 5;
+            ctx.lineTo(tx, ty);
+          }
+          ctx.lineWidth = 6;
           ctx.strokeStyle = moss;
           ctx.lineCap = 'round';
           ctx.stroke();
 
-          // Body
+          // Thinner tail overlay (fade)
           ctx.beginPath();
-          ctx.ellipse(0, 0, 20, 8, 0, 0, Math.PI * 2);
-          ctx.fillStyle = moss;
-          ctx.fill();
-
-          // Legs (tiny)
-          ctx.beginPath();
-          ctx.moveTo(-8, 7); ctx.lineTo(-12, 14);
-          ctx.moveTo(8, 7); ctx.lineTo(12, 14);
-          ctx.moveTo(-4, -7); ctx.lineTo(-6, -13);
-          ctx.moveTo(4, -7); ctx.lineTo(6, -13);
-          ctx.lineWidth = 2;
-          ctx.strokeStyle = mossLight;
+          ctx.moveTo(-18 + bodyWave * 0.3, 0);
+          for (var t = 0; t <= 1; t += 0.05) {
+            var tx = -18 - t * 42;
+            var ty = Math.sin(t * 3.5 + w * 0.5) * 3 + t * t * 5;
+            ctx.lineTo(tx, ty);
+          }
+          ctx.lineWidth = 2.5;
+          ctx.strokeStyle = mossDk;
           ctx.stroke();
 
-          // Head
+          // Body — elongated oval, not a circle
           ctx.beginPath();
-          ctx.ellipse(18, 0, 8, 6, 0, 0, Math.PI * 2);
+          ctx.ellipse(-4 + bodyWave * 0.2, bodyWave * 0.3, 22, 6.5, 0, 0, Math.PI * 2);
           ctx.fillStyle = moss;
           ctx.fill();
 
-          // Eyes
+          // Spots on back
+          for (var i = 0; i < 4; i++) {
+            var spx = -14 + i * 6;
+            var spy = -2 + Math.sin(i * 1.2 + w) * 2;
+            ctx.beginPath();
+            ctx.arc(spx, spy, 1.5, 0, Math.PI * 2);
+            ctx.fillStyle = mossDk;
+            ctx.fill();
+          }
+
+          // Head — wider, rounded front
           ctx.beginPath();
-          ctx.arc(21, -2, 2, 0, Math.PI * 2);
-          ctx.fillStyle = '#f7f5f0';
+          ctx.ellipse(16 + bodyWave * 0.2, 0.5 + bodyWave * 0.1, 9, 7, 0.1, 0, Math.PI * 2);
+          ctx.fillStyle = moss;
+          ctx.fill();
+
+          // Eye (visible from side, one big one)
+          ctx.beginPath();
+          ctx.arc(20, -2, 3.5, 0, Math.PI * 2);
+          ctx.fillStyle = paper;
           ctx.fill();
           ctx.beginPath();
-          ctx.arc(21, -2, 1, 0, Math.PI * 2);
-          ctx.fillStyle = '#2c2a26';
+          ctx.arc(20.5, -2, 2, 0, Math.PI * 2);
+          ctx.fillStyle = '#1a1a1a';
+          ctx.fill();
+          // Eye highlight
+          ctx.beginPath();
+          ctx.arc(21, -3, 0.8, 0, Math.PI * 2);
+          ctx.fillStyle = '#fff';
+          ctx.fill();
+
+          // Nostril
+          ctx.beginPath();
+          ctx.arc(24, 0, 0.8, 0, Math.PI * 2);
+          ctx.fillStyle = mossDk;
           ctx.fill();
 
           // Tongue
           if (s.tongue > 0.01) {
+            var tl = s.tongue * 14;
             ctx.beginPath();
-            ctx.moveTo(26, 1);
-            ctx.quadraticCurveTo(30 + s.tongue * 12, -4, 28 + s.tongue * 16, -8);
+            ctx.moveTo(24, 1);
+            ctx.quadraticCurveTo(24 + tl * 0.6, -4 - tl * 0.2, 24 + tl, -6 - tl * 0.3);
             ctx.lineWidth = 1.5;
-            ctx.strokeStyle = 'rgba(107,124,92,' + (s.tongue * 0.7) + ')';
+            ctx.strokeStyle = 'rgba(200,160,160,' + (s.tongue * 0.7) + ')';
             ctx.stroke();
-            // Tongue tip
+            // Tongue fork
             ctx.beginPath();
-            ctx.arc(28 + s.tongue * 16, -8, 2 * s.tongue, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(170,130,130,' + (s.tongue * 0.5) + ')';
-            ctx.fill();
+            ctx.moveTo(24 + tl, -6 - tl * 0.3);
+            ctx.lineTo(24 + tl + 3, -10 - tl * 0.3);
+            ctx.moveTo(24 + tl, -6 - tl * 0.3);
+            ctx.lineTo(24 + tl + 3, -4 - tl * 0.3);
+            ctx.strokeStyle = 'rgba(200,160,160,' + (s.tongue * 0.5) + ')';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+
+          // Legs — with walk animation
+          var legOffset = legSwing;
+          ctx.lineWidth = 2.5;
+          ctx.strokeStyle = moss;
+          ctx.lineCap = 'round';
+
+          // Front left
+          ctx.beginPath();
+          ctx.moveTo(6, 6);
+          ctx.lineTo(2 + legOffset * 4, 13);
+          ctx.stroke();
+          // Front right
+          ctx.beginPath();
+          ctx.moveTo(10, 6);
+          ctx.lineTo(6 - legOffset * 4, 13);
+          ctx.stroke();
+          // Back left
+          ctx.beginPath();
+          ctx.moveTo(-10, 6);
+          ctx.lineTo(-14 + legOffset * 4, 13);
+          ctx.stroke();
+          // Back right
+          ctx.beginPath();
+          ctx.moveTo(-6, 6);
+          ctx.lineTo(-10 - legOffset * 4, 13);
+          ctx.stroke();
+
+          // Tiny toes on front feet
+          ctx.lineWidth = 1;
+          ctx.strokeStyle = mossLt;
+          for (var t = 0; t < 2; t++) {
+            var fx = 2 + legOffset * 4 + t * 1.5;
+            ctx.beginPath();
+            ctx.moveTo(fx, 13);
+            ctx.lineTo(fx + 2, 16);
+            ctx.stroke();
           }
 
           ctx.restore();
