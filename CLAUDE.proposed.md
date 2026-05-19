@@ -1,3 +1,4 @@
+---
 > ⚠️ STOP. Before reading further:
 > 1. Use the Brain MCP tool to read: claude-portable/ORIENTATION.md
 > 2. Familiarize yourself with the full system — who Justin is, what's running, core rules, key paths.
@@ -48,14 +49,12 @@ The site is deployed via GitHub Pages directly from the `main` branch root. Ther
 | `.autoresearch/config.yaml` | Config for autoresearch agent (time budget, scope). Not site-related. |
 
 ---
-
 ## Branches
 
 - `main` — stable, deployed to GitHub Pages. All content changes land here.
 - Feature branches follow the pattern `claude/<description>-<id>` and are merged via PR.
 
 ---
-
 ## HTML Architecture
 
 `index.html` (3,246 lines) is structured top-to-bottom as:
@@ -81,7 +80,6 @@ The site is deployed via GitHub Pages directly from the `main` branch root. Ther
 **No data layer.** All species content is hardcoded HTML. To add or update an animal, edit its card in `index.html` and keep `fish-room-content-brief.txt` in sync.
 
 ---
-
 ## Photo / Video Assets
 
 Photos and videos are **not committed to git** — they live locally at `/Users/justin/Downloads/Photos-3-001/` and are served via Google Drive share links. The site uses:
@@ -94,7 +92,6 @@ https://drive.google.com/file/d/<FILE_ID>/preview           ← video embeds
 `PHOTO_CATALOG.md` maps each filename to its Google Drive ID and target subreddit. Update it when new photos are added.
 
 ---
-
 ## Python Scripts (`scripts/`)
 
 These are standalone utilities — none are called by the site or CI:
@@ -113,7 +110,6 @@ These are standalone utilities — none are called by the site or CI:
 | `generate_listings.py` (root) | Scrapes `tank_tasks/*.md` for inventory entries and pricing to build `sales-listings.md` |
 
 ---
-
 ## CI
 
 GitHub Actions runs on every push/PR to `main`:
@@ -125,7 +121,6 @@ GitHub Actions runs on every push/PR to `main`:
 Uses `markdownlint-cli2-action@v16`. All `*.md` files must pass. Rules are in `.markdownlint.json` (MD013 disabled). Fix lint errors before pushing — the `tank_tasks/` directory is included.
 
 ---
-
 ## Content Source of Truth
 
 `fish-room-content-brief.txt` is the canonical species list and pricing policy. Before editing card content in `index.html`, check this file. If the brief and the HTML disagree, the brief is correct.
@@ -136,7 +131,6 @@ Uses `markdownlint-cli2-action@v16`. All `*.md` files must pass. Rules are in `.
 - Native herps (Taricha, CA tree frogs): always include chytrid fungus release warning.
 
 ---
-
 ## Previewing Changes
 
 Open `index.html` directly in a browser — no server needed.
@@ -146,7 +140,6 @@ open index.html          # macOS — opens in default browser
 ```
 
 ---
-
 ## Testing Changes
 
 Always verify after edits:
@@ -161,7 +154,6 @@ Always verify after edits:
 8. No console errors
 
 ---
-
 ## Common Edits
 
 **Update a species quantity:** Edit the card in `index.html` (find by species name) AND update `fish-room-content-brief.txt`.
@@ -171,3 +163,7 @@ Always verify after edits:
 **Update the hero timestamp:** Change the `<p class="hero-timestamp">` value in the hero section (~line 1349).
 
 **Add a Reddit post draft:** Create a new `.md` file in `listings/` or `queue/drafts/`. Update `queue/drafts/READY-TO-POST.md` with posting order. Run markdownlint locally before committing.
+
+### Recent Context (Auto-generated 2026-05-10)
+
+No recent context relevant to the fish-sale-repo project was found in session logs. The last update to this workspace's CLAUDE.md was 2026-04-29, and no fish-sale-repo activity appears in the provided logs. Infrastructure and agentic AI sessions (OpenClaw, Hermes, Tangle Trove) were unrelated to this repository.

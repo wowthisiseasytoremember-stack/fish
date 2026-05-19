@@ -827,7 +827,249 @@
 
   <div id="toast" class="action-toast" aria-live="polite"></div>
 
+  <canvas id="sparkle-canvas" aria-hidden="true"></canvas>
+
   <script>
+    /* ===========================================================
+       Sparkle Draw — Inna & Serge
+       A gentle sparkle that drifts across their names and follows
+       the cursor with a soft, paper-kind magic.
+       =========================================================== */
+    (function() {
+      var c = document.getElementById('sparkle-canvas');
+      var ctx = c.getContext('2d');
+      var W, H;
+
+      function resize() {
+        W = c.width = window.innerWidth;
+        H = c.height = window.innerHeight;
+        c.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:2';
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      // ── sparkle pool ──
+      var max = 40;
+      var pool = [];
+      for (var i = 0; i < max; i++) {
+        pool.push({
+          x: 0, y: 0,
+          vx: 0, vy: 0,
+          life: 0,
+          maxLife: 0,
+          size: 0,
+          alpha: 0,
+          targetAlpha: 0,
+          active: false
+        });
+      }
+
+      function spawn(x, y, count, opts) {
+        opts = opts || {};
+        for (var i = 0; i < count; i++) {
+          var p = pool[i];
+          if (!p) break;
+          p.x = x + (Math.random() - 0.5) * (opts.spread || 30);
+          p.y = y + (Math.random() - 0.5) * (opts.spread || 30);
+          p.vx = (Math.random() - 0.5) * (opts.speed || 1.2);
+          p.vy = -Math.random() * (opts.speed || 1.2) - 0.3;
+          p.life = 0;
+          p.maxLife = 60 + Math.random() * 80;
+          p.size = (opts.size || 3) * (0.5 + Math.random() * 0.8);
+          p.alpha = 0;
+          p.targetAlpha = (opts.alpha || 0.7) * (0.6 + Math.random() * 0.4);
+          p.active = true;
+        }
+      }
+
+      // ── trail sparkle ──
+      var trail = { x: -100, y: -100, active: false };
+      var namesBox = null;
+
+      function getNamesRect() {
+        var el = document.querySelector('.eyebrow');
+        if (!el) return null;
+        var r = el.getBoundingClientRect();
+        return { left: r.left, top: r.top, right: r.right, bottom: r.bottom, cx: r.left + r.width/2, cy: r.top + r.height/2 };
+      }
+
+      // ── name-draw sequence ──
+      var drawPhase = {
+        running: false,
+        progress: 0,
+        started: false,
+        points: []
+      };
+
+      function startNameDraw() {
+        if (drawPhase.started) return;
+        drawPhase.started = true;
+        drawPhase.running = true;
+        drawPhase.progress = 0;
+
+        // Generate scribble points along "Inna & Serge"
+        var box = getNamesRect();
+        if (!box) return;
+        var cx = box.cx, cy = box.cy;
+        var w = (box.right - box.left) * 0.85;
+        var h = (box.bottom - box.top) * 0.6;
+        var pts = [];
+        var steps = 60;
+
+        // Zigzag scribble across the name area — feels like drawing the letters
+        for (var i = 0; i <= steps; i++) {
+          var t = i / steps;
+          var px = cx - w/2 + w * t;
+          // Wavy vertical motion to simulate handwriting
+          var wave = Math.sin(t * Math.PI * 6) * h * 0.35;
+          var drift = Math.sin(t * Math.PI * 2) * h * 0.15;
+          var py = cy + wave + drift;
+          pts.push({ x: px, y: py, t: t });
+        }
+        drawPhase.points = pts;
+      }
+
+      // ── mouse ──
+      var mx = -100, my = -100, mActive = false;
+
+      document.addEventListener('mousemove', function(e) {
+        mx = e.clientX;
+        my = e.clientY;
+        mActive = true;
+        if (!drawPhase.started) {
+          startNameDraw();
+        }
+      });
+
+      // Also trigger on touch
+      document.addEventListener('touchstart', function() {
+        if (!drawPhase.started) {
+          startNameDraw();
+        }
+      }, { once: true });
+
+      // ── animation loop ──
+      var frame = 0;
+
+      function tick() {
+        requestAnimationFrame(tick);
+        ctx.clearRect(0, 0, W, H);
+        frame++;
+
+        var box = getNamesRect();
+
+        // ── Name draw phase ──
+        if (drawPhase.running && drawPhase.points.length) {
+          drawPhase.progress += 0.018;
+          if (drawPhase.progress >= 1) {
+            drawPhase.progress = 1;
+            drawPhase.running = false;
+            // Final burst
+            if (box) spawn(box.cx, box.cy, 12, { spread: 50, speed: 2, size: 4, alpha: 0.9 });
+          }
+
+          var idx = Math.floor(drawPhase.progress * drawPhase.points.length);
+          for (var i = 0; i <= idx && i < drawPhase.points.length; i++) {
+            var pt = drawPhase.points[i];
+            var alpha = i === idx ? 0.8 : 0.3;
+            var sz = i === idx ? 5 : 2;
+            ctx.beginPath();
+            ctx.arc(pt.x, pt.y, sz, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(107, 124, 92, ' + alpha + ')';
+            ctx.fill();
+            // Glow
+            if (i === idx) {
+              ctx.beginPath();
+              ctx.arc(pt.x, pt.y, sz * 3, 0, Math.PI * 2);
+              ctx.fillStyle = 'rgba(107, 124, 92, 0.15)';
+              ctx.fill();
+            }
+          }
+
+          // If still in draw phase, don't spawn ambient yet
+          // But do burst new sparkles periodically
+          if (frame % 4 === 0 && idx < drawPhase.points.length) {
+            var p = drawPhase.points[Math.min(idx, drawPhase.points.length - 1)];
+            spawn(p.x, p.y, 2, { spread: 8, speed: 0.8, size: 3, alpha: 0.6 });
+          }
+        }
+
+        // ── Ambient sparkles near names ──
+        if (!drawPhase.running && box && frame % 15 === 0 && pool.length) {
+          spawn(
+            box.cx + (Math.random() - 0.5) * (box.right - box.left) * 1.2,
+            box.cy + (Math.random() - 0.5) * (box.bottom - box.top) * 1.2,
+            2, { spread: 12, speed: 0.5, size: 2.5, alpha: 0.5 }
+          );
+        }
+
+        // ── Trail sparkle near mouse ──
+        if (mActive && box) {
+          var dx = mx - box.cx;
+          var dy = my - box.cy;
+          var dist = Math.sqrt(dx*dx + dy*dy);
+          var threshold = Math.max(W, H) * 0.35;
+
+          if (dist < threshold) {
+            // Sparkle intensifies closer to names
+            var intensity = Math.max(0.1, 1 - dist / threshold);
+            if (frame % 3 === 0 && Math.random() < intensity) {
+              var ox = (Math.random() - 0.5) * 20;
+              var oy = (Math.random() - 0.5) * 20;
+              spawn(mx + ox, my + oy, 1, {
+                spread: 4, speed: 0.6 + intensity * 0.8,
+                size: 2 + intensity * 3,
+                alpha: 0.3 + intensity * 0.5
+              });
+            }
+
+            // Tiny lingering sparkle at cursor
+            ctx.beginPath();
+            ctx.arc(mx, my, 1.5 + intensity * 2, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(107, 124, 92, ' + (0.15 + intensity * 0.25) + ')';
+            ctx.fill();
+          }
+        }
+
+        // ── Update particles ──
+        for (var i = 0; i < pool.length; i++) {
+          var p = pool[i];
+          if (!p.active) continue;
+          p.life++;
+          if (p.life >= p.maxLife) { p.active = false; continue; }
+
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vx *= 0.98;
+          p.vy *= 0.98;
+          p.vy -= 0.02; // gentle float up
+
+          var lifeRatio = p.life / p.maxLife;
+          p.alpha = p.targetAlpha * (1 - lifeRatio) * Math.min(1, p.life / 20);
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size * (1 - lifeRatio * 0.5), 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(107, 124, 92, ' + p.alpha + ')';
+          ctx.fill();
+
+          // Tiny glow
+          if (p.life < 10) {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size * 2.5, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(107, 124, 92, ' + (p.alpha * 0.2) + ')';
+            ctx.fill();
+          }
+        }
+
+        // ── Auto-start draw if page loaded and no mouse yet ──
+        if (frame === 60 && !drawPhase.started) {
+          startNameDraw();
+        }
+      }
+
+      tick();
+    })();
+
     function copyLink() {
       const url = window.location.href;
       if (navigator.clipboard && navigator.clipboard.writeText) {
